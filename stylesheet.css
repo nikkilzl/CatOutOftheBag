@@ -265,6 +265,10 @@ body {
   text-align: center;
 }
 
+.banner-content button a {
+  text-decoration: none;
+}
+
 
 /* ===== categories banner ==== */ 
 
@@ -321,3 +325,14 @@ body {
   vertical-align: middle;
 	height: 50px;
 }
+
+
+
+
+
+
+
+
+/* ======== PRODUCTS ALL ========= */
+
+
