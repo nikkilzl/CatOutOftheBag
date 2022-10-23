@@ -169,6 +169,20 @@ body {
   transform: none;
 }
 
+/* ==== footer ==== */
+
+.footer-fixed {
+  width: 100%;
+  background-color: #414934;
+  position: relative;
+  bottom: 0;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #ede1d5;
+  text-decoration: none;
+}
 
 
 
@@ -206,15 +220,59 @@ body {
     height: 400px;
     background-color: #656d4a;
     margin: 200px 100px 100px;
+    flex-direction: row;
+    display: flex;
+    vertical-align: middle;
 }
+
+.homepage-banner-container {
+  position: relative;
+  height: 400px;
+  width: 50%;
+  display: flex;
+}
+
+.homepage-banner img {
+  position: relative;
+  height: 400px;
+}
+
+.banner-content {
+    width: 50%;
+    position: absolute;
+    float: right;
+    top: 30px;
+    right: 0;
+    left: 600px;
+}
+
+.banner-content h1 {
+  color: #ede1d5;
+}
+
+.banner-content h3 {
+  color: #ede1d5;
+  font-size: 16px; 
+}
+
+.banner-content button {
+  background-color: #ede1d5;
+  color: #656d4a;
+  border: none;
+  height: 40px;
+  width: 100px;
+  font-weight: bold;
+  text-align: center;
+}
+
 
 /* ===== categories banner ==== */ 
 
 .categories-wrapper {
     position: relative;
     height: 400px;
-    background-color: #656d4a;
-    margin: 100px;
+    background-color: #ede1d5;
+    margin: 40px 50px 40px 30px;
     display: flex;
     flex-direction: row;
     padding-left: 20px;
@@ -225,4 +283,41 @@ body {
     width: 25%;
     background-color: #FFFFFF;
     padding: 20px;
+}
+
+.categories-card img {
+  width: 236.5px;
+  height: 320px;
+}
+
+.categories-card p {
+  padding-top: 10px;
+}
+
+/* ==== account and cart ==== */
+
+.user-container {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.user-icon {
+	height: 80px;
+}
+
+.user-icon img {
+	vertical-align: middle;
+	height: 50px;
+}
+
+.cart-icon {
+	height: 80px;
+}
+
+.cart-icon img {
+  vertical-align: middle;
+	height: 50px;
 }
