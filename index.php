@@ -3,8 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Out Of The Bag</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/headerfooter.css" />
+    
 </head>
 
 <body>
@@ -22,11 +25,11 @@
                       <span></span>
                       
                       <ul id="menu">
-                        <a href="index.html"><li>Home</li></a>
+                        <a href="index.php"><li>Home</li></a>
                         <a href="#"><li>About</li></a>
                         <br>
                         <li ><bold>CATEGORIES</bold></li>
-                        <a href="product.html"><li>All Categories</li></a>
+                        <a href="product.php"><li>All Categories</li></a>
                         <a href="#"><li>Backpack</li></a>
                         <a href="#"><li>Tote Bag</li></a>
                         <a href="#"><li>Handbag</li></a>
@@ -39,7 +42,7 @@
             </div>
 
             <div class="header-logowrapper">
-                <a class="header-logo" href="index.html">
+                <a class="header-logo" href="index.php">
                     <img src="logo1.png" alt="Cat Out of the Bag Logo">
                 </a>
             </div>
@@ -58,31 +61,39 @@
 
     </header>
 
-    <h2 style="padding-left:50px;color:#414934;margin-top:200px;">All Products | 85 items</h2>
+    <div class="homepage-banner">
+        <div class="homepage-banner-container">
+            <img src="assets/icon/banner.jpg" alt="bag banner">
+        </div>
+        <div class="banner-content">
+            <h1>Always Good to Go.</h1>
+            <h3>Pick your favourites for a fun night with friends.</h3>
+            <br><br><br><br><br><br><br>
+            <a href="product.php"><button>Shop All</button></a>
+        </div>   
+    </div>
+
+    <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
 
     <div class="categories-wrapper">
         <div class="categories-card">
-            <img src="assets/backpack/adidas_BPclassic3stripebeige.jpg">
-            <p></p>
+            <img src="assets/waistbag/herschelWB.jpg">
             <p>Waist Bags</p>
 
         </div>
         <div class="categories-card">
-            <img src="assets/backpack/billabongBP_lightblue.jpg">
+            <img src="assets/backpack/billabongBP_bluecanvas.jpg">
             <p>Backpacks</p>
-            <p>Waist Bags</p>
 
         </div>
         <div class="categories-card">
-            <img src="assets/totebag/billabongTB_blackstripe.jpg">
+            <img src="assets/totebag/billabongTB_canvasblue.jpg">
             <p>Tote Bags</p>
-            <p>Waist Bags</p>
 
         </div>
         <div class="categories-card">
-            <img src="assets/handbag/CNK_HBgabineblack.jpg">
+            <img src="assets/handbag/CNK_Wgabinenavy.jpg">
             <p>Handbags</p>
-            <p>Waist Bags</p>
 
         </div>
     </div>
@@ -91,60 +102,18 @@
         <div class="categories-card">
             <img src="assets/wallet/CNK_beadstrawberry.jpg">
             <p>Wallets</p>
-            <p>Waist Bags</p>
 
         </div>
         <div class="categories-card">
             <img src="assets/luggage/billabongL_blackduffel.jpg">
             <p>Luggages</p>
-            <p>Waist Bags</p>
 
         </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
-
+        <div style="background-color:#ede1d5;" class="categories-card">
         </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
-
+        <div style="background-color:#ede1d5;" class="categories-card">
         </div>
     </div>
-    <div class="categories-wrapper">
-        <div class="categories-card">
-            <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
-            <p>Waist Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
-
-        </div>
-    </div>
-    <div class="view-more">
-
-    </div>
-
-
-
 
     <footer>
         <div class="footer-fixed">

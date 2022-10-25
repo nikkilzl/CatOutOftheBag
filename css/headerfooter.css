@@ -1,0 +1,232 @@
+
+/* 
+    COLOURS
+    beige - #ede1d5;
+	  light green - #656d4a; 
+    dark green - #414934;
+
+*/
+
+
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Noto Sans', sans-serif;
+	text-decoration: none;
+    background-color: #ede1d5;
+}
+
+.header-fixed {
+	width: 100%;
+	background-color: #414934;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+	z-index: 999;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-container {
+	width: 100%;
+    height: 80px;
+	background-color: #414934;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* ===== hamburger menu ==== */ 
+
+.hamburger-menu-wrapper {   
+    width: 33%;
+    vertical-align: middle;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  top: 30px;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #656d4a;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: #414934;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #ede1d5;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #656d4a;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ffffff;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased; /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+/*
+ * Slide in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+
+.user-container {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .user-icon {
+      height: 80px;
+  }
+  
+  .user-icon img {
+      vertical-align: middle;
+      height: 50px;
+  }
+  
+  .cart-icon {
+      height: 80px;
+  }
+  
+  .cart-icon img {
+    vertical-align: middle;
+      height: 50px;
+  }
+  
+/* ==== footer ==== */
+
+.footer-fixed {
+  width: 100%;
+  background-color: #414934;
+  position: relative;
+  bottom: 0;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #ede1d5;
+  text-decoration: none;
+}
+
+
+
+/* ===== logo ==== */ 
+
+.header-logowrapper {
+    width: 33%;
+	padding: 0;
+	margin: 0;
+    text-align: center;
+}
+
+.header-logo {
+	height: 80px;
+}
+
+.header-logo img {
+	vertical-align: middle;
+	height: 80px;
+}
