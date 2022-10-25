@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Out Of The Bag</title>
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/headerfooter.css" />
-    
+    <title>Cat Out Of The Bag - Wallet</title>
+    <link rel="stylesheet" href="css/headerfooter.css">
+    <link rel="stylesheet" href="css/product.css">
 </head>
 
 <body>
@@ -51,7 +50,7 @@
                 <a class="user-icon" href="">
                     <img src="assets/icon/shoppingcart.png" alt="cart-icon">
                 </a>
-                <a class="cart-icon" href="index.html">
+                <a class="cart-icon" href="">
                     <img src="assets/icon/user.png" alt="user-icon">
                 </a>
             </div>
@@ -61,59 +60,52 @@
 
     </header>
 
-    <div class="homepage-banner">
-        <div class="homepage-banner-container">
-            <img src="assets/icon/banner.jpg" alt="bag banner">
-        </div>
-        <div class="banner-content">
-            <h1>Always Good to Go.</h1>
-            <h3>Pick your favourites for a fun night with friends.</h3>
-            <br><br><br><br><br><br><br>
-            <a href="product.php"><button>Shop All</button></a>
-        </div>   
-    </div>
+    <h2 style="padding-left:50px;color:#414934;margin-top:200px;">Wallet | 5 items</h2>
 
-    <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
 
     <div class="categories-wrapper">
         <div class="categories-card">
-            <img src="assets/waistbag/herschelWB.jpg">
-            <p>Waist Bags</p>
-
+                <img src="assets/wallet/billabongW_bifoldblack.jpg">
+                <p>Billabong BiFold Black Wallet</p>
+                <span><p>$40.00</p></span>
         </div>
         <div class="categories-card">
-            <img src="assets/backpack/billabongBP_bluecanvas.jpg">
-            <p>Backpacks</p>
+            <img src="assets/wallet/billabongW_leather.jpg">
+            <p>Billabong Leather Wallet</p>
+            <span><p>$40.00</p></span>
 
         </div>
-        <div class="categories-card">
-            <img src="assets/totebag/billabongTB_canvasblue.jpg">
-            <p>Tote Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/handbag/CNK_Wgabinenavy.jpg">
-            <p>Handbags</p>
-
-        </div>
-    </div>
-
-    <div class="categories-wrapper">
         <div class="categories-card">
             <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
+            <p>Charles & Keith Strawberry Wallet</p>
+            <span><p>$55.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Wallets</p>
+            <img src="assets/wallet/CNK_Whandlecloud.jpg">
+            <p>Charles & Keith Cloud Wallet</p>
+            <span><p>$60.00</p></span>
 
+        </div>
+    </div>
+
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/wallet/CNK_Whandleholo.jpg">
+            <p>Charles & Keith Holo Wallet</p>
+            <span><p>$60.00</p></span>
+
+        </div>
+        <div style="background-color:#ede1d5;" class="categories-card">
         </div>
         <div style="background-color:#ede1d5;" class="categories-card">
         </div>
         <div style="background-color:#ede1d5;" class="categories-card">
         </div>
     </div>
+
+
+
 
     <footer>
         <div class="footer-fixed">

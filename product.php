@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Out Of The Bag</title>
     <link rel="stylesheet" href="css/headerfooter.css">
+    <link rel="stylesheet" href="css/product.css">
 </head>
 
 <body>
@@ -59,31 +60,31 @@
 
     </header>
 
-    <h2 style="padding-left:50px;color:#414934;margin-top:200px;">All Products | 85 items</h2>
+    <h2 style="padding-left:50px;color:#414934;margin-top:200px;">All Products | 30 items</h2>
 
     <div class="categories-wrapper">
         <div class="categories-card">
-            <img src="assets/backpack/adidas_BPclassic3stripebeige.jpg">
-            <p></p>
-            <p>Waist Bags</p>
+            <img src="assets/backpack/billabongBP_minigreenflower.jpg">
+            <p>Billabong Mini Green Backpack</p>
+            <span><p>$20.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/backpack/billabongBP_lightblue.jpg">
-            <p>Backpacks</p>
-            <p>Waist Bags</p>
+            <img src="assets/backpack/billabongBP_bluecanvas.jpg">
+            <p>Billabong Blue Canvas Backpack</p>
+            <span><p>$35.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/totebag/billabongTB_blackstripe.jpg">
-            <p>Tote Bags</p>
-            <p>Waist Bags</p>
+            <img src="assets/totebag/billabongTB_canvasblue.jpg">
+            <p>Billabong Blue Canvas Totebag</p>
+            <span><p>$30.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/handbag/CNK_HBgabineblack.jpg">
-            <p>Handbags</p>
-            <p>Waist Bags</p>
+            <img src="assets/handbag/CNK_Wgabinenavy.jpg">
+            <p>Charles & Keith Navy Handbag</p>
+            <span><p>$49.00</p></span>
 
         </div>
     </div>
@@ -91,57 +92,177 @@
     <div class="categories-wrapper">
         <div class="categories-card">
             <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
-            <p>Waist Bags</p>
+            <p>Charles & Keith Strawberry Wallet</p>
+            <span><p>$55.00</p></span>
 
         </div>
         <div class="categories-card">
             <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <p>Billabong Black Duffel Luggage</p>
+            <span><p>$79.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/handbag/BTV_HBdumplingblack.jpg">
+            <p>BTV Black Dumpling Handbag</p>
+            <span><p>$79.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/handbag/BTV_HBmicrodumplingmaroon.jpg">
+            <p>BTV Maroon Dumpling Handbag</p>
+            <span><p>$59.00</p></span>
+
+        </div>
+    </div>
+
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/luggage/awayL_greywheel.jpg">
+            <p>Away Grey Luggage</p>
+            <span><p>$110.00</p></span>
 
         </div>
         <div class="categories-card">
             <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <p>Billabong Black Duffel</p>
+            <span><p>$80.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <img src="assets/waistbag/adidasWB_beige.jpg">
+            <p>Adidas Beige Waistbag</p>
+            <span><p>$30.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/wallet/billabongW_leather.jpg">
+            <p>Billabong Leather Wallet</p>
+            <span><p>$40.00</p></span>
 
         </div>
     </div>
     <div class="categories-wrapper">
         <div class="categories-card">
-            <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
-            <p>Waist Bags</p>
+            <img src="assets/backpack/cabinzeroBP_classicgreen.jpg">
+            <p>Cabin Zero Green Backpack</p>
+            <span><p>$50.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <img src="assets/luggage/jetstreamL_whitewheel.jpg">
+            <p>Getstream White Luggage</p>
+            <span><p>$99.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <img src="assets/wallet/CNK_Whandleholo.jpg">
+            <p>Charles & Keith Holo Wallet</p>
+            <span><p>$60.00</p></span>
 
         </div>
         <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggages</p>
-            <p>Waist Bags</p>
+            <img src="assets/totebag/BTV_TBdrawstringkhaki.jpg">
+            <p>BTV Drawstring Khaki Totebag</p>
+            <span><p>$100.00</p></span>
 
         </div>
     </div>
-    <div class="view-more">
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/wallet/CNK_Whandlecloud.jpg">
+            <p>Charles & Keith Cloud Wallet</p>
+            <span><p>$60.00</p></span>
 
+        </div>
+        <div class="categories-card">
+            <img src="assets/luggage/awayL_pinkwheel.jpg">
+            <p>Away Pink Luggage</p>
+            <span><p>$110.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/waistbag/billabongWB_flower.jpg">
+            <p>Billabong Blue Canvas Totebag</p>
+            <span><p>$30.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/waistbag/billabongWB_black.jpg">
+            <p>Billabong Flower Waistbag</p>
+            <span><p>$35.00</p></span>
+
+        </div>
+    </div>
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/totebag/billabongTB_happygolucky.jpg">
+            <p>Billabong HGL Totebag</p>
+            <span><p>$69.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/backpack/adidasBP_greenlogo.jpg">
+            <p>Adidas Green Logo Backpack</p>
+            <span><p>$89.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/backpack/adidasBP_blacklogo.jpg">
+            <p>Adidas Black Logo Backpack</p>
+            <span><p>$89.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/totebag/BTV_TBdrawstringolive.jpg">
+            <p>BTV Olive Drawstring Totebag</p>
+            <span><p>$100.00</p></span>
+
+        </div>
+    </div>
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/wallet/billabongW_bifoldblack.jpg">
+            <p>Billabong BiFold Black Wallet</p>
+            <span><p>$40.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/luggage/billabongL_blackwheel.jpg">
+            <p>Billabong Black Luggage</p>
+            <span><p>$99.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/totebag/BTV_TBbrown.jpg">
+            <p>BTV Brown Totebag</p>
+            <span><p>$89.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/waistbag/billabongWB_grey.jpg">
+            <p>Billabong Grey Waistbag</p>
+            <span><p>$30.00</p></span>
+
+        </div>
+    </div>
+    <div class="categories-wrapper">
+        <div class="categories-card">
+            <img src="assets/waistbag/herschelWB.jpg">
+            <p>Herschel Yellow Waistbag</p>
+            <span><p>$45.00</p></span>
+
+        </div>
+        <div class="categories-card">
+            <img src="assets/handbag/BTV_HBcanvasblue.jpg">
+            <p>BTV Canvas Blue Handbag</p>
+            <span><p>$70.00</p></span>
+
+        </div>
+        <div style="background-color:#ede1d5;" class="categories-card">
+        </div>
+        <div style="background-color:#ede1d5;" class="categories-card">
+        </div>
     </div>
 
 

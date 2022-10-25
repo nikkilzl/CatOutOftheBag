@@ -1,0 +1,55 @@
+/* 
+    COLOURS
+    beige - #ede1d5;
+	  light green - #656d4a; 
+    dark green - #414934;
+
+*/
+
+/* ===== categories banner ==== */ 
+
+.categories-wrapper {
+    position: relative;
+    height: 400px;
+    background-color: #ede1d5;
+    margin: 40px 50px 40px 30px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.categories-card {
+    margin: 30px 20px 20px 50px;
+    width: 25%;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+
+.categories-card img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.categories-card p {
+  padding-top: 10px;
+  font-size:12px;
+}
+
+/*
+.product-click:after {
+    content:"";
+    position:absolute;
+    left:63px;
+    top:0;
+    width:20%;
+    height:100%;
+    background-color:#000;
+    opacity:0;
+    transition: all 0.5s ease 0s;
+  }
+  .product-click:hover:after {
+
+    opacity:0.5;
+  } */
