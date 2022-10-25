@@ -75,45 +75,7 @@
 
     <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
 
-    <div class="categories-wrapper">
-        <div class="categories-card">
-            <img src="assets/waistbag/herschelWB.jpg">
-            <p>Waist Bags</p>
 
-        </div>
-        <div class="categories-card">
-            <img src="assets/backpack/billabongBP_bluecanvas.jpg">
-            <p>Backpacks</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/totebag/billabongTB_canvasblue.jpg">
-            <p>Tote Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/handbag/CNK_Wgabinenavy.jpg">
-            <p>Handbags</p>
-
-        </div>
-    </div>
-
-    <div class="categories-wrapper">
-        <div class="categories-card">
-            <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Wallets</p>
-
-        </div>
-        <div style="background-color:#ede1d5;" class="categories-card">
-        </div>
-        <div style="background-color:#ede1d5;" class="categories-card">
-        </div>
-    </div>
 
     <footer>
         <div class="footer-fixed">
