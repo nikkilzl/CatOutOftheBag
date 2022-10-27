@@ -29,7 +29,7 @@
                         <br>
                         <li ><bold>CATEGORIES</bold></li>
                         <a href="product.php"><li>All Categories</li></a>
-                        <a href="backpack.php"><li>Backpack/li></a>
+                        <a href="backpack.php"><li>Backpack</li></a>
                         <a href="totebag.php"><li>Tote Bag</li></a>
                         <a href="handbag.php"><li>Handbag</li></a>
                         <a href="waistbag.php"><li>Waist Bag</li></a>

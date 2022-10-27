@@ -106,7 +106,7 @@
         </div>
         <div class="categories-card">
             <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Wallets</p>
+            <p>Luggage</p>
 
         </div>
         <div style="background-color:#ede1d5;" class="categories-card">
