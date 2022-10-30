@@ -1,127 +1,159 @@
-<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cat Out of The Bag</title>
+        <link rel="stylesheet" href="css/index.css"/>
+        <link rel="stylesheet" href="css/nav.css"/>
+        <link rel="stylesheet" href="css/footer.css"/>
+        <link rel="stylesheet" href="css/category.css"/>
+    </head>
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Out Of The Bag</title>
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/headerfooter.css" />
-    
-</head>
+    <body>
 
-<body>
+        <?php include 'components/nav.php' ?>
+        <?php 
+            include 'php/connect.php'; 
+            $res="";
+            if(!isset($_SESSION['custId']) && isset($_POST['id']))
+                $res = "NOT_LOGGED_IN";
+            else if(isset($_SESSION['custId']) && isset($_POST['id']))
+            {
+                $id = $_POST['id'];
+                $uid = $_SESSION['custId'];
+                if($_POST['type'] == "cart")
+                {
+                    include "php/addToCart.php";   
+                }
+                
+            }
+            unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
+        ?>
+        <div class="container">
+            <div class="slideshow-container">
+                <br>
+                <div class="mySlides fade">
+                    <img src="assets/banner1.jpg" style="width:100%">
+                </div>
 
-    <header class="header-fixed">
-        <div class="header-container">
-            <div class="hamburger-menu-wrapper">
-                <nav role="navigation">
-                    <div id="menuToggle">
-                      
-                      <input type="checkbox"/> <!--Hidden checkbox is used as click reciever, to use the :checked selector on it. -->
-        
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      
-                      <ul id="menu">
-                        <a href="index.php"><li>Home</li></a>
-                        <a href="#"><li>About</li></a>
-                        <br>
-                        <li ><bold>CATEGORIES</bold></li>
-                        <a href="product.php"><li>All Categories</li></a>
-                        <a href="backpack.php"><li>Backpack</li></a>
-                        <a href="totebag.php"><li>Tote Bag</li></a>
-                        <a href="handbag.php"><li>Handbag</li></a>
-                        <a href="waistbag.php"><li>Waist Bag</li></a>
-                        <a href="wallet.php"><li>Wallet</li></a>
-                        <a href="luggage.php"><li>Luggage</li></a>
-                      </ul>
-                    </div>
-                  </nav>
+                <div class="mySlides fade">
+                    <img src="assets/banner2.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="assets/banner3.jpg" style="width:100%">
+                </div>
             </div>
 
-            <div class="header-logowrapper">
-                <a class="header-logo" href="index.php">
-                    <img src="logo1.png" alt="Cat Out of the Bag Logo">
-                </a>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
             </div>
 
-            <div class="user-container">
-                <a class="user-icon" href="">
-                    <img src="assets/icon/shoppingcart.png" alt="cart-icon">
-                </a>
-                <a class="cart-icon" href="index.html">
-                    <img src="assets/icon/user.png" alt="user-icon">
-                </a>
+            <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
+            <br><br>
+            <div class="flex-row justify-content-around ">
+            
+                        <div class="card index-product">
+                            
+                                <img src= "assets/waistbag/herschelWB.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=waistbag" class="product-link">
+                                    <h5 class="card-title">Waistbag</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card index-product">
+                            
+                                <img src= "assets/backpack/billabongBP_bluecanvas.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=backpack" class="product-link">
+                                    <h5 class="card-title">Backpack</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card index-product">
+                            
+                                <img src= "assets/totebag/billabongTB_canvasblue.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=totebag" class="product-link">
+                                    <h5 class="card-title">Totebag</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card index-product">
+                            
+                                <img src= "assets/handbag/CNK_Wgabinenavy.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=handbag" class="product-link">
+                                    <h5 class="card-title">Handbag</h5>
+                                </a>
+                            </div>
+                        </div>
+            
             </div>
-    
+            <br><br>
+            <div class="flex-row justify-content-around ">
+            
+                        <div class="card index-product">
+                            
+                                <img src= "assets/wallet/CNK_beadstrawberry.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=wallet" class="product-link">
+                                    <h5 class="card-title">Wallet</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card index-product">
+                            
+                                <img src= "assets/luggage/billabongL_blackduffel.jpg" alt="..." class="card-img">
+                            
+                            <div class="card-body"> 
+                                <a href="category.php?productCategory=luggage" class="product-link">
+                                    <h5 class="card-title">Luggage</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card index-product" style="background-color:#ede1d5;border:none;">
+                        </div>
+
+                        <div class="card index-product" style="background-color:#ede1d5;border:none;">
+                        </div>
+            
+            </div>
+            <?php $conn->close(); ?>
         </div>
+        <script>
+            var result = '<?php echo($res); ?>'
+            switch(result){
+                case "NOT_LOGGED_IN" : alert("Please login to continue");
+                                        triggerModalById("login-modal");
+                                        break;
+                case "ALREADY_ADDED" :  alert("Already added");
+                                        break;
+                case "SUCCESS" :    alert("Added to wishlist");
+                                    break;
+                case "UNSUCCESS" :   alert("Could not add"); //not used generally 
+                                    break;
+                case "CART_ADD" :   alert("Added to cart");
+                                    break;                    
+                case "CART_UPDATE" : alert("Cart updated");
+                                    break;
+            }   
+        </script>
+        <script src="js/index.js" ></script>
+        <?php include 'components/footer.php' ?>
+    </body>
 
-
-    </header>
-
-    <div class="homepage-banner">
-        <div class="homepage-banner-container">
-            <img src="assets/icon/banner.jpg" alt="bag banner">
-        </div>
-        <div class="banner-content">
-            <h1>Always Good to Go.</h1>
-            <h3>Pick your favourites for a fun night with friends.</h3>
-            <br><br><br><br><br><br><br>
-            <a href="product.php"><button>Shop All</button></a>
-        </div>   
-    </div>
-
-    <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
-
-    <div class="categories-wrapper">
-        <div class="categories-card">
-            <img src="assets/waistbag/herschelWB.jpg">
-            <p>Waist Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/backpack/billabongBP_bluecanvas.jpg">
-            <p>Backpacks</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/totebag/billabongTB_canvasblue.jpg">
-            <p>Tote Bags</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/handbag/CNK_Wgabinenavy.jpg">
-            <p>Handbags</p>
-
-        </div>
-    </div>
-
-    <div class="categories-wrapper">
-        <div class="categories-card">
-            <img src="assets/wallet/CNK_beadstrawberry.jpg">
-            <p>Wallets</p>
-
-        </div>
-        <div class="categories-card">
-            <img src="assets/luggage/billabongL_blackduffel.jpg">
-            <p>Luggage</p>
-
-        </div>
-        <div style="background-color:#ede1d5;" class="categories-card">
-        </div>
-        <div style="background-color:#ede1d5;" class="categories-card">
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-fixed">
-            <p>Copyright © 2022 COTB All rights reserved</p>
-            <p>Terms & Conditions | Privacy Policy</p>
-        </div>
-    </footer>
-
-
-</body>
 </html>
