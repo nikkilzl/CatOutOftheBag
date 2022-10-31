@@ -29,8 +29,11 @@
         ?>
         <div class="container">
                 <br>
-                <div class="home-banner">
-                    <img src="assets/banner3.jpg" style="width:100%">
+                <div class="homepage-banner">
+                    <div class="homepage-banner-container">
+                        <img src="assets/banner3.jpg" alt="bag banner">
+                    </div>
+                
                 </div>
 
             <br>

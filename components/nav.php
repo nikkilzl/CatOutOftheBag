@@ -67,7 +67,7 @@
                             }
                             else {
                                 echo '
-                                    <li style="margin-top:12px; cursor: pointer;"> <a href="php/logout.php" style="color:black;">logout</a></li>
+                                    <li style="margin-top:12px; cursor: pointer;"> <a href="php/logout.php" style="color: #ede1d5;">Logout</a></li>
                                 ';
                             }
                         ?>

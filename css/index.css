@@ -63,8 +63,29 @@ a:hover{
     width:24%;
 }
 
-.home-banner {display: none;}
-img {vertical-align: middle;}
+/* ===== homepage banner ==== */ 
+
+.homepage-banner {
+    position: relative;
+    height: 400px;
+    background-color: #656d4a;
+    margin: 50px 100px 50px;
+    flex-direction: row;
+    display: flex;
+    vertical-align: middle;
+}
+
+.homepage-banner-container {
+  position: relative;
+  height: 400px;
+  width: 50%;
+  display: flex;
+}
+
+.homepage-banner img {
+  position: relative;
+  height: 400px;
+}
 
 /* Slideshow container */
 .slideshow-container {

@@ -17,7 +17,7 @@
             include("php/cart_and_list.php"); 
             include('components/nav.php');
             include("php/connect.php");
-            $query = "SELECT * FROM Productdetails where productId='".$_GET['productId']."'";
+            $query = "SELECT * FROM productdetails where productId='".$_GET['productId']."'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             
