@@ -32,7 +32,7 @@
                                 <img src= "'.$row['image'].'" alt="..." class="card-img">
                             
                                 <div class="card-body"> 
-                                    <a href="pages/productPage.php?productId='. $row['productId']. '" class="product-link">
+                                    <a href="productPage.php?productId='. $row['productId']. '" class="product-link">
                                         <h5 class="card-title"> '.$row['name'].' </h5>
                                     </a>
                                     <div>

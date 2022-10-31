@@ -18,6 +18,16 @@
                 <div class="title-container">
                     <h1>Shopping cart</h1>
                 </div>
+                <?php 
+                    include 'php/connect.php';
+                    if(!isset($_SESSION['custId']))
+                        echo "Please Login to continue";
+                    else {
+                        $uid = $_SESSION['custId'];
+                        $query = "SELECT * FROM `Order` , `OrderItems`,`Productdetails` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Productdetails`.`productId` and custId=$uid and `status`=0";
+                        $result = mysqli_query($conn, $query);
+  
+                ?>
                 <div class="table-container content">
                     <table>
                         <thead>
@@ -71,7 +81,7 @@
                                     <tr>
                                         <td colspan="5" class="total-price">Total Price: <span> $'.$total.'</span></td>
                                         <td>
-                                            <form action="pages/checkout.php" method="POST">
+                                            <form action="checkout.php" method="POST">
                                             <input type="hidden" value="<?php echo $total; ?>" name="total" />
                                             <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
                                             <input type="submit" class="checkout-btn" value="Checkout" />
@@ -81,7 +91,7 @@
                                 else{
                                     echo '
                                     <tr>
-                                        <td class="no-product" colspan="6">No Product added to cart</td>
+                                        <td class="no-product" colspan="6">Your cart is empty</td>
                                     </tr>
                                     ';
                                 }
@@ -90,7 +100,7 @@
                         </tfoot>
                     </table>
                 </div>
-                <?php 
+                <?php }
                     $conn->close();
                 ?>
 

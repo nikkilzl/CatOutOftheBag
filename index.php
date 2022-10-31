@@ -28,28 +28,12 @@
             unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
         ?>
         <div class="container">
-            <div class="slideshow-container">
                 <br>
-                <div class="mySlides fade">
-                    <img src="assets/banner1.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="assets/banner2.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides fade">
+                <div class="home-banner">
                     <img src="assets/banner3.jpg" style="width:100%">
                 </div>
-            </div>
 
             <br>
-
-            <div style="text-align:center">
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-            </div>
 
             <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
             <br><br>
@@ -152,7 +136,6 @@
                                     break;
             }   
         </script>
-        <script src="js/index.js" ></script>
         <?php include 'components/footer.php' ?>
     </body>
 
