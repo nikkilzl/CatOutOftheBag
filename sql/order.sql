@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2022 at 08:09 PM
+-- Generation Time: Nov 02, 2022 at 07:02 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,19 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `order` (
   `orderId` int(10) UNSIGNED NOT NULL,
-  `status` int(11) DEFAULT NULL,
+  `paid` int(11) DEFAULT NULL,
   `custId` int(10) UNSIGNED DEFAULT NULL,
   `purchasedDate` date DEFAULT NULL,
   `totalAmount` float(16,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`orderId`, `status`, `custId`, `purchasedDate`, `totalAmount`) VALUES
-(1, 1, 1, '2022-10-29', 1898.00),
-(2, 0, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -62,7 +54,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `orderId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `orderId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

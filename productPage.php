@@ -17,7 +17,7 @@
             include("php/cart_and_list.php"); 
             include('components/nav.php');
             include("php/connect.php");
-            $query = "SELECT * FROM productdetails where productId='".$_GET['productId']."'";
+            $query = "SELECT * FROM product where productId='".$_GET['productId']."'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             
@@ -64,7 +64,7 @@
                     <?php echo '<h1 style="margin-top:20px; margin-bottom:24px; color:#414934;">More from '. $row['category'].'</h1>' ?>
                     <div class="flex-row justify-content-around ">
                     <?php 
-                        $query = "SELECT * FROM `Productdetails` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
+                        $query = "SELECT * FROM `product` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
                         $result = $conn->query($query);
                         while($row = $result->fetch_assoc()){
                             echo '
@@ -89,7 +89,6 @@
 
                 <?php $conn->close(); ?>
             </div>
-            <script src="js/index.js" ></script>
             <script>
                 var result = '<?php echo($res); ?>'
                 switch(result){
@@ -98,10 +97,6 @@
                                             break;
                     case "ALREADY_ADDED" :  alert("Already added");
                                             break;
-                    case "SUCCESS" :    alert("Added to wishlist");
-                                        break;
-                    case "UNSUCCESS" :   alert("Could not add");
-                                        break;
                     case "CART_ADD" :   alert("Added to cart");
                                         break;                    
                     case "CART_UPDATE" : alert("Cart updated");

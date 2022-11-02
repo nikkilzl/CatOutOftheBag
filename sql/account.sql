@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2022 at 08:07 PM
+-- Generation Time: Nov 02, 2022 at 07:01 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,16 +34,6 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `account`
---
-
-INSERT INTO `account` (`accountId`, `username`, `password`) VALUES
-(1, 'test', '$password_hashed'),
-(2, 'testtest', '$password_hashed'),
-(3, 'nikki1', '203ad5ffa1d7c650ad681fdff3965cd2'),
-(4, 'hello', '203ad5ffa1d7c650ad681fdff3965cd2');
-
---
 -- Indexes for dumped tables
 --
 
@@ -62,7 +52,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accountId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `accountId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,7 +23,7 @@
                 <div class="category-content content flex-row justify-content-around">
                 <?php 
                     include 'php/connect.php';
-                    $result = mysqli_query($conn, "SELECT * FROM productdetails where category = '$productCategory'");
+                    $result = mysqli_query($conn, "SELECT * FROM product where category = '$productCategory'");
                     while($row= mysqli_fetch_assoc($result))
                     {  
                         echo '
@@ -54,10 +54,6 @@
                                         break;
                 case "ALREADY_ADDED" :  alert("Already added");
                                         break;
-                case "SUCCESS" :    alert("Added to wishlist");
-                                    break;
-                case "UNSUCCESS" :   alert("Could not add"); //not used generally 
-                                    break;
                 case "CART_ADD" :   alert("Added to cart");
                                     break;                    
                 case "CART_UPDATE" : alert("Cart updated");

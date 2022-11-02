@@ -1,5 +1,5 @@
 <?php
-    include("../php/connect.php");
+    include("connect.php");
 
     $fullName = $_POST['fullName'];
     $paymentMethod = $_POST["paymentMethod"];
@@ -14,29 +14,35 @@
     $orderId = $_POST["orderId"];
     $custId = $_POST["custId"];
 
-    $sql = "update CustomerDetails set fullName='$fullName', email='$email', phoneNumber='$phoneNumber', address='$address' where custId = '$custId'";
+    $sql = "UPDATE CustomerDetails SET fullName='$fullName', email='$email', phoneNumber='$phoneNumber', address='$address' where custId = '$custId'";
     mysqli_query($conn, $sql);
     if(mysqli_affected_rows($conn)<=0){
         $success = 'false';
     }
 
     //TEST - case if payment unsuccessful
-    else if($custId == 2)
-        $success = 'false';
+    /*else if($custId == 2)
+        $success = 'false';*/
 
     else{
         //handle payment by third party 
         //assume success
-        $sql = "update `Order` set totalAmount = $totalAmount, purchasedDate =now(), status = 1 where orderId = ".$orderId;
+        $sql = "UPDATE `Order` SET totalAmount = $totalAmount, purchasedDate =now(), paid = 1 where orderId = ".$orderId;
         mysqli_query($conn, $sql);
     
         if(mysqli_affected_rows($conn)>0){
             $success = 'true';
-
+        
             //send email
             $to      = 'f32ee@localhost';
-            $subject = 'Your Order is successful';
-            $message = 'Your order is successfull, and your order will be shipped soon';
+            $subject = 'Your order is on its way! - Cat Out of The Bag';
+            $message = '
+            Your order is successful, and will be shipped soon!
+
+            Shipping address: ' . $address . '
+            Total amount: $' . $totalAmount . '
+            ';
+
             // set content-type to send HTML email
             $headers = 'From: f32ee@localhost' . "\r\n" .
                 'Reply-To: f32ee@localhost' . "\r\n" .
@@ -49,6 +55,6 @@
         }
     }
 
-    header("Location:../pages/checkout.php?success=".$success);
+    header("Location:../checkout.php?success=".$success);
     
 ?>

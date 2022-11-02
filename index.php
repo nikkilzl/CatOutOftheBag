@@ -129,10 +129,6 @@
                                         break;
                 case "ALREADY_ADDED" :  alert("Already added");
                                         break;
-                case "SUCCESS" :    alert("Added to wishlist");
-                                    break;
-                case "UNSUCCESS" :   alert("Could not add"); //not used generally 
-                                    break;
                 case "CART_ADD" :   alert("Added to cart");
                                     break;                    
                 case "CART_UPDATE" : alert("Cart updated");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2022 at 08:08 PM
+-- Generation Time: Nov 02, 2022 at 07:02 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,15 +38,6 @@ CREATE TABLE `customerdetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `customerdetails`
---
-
-INSERT INTO `customerdetails` (`custId`, `accountId`, `fullName`, `email`, `phoneNumber`, `address`, `dateOfBirth`) VALUES
-(1, 1, 'test', 'test@gmail.com', '83066382 ', ' sadsadsadsadas', '2000-08-01'),
-(2, 2, 'testtest', 'testtest@gmail.com', '83066382', '', '2000-08-01'),
-(3, 4, 'nikki', 'hello@gmail.com', '', NULL, '2022-10-10');
-
---
 -- Indexes for dumped tables
 --
 
@@ -65,7 +56,7 @@ ALTER TABLE `customerdetails`
 -- AUTO_INCREMENT for table `customerdetails`
 --
 ALTER TABLE `customerdetails`
-  MODIFY `custId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `custId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

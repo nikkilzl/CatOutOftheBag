@@ -24,7 +24,7 @@
                         echo "Please Login to continue";
                     else {
                         $uid = $_SESSION['custId'];
-                        $query = "SELECT * FROM `Order` , `OrderItems`,`Productdetails` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Productdetails`.`productId` and custId=$uid and `status`=0";
+                        $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$uid and `paid`=0";
                         $result = mysqli_query($conn, $query);
   
                 ?>
