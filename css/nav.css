@@ -297,3 +297,33 @@ nav .modal .modal-body small span{
 nav .error-message{
     color: red;
 }
+
+/* 
+    COLOURS
+    beige - #ede1d5;
+	  light green - #656d4a; 
+    dark green - #414934;
+
+*/
+
+.sign-in-btn {
+  background-color: #215023be !important;
+}
+
+.sign-in-btn:hover {
+  background-color: #215023 !important;
+}
+
+
+.sign-up-btn {
+  background-color: #215023be !important;
+}
+
+.sign-up-btn:hover {
+  background-color: #215023 !important;
+}
+
+.sign-in-sign-up-link {
+  color: #215023 !important;
+}
+

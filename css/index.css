@@ -228,7 +228,16 @@ a:hover{
     margin-bottom: .75rem;
     font-size: 1.2em;
     font-weight: 400;
+    color: #000000;
 }
+
+.card-title:hover {
+    margin-bottom: .75rem;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #656d4a;
+}
+
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
@@ -273,9 +282,24 @@ a:hover{
     color: #fff;
     background-color: #ffc107;
 }
+
+/* 
+    COLOURS
+    beige - #ede1d5;
+	light green - #656d4a; 
+    dark green - #414934;
+
+*/
+
 .btn-outline-primary {
-    color: #007bff;
-    border-color: #007bff;
+    color: #ffffff;
+    border-color: #656d4a;
+    background-color: #656d4a;
+}
+.btn-outline-primary:hover {
+    color: #ffffff;
+    border-color: #414934;
+    background-color: #414934;
 }
 .btn-outline-success {
     color: #28a745;

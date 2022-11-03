@@ -105,9 +105,9 @@
                     </div>
                     <input type="hidden" name="type" value="login"/>
                     <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $errorMessage : '' ?></div>
-                    <button>Sign In</button>
+                    <button class="sign-in-btn">Sign In</button>
                 </form>
-                <small>Don't have an account? Register <span
+                <small>Don't have an account? Register <span class="sign-in-sign-up-link" 
                     onclick="triggerModalById('signup-modal')"
                 >here</span></small>
             </div>
@@ -179,9 +179,9 @@
                     </div>
                     <input type="hidden" name="type" value="signup"/>
                     <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $errorMessage : '' ?></div>
-                    <button>Sign Up</button>
+                    <button class="sign-up-btn">Sign Up</button>
                 </form>
-                <small>Already have an account? <span onclick="triggerModalById('login-modal')">Sign In here</span></small>
+                <small>Already have an account? <span class="sign-in-sign-up-link" onclick="triggerModalById('login-modal')">Sign In here</span></small>
             </div>
         </div>
     </div>

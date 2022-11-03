@@ -138,7 +138,7 @@
                                 <div class="modal-footer-success">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
-                                <button class="btn btn-outline-primary" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
+                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
                             </div>
                         </div>
                         <div id="unsuccess" class="modal">
@@ -150,7 +150,7 @@
                                 <div class="modal-footer-unsuccess">
                                     <p>Something went wrong with the payment, please try again!</p>
                                 </div>
-                                <button class="btn btn-outline-primary" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
+                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
                             </div>
                         </div>
                                                 

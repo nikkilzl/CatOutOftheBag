@@ -107,6 +107,20 @@
 .checkout-page .customer-details-table tr:last-child{
     border-top: 1px solid lightgrey;
 }
+
+
+button.place-order-btn {
+  background-color: none;
+  background-color: #215023be !important;
+  color: #ffffff;
+}
+
+button.place-order-btn:hover {
+  background-color: none;
+  background-color: #215023 !important;
+  color: #ffffff;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -138,16 +152,18 @@
   .modal-header-success, .modal-header-unsuccess {
     padding: 2px 16px;
     
-    color: white;
+    color: #ffffff;
     font-size: 30px;
     font-weight: 300;
     text-align: center;
   }
   .modal-header-success{
-    background-color: #5cb85c;
+    background-color: #c6d4a9;
+    color: #414934;
   }
   .modal-header-unsuccess{
-    background-color: #d86060;
+    background-color: #d4a9a9;
+    color: #ffffff;
   }
   /* Modal Body */
   .modal-body {
@@ -159,18 +175,20 @@
   .modal-footer-success, .modal-footer-unsuccess {
     padding: 16px 16px;
     text-align: center;
-    color: white;
+    color: #ffffff;
   }
   .modal-footer-success{
-    background-color: #5cb85c;
+    background-color: #c6d4a9;
+    color: #414934;
   }
   .modal-footer-unsuccess {
-    background-color: #d86060;
+    background-color: #d4a9a9;
+    color: #ffffff;
   }
   /* Modal Content */
   .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #ffffff;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
@@ -181,6 +199,26 @@
     margin-top: 20%;
   }
   
+
+  .modal-btn {
+    color: #ffffff !important;
+    border-color: #656d4a !important;
+    background-color: #656d4a !important;
+  }
+  .modal-btn:hover {
+    color: #ffffff !important;
+    border-color: #414934 !important;
+    background-color: #414934 !important;
+  }
+
+  .modal-btn a {
+    color: #ffffff !important;
+  }
+
+  .modal-btn a:hover {
+    color: #ffffff !important;
+  }
+
   /* Add Animation */
   @keyframes animateto {
     from {top: -300px; opacity: 0}

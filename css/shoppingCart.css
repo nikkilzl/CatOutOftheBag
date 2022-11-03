@@ -35,12 +35,24 @@
 }
 
 .shopping-cart-page table .delete-btn{
-    background-color: #EE3232;
+    background-color: #502121c4;
+    cursor: pointer;
+}
+
+.shopping-cart-page table .delete-btn:hover{
+    background-color: #502121;
     cursor: pointer;
 }
 
 .shopping-cart-page table .checkout-btn{
-    background-color: #3DA300;
+    background-color: #215023be;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.shopping-cart-page table .checkout-btn:hover{
+    background-color: #215023;
     width: 150px;
     height: 40px;
     cursor: pointer;
@@ -67,3 +79,16 @@
 }
 
 
+.product-link {
+    margin-bottom: .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.product-link:hover {
+    margin-bottom: .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    color: #656d4a;
+}
