@@ -44,6 +44,7 @@
                     //product id accessed by product page using get variable present in the hyperlink 
                 ?>
             </div>
+            <script src="js/quantity.js" ></script>
             <?php $conn->close(); ?>
         </div>
         <script>
@@ -59,7 +60,7 @@
                 case "CART_UPDATE" : alert("Cart updated");
                                     break;
             }   
-        </script>
+        
         <?php include 'components/footer.php' ?>
     </body>
 

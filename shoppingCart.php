@@ -100,6 +100,7 @@
                         </tfoot>
                     </table>
                 </div>
+                <script src="js/quantity.js" ></script>
                 <?php }
                     $conn->close();
                 ?>

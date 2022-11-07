@@ -60,12 +60,14 @@
 
                 <hr/>
 
+                <!-- recommend other products from the same category-->
                 <div class="product-recommendation">
                     <?php echo '<h1 style="margin-top:20px; margin-bottom:24px; color:#414934;">More from '. $row['category'].'</h1>' ?>
                     <div class="flex-row justify-content-around ">
                     <?php 
                         $query = "SELECT * FROM `product` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
                         $result = $conn->query($query);
+                        // fetch row results in associative array
                         while($row = $result->fetch_assoc()){
                             echo '
                             <div class="card index-product">
@@ -86,7 +88,7 @@
                     ?>
                     </div>
                 </div>
-
+                <script src="js/quantity.js" ></script>
                 <?php $conn->close(); ?>
             </div>
             <script>
@@ -103,6 +105,7 @@
                                         break;
                 }   
             </script>
+            <script>
         <?php include 'components/footer.php' ?>
     </body>
 

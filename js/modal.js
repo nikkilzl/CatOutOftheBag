@@ -1,6 +1,7 @@
-// Get the button that opens the modal
+// Get the button that opens the modal (login or sign up)
 var btns = document.querySelectorAll(".modal-open-btn");
 
+// 
 let currentModal;
 for(let i = 0 ; i < btns.length; i++){
   let btn = btns[i]
@@ -11,14 +12,14 @@ for(let i = 0 ; i < btns.length; i++){
 
   // When the user clicks the button, open the modal 
   btn.addEventListener('click', function() {
-    if(currentModal){ //make sure only 1 modal is active
+    if(currentModal){ //make sure only 1 modal is active at a time
       currentModal.style.display = "none";
     }
     modal.style.display = "block";
     currentModal = modal
   })
 
-  // When the user clicks on <span> (x), close the modal
+  // When the user clicks on <span> (x), it will close the modal
   span.onclick = function() {
     modal.style.display = "none";
     currentModal = null
@@ -26,6 +27,7 @@ for(let i = 0 ; i < btns.length; i++){
 
 }
 
+// 
 function triggerModalById(id){
   var btns = document.querySelectorAll(".modal-open-btn");
   for(let i = 0 ; i < btns.length; i++){

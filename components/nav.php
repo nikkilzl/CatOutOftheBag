@@ -48,6 +48,7 @@
                 <a href="#" class="account-btn">
                     <img src="assets/icon/user.png" alt="account"/>
                     <div>
+                        <!-- check if user logged in or not -->
                         <?php 
                             if (isset($_SESSION['username']))
                                 echo $_SESSION['username'];
@@ -58,6 +59,8 @@
                 </a>
                 <div class="account-dropdown" style="height: 0; padding: 0;">
                     <ul>
+                        <!-- if no user logged in, show login and signup dropdown.
+                            if user is logged in, show logout dropdown-->
                         <?php 
                             if (!isset($_SESSION['username'])){
                                 echo '
@@ -81,7 +84,7 @@
     <div id="login-modal" class="login-modal modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close">&times;</span> <!-- use multiplication sign for x button-->
             <div class="modal-body">
                 <h1>Login</h1>
                 <form method="POST" onsubmit="return handleSubmitLogin()">

@@ -119,6 +119,7 @@
                         </div>
             
             </div>
+            <script src="js/quantity.js" ></script>
             <?php $conn->close(); ?>
         </div>
         <script>

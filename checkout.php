@@ -178,6 +178,7 @@
     </body>
 
     <script src="js/validateForm.js"></script>
+    <script src="js/quantity.js" ></script>
     <script>
     function handleSubmit(){
         let form = document.querySelector('#place-order-form')

@@ -1,6 +1,7 @@
 let accountBtn = document.querySelector('.account-btn');
 let dropdown = document.querySelector('.account-dropdown');
 
+//when click on account button 
 function clickDropdown(){
     if(parseInt(dropdown.style.height) === 0){
         dropdown.style.height = '92px'
@@ -13,6 +14,8 @@ function clickDropdown(){
 
 accountBtn.onclick = clickDropdown
 
+
+//
 window.addEventListener('click', function(event) {
     if (!dropdown.contains(event.target) && !accountBtn.contains(event.target) ) {
         dropdown.style.height = '0'

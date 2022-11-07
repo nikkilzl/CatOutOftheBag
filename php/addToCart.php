@@ -3,7 +3,7 @@
     $sql = "SELECT quantity, `Order`.`orderId`, productId FROM `Order` , `OrderItems` WHERE `order`.`orderId` = `orderitems`.`orderId` and custId=$uid and `paid`=0";
 
     $result = mysqli_query($conn, $sql);
-    $quantity = !isset($_POST['quantity']) ? 1 : $_POST['quantity'];
+    $quantity = !isset($_POST['quantity']) ? 1 : $_POST['quantity']; 
 
     if(mysqli_num_rows($result)>0) {
         $row = mysqli_fetch_assoc($result);
