@@ -67,7 +67,7 @@
                         // fetch row results in associative array
                         while($row = $result->fetch_assoc()){
                             echo '
-                            <div class="card index-product">
+                            <div class="card productcard">
                                 
                                     <img src= "'.$row['image'].'" alt="..." class="card-img">
                                 

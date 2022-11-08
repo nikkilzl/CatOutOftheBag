@@ -1,6 +1,6 @@
 <?php
 if(session_id() == ''){
-    //session has not started
+    //do not start session yet
     session_start();
 }
 
@@ -14,12 +14,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
 
     //handle login here
     if($_POST['type'] == 'login'){
-        $query = 'SELECT * from Account'
+        $query = 'SELECT * from Account '
         ."WHERE username='$username' "
         ." AND password='$password'";
 
         $result = $conn->query($query);
-        if ($result->num_rows >0 ) //if login is successfull
+        if ($result->num_rows >0 ) //if login is successful
         {
             $row = $result->fetch_assoc();
             $accountId = $row['accountId'];   
