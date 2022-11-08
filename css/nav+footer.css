@@ -327,3 +327,15 @@ nav .error-message{
   color: #215023 !important;
 }
 
+.footer-fixed {
+  width: 100%;
+  background-color: #414934;
+  position: relative;
+  bottom: 0;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #ede1d5;
+  text-decoration: none;
+}

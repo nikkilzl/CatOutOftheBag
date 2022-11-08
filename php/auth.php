@@ -7,14 +7,14 @@ if(session_id() == ''){
 $showModal = isset($_GET['showModal']) ? $_GET['showModal'] : '';
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
-    $username = $conn->real_escape_string($_POST['username']);
+    $username = $conn->real_escape_string($_POST['username']); //real_escape_string escapes special characters in strings (for Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.)
     $password = $conn->real_escape_string($_POST['password']);
-    $password = md5($password);
+    $password = md5($password); //password hash
     $errorMessage = '';
 
     //handle login here
     if($_POST['type'] == 'login'){
-        $query = 'SELECT * from Account '
+        $query = 'SELECT * from Account'
         ."WHERE username='$username' "
         ." AND password='$password'";
 

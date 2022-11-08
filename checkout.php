@@ -6,19 +6,18 @@
 
     ?>
     <head>
-        <title>Checkout</title>
+        <title>Checkout - Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/checkout.css"/>
-        <link rel="stylesheet" href="css/index.css"/>
-        <link rel="stylesheet" href="css/nav.css"/>
-        <link rel="stylesheet" href="css/footer.css"/>
+        <link rel="stylesheet" href="css/global.css"/>
+        <link rel="stylesheet" href="css/nav+footer.css"/>
         
     </head>
 
     <body>
         <?php 
-            include('php/authorizedPage.php');
-            include 'components/nav.php';
-            include 'php/connect.php';
+            include 'php/authoriselogin.php';
+            include 'element/navigation.php';
+            include 'php/connectdb.php';
                    
             $uid = $_SESSION['custId'];
             $query = "SELECT * FROM CustomerDetails where custId=$uid";
@@ -42,7 +41,7 @@
                                     <th>Product</th>
                                     <th>Unit Price</th>
                                     <th>Amount</th>
-                                    <th>Subtotal Price</th>
+                                    <th>Subtotal</th>
                                 </tr>   
                             </thead>
                             <tbody>
@@ -80,7 +79,7 @@
                 <div class="checkout-content content">
                     <div class="customer-details">
                         <h2>Customer Details</h2>
-                        <form method="POST" action="php/placeOrder.php" id="place-order-form" onsubmit="return handleSubmit()">
+                        <form method="POST" action="php/orderproduct.php" id="place-order-form" onsubmit="return handleSubmit()">
                             <table class="customer-details-table">
                                 <tr>
                                     <td class="label">Full Name</td>
@@ -92,7 +91,7 @@
                                     <td class="label">Email</td>
                                     <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $customerDetails['email']; ?>" required/> </td>
                                     <td class="label">Name on card</td>
-                                    <td> <input type="text" placeholder="Full name on card" name="nameOnCard" required/> </td>
+                                    <td> <input type="text" placeholder="Enter your full name on card" name="nameOnCard" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Phone Number</td>
@@ -121,7 +120,7 @@
                                             <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $uid;?>"/>
                                             <div>Total Payment: <span>$<?php echo $total;?></span></div>
-                                            <button class="place-order-btn">Place Order</button>
+                                            <button class="place-order-btn">Order</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -138,7 +137,7 @@
                                 <div class="modal-footer-success">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
-                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
+                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
                         <div id="unsuccess" class="modal">
@@ -148,9 +147,9 @@
                                     <h2>Your payment was unsuccessful</h2>
                                 </div>
                                 <div class="modal-footer-unsuccess">
-                                    <p>Something went wrong with the payment, please try again!</p>
+                                    <p>Something went wrong with the payment, please try again later!</p>
                                 </div>
-                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="shoppingCart.php">Back to Cart </a></button>
+                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
                                                 
@@ -174,7 +173,6 @@
                     modal2.style.display = "block";
                 
             </script>
-        <?php include 'components/footer.php' ?>
     </body>
 
     <script src="js/validateForm.js"></script>
@@ -207,6 +205,12 @@
         return false
     }
     </script>
+    <footer>
+            <div class="footer-fixed">
+                <p>Copyright © 2022 COTB All rights reserved</p>
+                <p>Terms & Conditions | Privacy Policy</p>
+            </div>
+        </footer>
 
 </html>
 

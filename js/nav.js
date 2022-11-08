@@ -4,8 +4,8 @@ let dropdown = document.querySelector('.account-dropdown');
 //when click on account button 
 function clickDropdown(){
     if(parseInt(dropdown.style.height) === 0){
-        dropdown.style.height = '92px'
-        dropdown.style.padding = '14px 0'
+        dropdown.style.height = '85px'
+        dropdown.style.padding = '7px 0'
     } else {
         dropdown.style.height = '0'
         dropdown.style.padding = '0'

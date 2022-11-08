@@ -26,18 +26,19 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
         isValidated = false
         errorMessage = 'Please input a correct credit card number. Your credit card number should be 16 digits.'
     }
+        //check for cvv
+    //  cvv should be 3 numbers
+    else if(!(/^\d{3}$/.test(cvv))){
+        isValidated = false
+        errorMessage = 'Please input a correct CVV. You can find your 3-digit CVV number at the back of your card.'
+    }
     //check for credit card expires on
     // can only input until '12' for month part
     else if(!(/(0[1-9]|10|11|12)\/[2-9][0-9]$/.test(creditCardExpiresOn))){
         isValidated = false
         errorMessage = 'Please input a correct month and year. The expiration data format is MM/YY.'
     }
-    //check for cvv
-    //  cvv should be 3 numbers
-    else if(!(/^\d{3}$/.test(cvv))){
-        isValidated = false
-        errorMessage = 'Please input a correct CVV. You can find your 3-digit CVV number at the back of your card.'
-    }
+
 
     // check if all fields are correct when click on checkout
     if(!isValidated){

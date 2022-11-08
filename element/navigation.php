@@ -1,5 +1,5 @@
 <?php
-    include 'php/connect.php';
+    include 'php/connectdb.php';
     include 'php/auth.php';
     $conn->close();
 ?>
@@ -21,12 +21,12 @@
                         <a href="#"><li>About</li></a>
                         <br>
                         <li style="color:black;"><bold>CATEGORIES</bold></li>
-                        <a href="category.php?productCategory=backpack"><li>Backpack</li></a>
-                        <a href="category.php?productCategory=totebag"><li>Tote Bag</li></a>
-                        <a href="category.php?productCategory=handbag"><li>Handbag</li></a>
-                        <a href="category.php?productCategory=waistbag"><li>Waist Bag</li></a>
-                        <a href="category.php?productCategory=wallet"><li>Wallet</li></a>
-                        <a href="category.php?productCategory=luggage"><li>Luggage</li></a>
+                        <a href="categories.php?productCategory=backpack"><li>Backpack</li></a>
+                        <a href="categories.php?productCategory=totebag"><li>Tote Bag</li></a>
+                        <a href="categories.php?productCategory=handbag"><li>Handbag</li></a>
+                        <a href="categories.php?productCategory=waistbag"><li>Waist Bag</li></a>
+                        <a href="categories.php?productCategory=wallet"><li>Wallet</li></a>
+                        <a href="categories.php?productCategory=luggage"><li>Luggage</li></a>
                       </ul>
                     </div>
                   </nav>
@@ -39,7 +39,7 @@
             </div>
         <div class="right-content">
             <div class="cart">
-                <a href="shoppingCart.php">
+                <a href="cart.php">
                     <img src="assets/icon/shoppingcart.png" alt="cart"/>
                     <div>Cart</div>
                 </a>

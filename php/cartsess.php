@@ -1,8 +1,8 @@
 <?php
-    include("connect.php");
+    include("connectdb.php");
     $res="";
     if(!isset($_SESSION['custId']) && isset($_POST['id']))
-        $res = "NOT_LOGGED_IN";
+        $res = "LOGIN";
     else if(isset($_SESSION['custId']) && isset($_POST['id']))
     {
         $id = $_POST['id'];
@@ -10,7 +10,7 @@
         $sql = "";
         if($_POST['type'] == "cart")
         {
-            include "addToCart.php";
+            include "addcart.php";
         } 
     }
     unset($_POST['id']);

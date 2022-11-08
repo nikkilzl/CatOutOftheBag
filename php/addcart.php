@@ -1,5 +1,5 @@
 <?php
-    include 'php/connect.php';
+    include 'php/connectdb.php';
     $sql = "SELECT quantity, `Order`.`orderId`, productId FROM `Order` , `OrderItems` WHERE `order`.`orderId` = `orderitems`.`orderId` and custId=$uid and `paid`=0";
 
     $result = mysqli_query($conn, $sql);
@@ -14,18 +14,14 @@
         else{   
             $sql = "INSERT INTO `OrderItems` (`orderId`, productId, quantity) VALUES (".$row['orderId'].", $id, $quantity)";
             mysqli_query($conn, $sql);
-            $res = "CART_ADD";
+            $res = "ADDTOCART";
         }
     } else {
         $sql = "INSERT INTO `Order` (paid, custId) VALUES (0, $uid);";
         $sql .= "INSERT INTO `OrderItems` (`orderId`, productId, quantity) VALUES (LAST_INSERT_ID(), $id, $quantity)"; //LAST_INSERT_ID() gives the orderId inserted into order in the previous statement
         mysqli_multi_query($conn, $sql);
-        $res = "CART_ADD";
+        $res = "ADDTOCART";
     }
 
     mysqli_close($conn);
-
-    if( ($res == "CART_ADD" || $res == "CART_UPDATE") && isset($_POST["type"]) && $_POST["type"] == 'BUY_NOW'){
-        header('Location: ../shoppingCart.php'); //send to raw http in this case shoppingCart page
-    }
 ?>

@@ -1,17 +1,16 @@
 <html>
     <head>
         <title>Shopping cart</title>
-        <link rel="stylesheet" href="css/index.css"/>
-        <link rel="stylesheet" href="css/nav.css"/>
-        <link rel="stylesheet" href="css/footer.css"/>
-        <link rel="stylesheet" href="css/shoppingCart.css"/>
+        <link rel="stylesheet" href="css/global.css"/>
+        <link rel="stylesheet" href="css/nav+footer.css"/>
+        <link rel="stylesheet" href="css/cart.css"/>
     </head>
 
     <body>
         <?php
-            include('php/authorizedPage.php');
-            include 'components/nav.php';
-            include 'php/connect.php';
+            include('php/authoriselogin.php');
+            include 'element/navigation.php';
+            include 'php/connectdb.php';
         ?>
 
             <div class="shopping-cart-page page">
@@ -19,7 +18,7 @@
                     <h1>Shopping cart</h1>
                 </div>
                 <?php 
-                    include 'php/connect.php';
+                    include 'php/connectdb.php';
                     if(!isset($_SESSION['custId']))
                         echo "Please Login to continue";
                     else {
@@ -54,7 +53,7 @@
                                         </td>
                                         <td>
                                             <span>
-                                                <a href="productPage.php?productId='. $row['productId']. '" class="product-link">    
+                                                <a href="productdetail.php?productId='. $row['productId']. '" class="product-link">    
                                                     '.$row['name'].'
                                                 </a>      
                                             </span>
@@ -63,7 +62,7 @@
                                         <td>$'.$row['price'].'</td>
                                         <td>$'.($row['price']*$row['quantity']).'</td>
                                         <td>
-                                            <form action="php/delFromCart.php"method="POST">
+                                            <form action="php/deletecart.php"method="POST">
                                                 <input type="hidden" value="'. $row['productId']. '" name="product_id" />
                                                 <input type="hidden" value="'. $row['orderId']. '" name="order_id" />
                                                 <input type="submit" class="delete-btn" value="Delete" />
@@ -106,6 +105,11 @@
                 ?>
 
             </div>
-        <?php include 'components/footer.php' ?>
+            <footer>
+        <div class="footer-fixed">
+            <p>Copyright © 2022 COTB All rights reserved</p>
+            <p>Terms & Conditions | Privacy Policy</p>
+        </div>
+</footer>
     </body>
 </html>

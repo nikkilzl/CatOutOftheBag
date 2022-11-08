@@ -11,7 +11,7 @@ for(let i = 0 ; i < btns.length; i++){
   var span = document.querySelector(`#${targetId} .close`)
 
   // When the user clicks the button, open the modal 
-  btn.addEventListener('click', function() {
+  btn.addEventListener("click", function() {
     if(currentModal){ //make sure only 1 modal is active at a time
       currentModal.style.display = "none";
     }

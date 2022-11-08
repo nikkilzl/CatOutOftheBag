@@ -1,22 +1,19 @@
 <html>
     <head>
         <title>Product Information</title>
-        <link rel="stylesheet" href="css/index.css"/>
-
-        <link rel="stylesheet" href="css/productPage.css"/>
-        <link rel="stylesheet" href="css/category.css"/>
-
-        <link rel="stylesheet" href="css/nav.css"/>
-        <link rel="stylesheet" href="css/footer.css"/>
+        <link rel="stylesheet" href="css/global.css"/>
+        <link rel="stylesheet" href="css/productdetail.css"/>
+        <link rel="stylesheet" href="css/categories.css"/>
+        <link rel="stylesheet" href="css/nav+footer.css"/>
         
     </head>
 
     <body>
     
         <?php 
-            include("php/cart_and_list.php"); 
-            include('components/nav.php');
-            include("php/connect.php");
+            include "php/cartsess.php"; 
+            include "element/navigation.php";
+            include "php/connectdb.php";
             $query = "SELECT * FROM product where productId='".$_GET['productId']."'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
@@ -53,7 +50,7 @@
                 <div class="information">
                     <div class="information__heading">Product Descriptions</div>
                     <div class="information__description">
-                        <?php echo nl2br($row['description']);    //nl2br : new line to line break<br> ?>
+                        <?php echo nl2br($row['description']);    //nl2br gives a line break ?>
                     </div>
                     
                 </div>
@@ -75,7 +72,7 @@
                                     <img src= "'.$row['image'].'" alt="..." class="card-img">
                                 
                                 <div class="card-body">
-                                <a href="productPage.php?productId='. $row['productId']. '" class="product-link">
+                                <a href="productdetail.php?productId='. $row['productId']. '" class="product-link">
                                     <h5 class="card-title"> '.$row['name'].' </h5>
                                     </a>
                                     <div>
@@ -94,19 +91,21 @@
             <script>
                 var result = '<?php echo($res); ?>'
                 switch(result){
-                    case "NOT_LOGGED_IN" : alert("Please login to continue");
+                    case "LOGIN" : alert("Please login or sign up to add to cart");
                                             triggerModalById("login-modal");
                                             break;
-                    case "ALREADY_ADDED" :  alert("Already added");
-                                            break;
-                    case "CART_ADD" :   alert("Added to cart");
+                    case "ADDTOCART" :   alert("Item has been added to cart");
                                         break;                    
-                    case "CART_UPDATE" : alert("Cart updated");
+                    case "CART_UPDATE" : alert("Your cart has been updated");
                                         break;
                 }   
             </script>
-            <script>
-        <?php include 'components/footer.php' ?>
+        <footer>
+        <div class="footer-fixed">
+            <p>Copyright © 2022 COTB All rights reserved</p>
+            <p>Terms & Conditions | Privacy Policy</p>
+        </div>
+</footer>
     </body>
 
 </html>

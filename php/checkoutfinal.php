@@ -1,8 +1,7 @@
 <?php
-    include "connect.php";
-    $total = $_POST['total'];
+    include "connectdb.php";
     $oid = $_POST['order_id'];
-    //$uid = $_SESSION['custId'];
+    $total = $_POST['total'];
     echo $total, $oid;
     $query = "update `Order` set purchasedDate=CURDATE(), totalAmount=$total where orderId=$oid";
     

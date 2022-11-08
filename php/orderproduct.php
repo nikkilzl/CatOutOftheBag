@@ -1,5 +1,5 @@
 <?php
-    include("connect.php");
+    include "connectdb.php";
 
     $fullName = $_POST['fullName'];
     $paymentMethod = $_POST["paymentMethod"];
