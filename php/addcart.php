@@ -1,6 +1,6 @@
 <?php
     include 'php/connectdb.php';
-    $sql = "SELECT quantity, `Order`.`orderId`, productId FROM `Order` , `OrderItems` WHERE `order`.`orderId` = `orderitems`.`orderId` and custId=$uid and `paid`=0";
+    $sql = "SELECT quantity, `Order`.`orderId`, productId FROM `Order` , `OrderItems` WHERE `order`.`orderId` = `orderitems`.`orderId` and custId=$cid and `paid`=0";
 
     $result = mysqli_query($conn, $sql);
     $quantity = !isset($_POST['quantity']) ? 1 : $_POST['quantity']; 
@@ -17,7 +17,7 @@
             $res = "ADDTOCART";
         }
     } else {
-        $sql = "INSERT INTO `Order` (paid, custId) VALUES (0, $uid);";
+        $sql = "INSERT INTO `Order` (paid, custId) VALUES (0, $cid);";
         $sql .= "INSERT INTO `OrderItems` (`orderId`, productId, quantity) VALUES (LAST_INSERT_ID(), $id, $quantity)"; //LAST_INSERT_ID() gives the orderId inserted into order in the previous statement
         mysqli_multi_query($conn, $sql);
         $res = "ADDTOCART";

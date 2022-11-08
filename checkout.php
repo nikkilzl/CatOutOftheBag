@@ -19,12 +19,12 @@
             include 'element/navigation.php';
             include 'php/connectdb.php';
                    
-            $uid = $_SESSION['custId'];
-            $query = "SELECT * FROM CustomerDetails where custId=$uid";
+            $cid = $_SESSION['custId'];
+            $query = "SELECT * FROM CustomerDetails where custId=$cid";
             $customerDetails = mysqli_query($conn, $query);
             $customerDetails = $customerDetails->fetch_assoc();
 
-            $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$uid and `paid`=0";
+            $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
             $result = mysqli_query($conn, $query);
 
         ?>
@@ -118,7 +118,7 @@
                                         <div class="total-payment">
                                             <input type="hidden" name="totalAmount" value="<?php echo $total;?>"/>
                                             <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
-                                            <input type="hidden" name="custId" value="<?php echo $uid;?>"/>
+                                            <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
                                             <div>Total Payment: <span>$<?php echo $total;?></span></div>
                                             <button class="place-order-btn">Order</button>
                                         </div>

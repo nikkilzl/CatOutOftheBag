@@ -4,15 +4,15 @@ $username = "f32ee";
 $password = "f32ee";
 $dbname = "f32ee";
 
-// Create connection
+// Create a connection to database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+// Check to make sure there is a connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
 if(session_id() == ''){
-    //session has not started
+    //if session has not started, we want to start the session
     session_start();
 }
 

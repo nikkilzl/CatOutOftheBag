@@ -22,8 +22,8 @@
                     if(!isset($_SESSION['custId']))
                         echo "Please Login or sign up to continue";
                     else {
-                        $uid = $_SESSION['custId'];
-                        $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$uid and `paid`=0";
+                        $cid = $_SESSION['custId'];
+                        $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
                         $result = mysqli_query($conn, $query);
   
                 ?>

@@ -20,17 +20,17 @@
                 <div class="catcontent content flex-row justify-content-around">
                 <?php 
                     include 'php/connectdb.php';
-                    $result = mysqli_query($conn, "SELECT * FROM product where category = '$productCategory'");
+                    $result = mysqli_query($conn, "SELECT * FROM 'product' WHERE category = '$productCategory'");
                     while($row= mysqli_fetch_assoc($result))
                     {  
                         echo '
                             <div class="card index-product">
                             
-                                <img src= "'.$row['image'].'" alt="..." class="card-img">
+                                <img src= "'.$row['image'].'" class="card-img">
                             
                                 <div class="card-body"> 
                                     <a href="productdetail.php?productId='. $row['productId']. '">
-                                        <h5 class="card-title"> '.$row['name'].' </h5>
+                                        <h4 class="card-title"> '.$row['name'].' </h4>
                                     </a>
                                     <div>
                                         <p class="card-text product-price">$'.$row['price'].'</p>
