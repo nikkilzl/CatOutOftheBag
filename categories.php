@@ -24,7 +24,7 @@
                     while($row= mysqli_fetch_assoc($result))
                     {  
                         echo '
-                            <div class="card index-product">
+                            <div class="card productcard">
                             
                                 <img src= "'.$row['image'].'" alt="..." class="card-img">
                             

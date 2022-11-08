@@ -75,7 +75,7 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     // make sure that all fields are filled in signing up
     if(!fullName || !email || !username || !dateOfBirth || !password || !confirmPassword){
         isValidated = false
-        errorMessage = 'Username and password cannot be empty'
+        errorMessage = 'Please fill up all the fields'
     }
 
     //validate full name
@@ -87,7 +87,7 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     //validate username
     else if(!(/^([a-zA-Z ]|[a-zA-Z ][a-zA-Z ]*[a-zA-Z ])$/.test(username))){
         isValidated = false
-        errorMessage = 'username can only contain alphabet characters'
+        errorMessage = 'Username can only contain alphabet characters'
     }
     
     //check for email field

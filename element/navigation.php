@@ -189,7 +189,7 @@
         </div>
     </div>
     
-    <script src="js/modal.js"></script>
+    <script src="js/popup.js"></script>
     <script src="js/nav.js"></script>
     <?php 
         if($showModal == 'login-modal')
