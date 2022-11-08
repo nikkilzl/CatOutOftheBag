@@ -1,13 +1,13 @@
 .checkout-page .checkout-content h2{
     margin-top: 10px;
     margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .checkout-page .order-summary-table{
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     border-collapse: collapse;
 }
 
@@ -16,12 +16,12 @@
 }
 
 .checkout-page .order-summary-table thead{
-    background-color: #F4F4F4;
+    background-color: #215023be;
 }
 .checkout-page .order-summary-table th{
     padding: 10px 20px;
-    font-weight: 500;
-    color: #8A8A8A;
+    font-weight: 600;
+    color: #215023be;
 }
 
 .checkout-page .order-summary-table tr td{
@@ -135,7 +135,7 @@ button.place-order-btn:hover {
   }
   
     
-  /* The Close Button */
+  /* close Button */
   .close {
     color: #aaa;
     float: right;
@@ -221,7 +221,7 @@ button.place-order-btn:hover {
 
   /* Add Animation */
   @keyframes animateto {
-    from {top: -300px; opacity: 0}
+    from {top: -400px; opacity: 0}
     to {top: 0; opacity: 1}
   }
   @keyframes animatetop {

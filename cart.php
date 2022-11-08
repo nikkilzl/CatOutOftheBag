@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Shopping cart</title>
+        <title>Cart | Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/global.css"/>
         <link rel="stylesheet" href="css/nav+footer.css"/>
         <link rel="stylesheet" href="css/cart.css"/>
@@ -20,14 +20,14 @@
                 <?php 
                     include 'php/connectdb.php';
                     if(!isset($_SESSION['custId']))
-                        echo "Please Login to continue";
+                        echo "Please Login or sign up to continue";
                     else {
                         $uid = $_SESSION['custId'];
                         $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$uid and `paid`=0";
                         $result = mysqli_query($conn, $query);
   
                 ?>
-                <div class="table-container content">
+                <div class="content">
                     <table>
                         <thead>
                             <tr>

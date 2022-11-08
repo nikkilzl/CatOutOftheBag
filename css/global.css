@@ -51,7 +51,7 @@ a:hover{
     margin-top: 20px;
     box-sizing: border-box;
 }
-.productcard{
+.index-product {
     width:24%;
 }
 
@@ -136,7 +136,7 @@ a:hover{
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    border-radius: 10px;
     padding:24px 6px;
 }
 .card-img, .card-img-top {
@@ -196,7 +196,7 @@ a:hover{
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: 10px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .btn-success {
@@ -380,7 +380,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
 }
 
 
-.productcard .product-price{
+.index-product .product-price{
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 20px;

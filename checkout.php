@@ -6,7 +6,7 @@
 
     ?>
     <head>
-        <title>Checkout - Cat Out of The Bag</title>
+        <title>Checkout | Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/checkout.css"/>
         <link rel="stylesheet" href="css/global.css"/>
         <link rel="stylesheet" href="css/nav+footer.css"/>

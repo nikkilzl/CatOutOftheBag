@@ -65,12 +65,7 @@
 .content{
     padding-top:40px;
 }
-.product__briefinfo .wishlist{
-    cursor: pointer;
-    gap:12px;
-    align-items: center;
-    margin-top: 10px;
-}
+
 .selected {
     fill: #bd2130;
     display: none;

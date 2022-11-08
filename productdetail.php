@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Product Information</title>
+        <title>Product Information | Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/global.css"/>
         <link rel="stylesheet" href="css/productdetail.css"/>
         <link rel="stylesheet" href="css/categories.css"/>
