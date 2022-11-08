@@ -20,7 +20,7 @@
         $success = 'false';
     }
 
-    //TEST - case if payment unsuccessful
+    //testcase for payment unsuccessful
     /*else if($custId == 2)
         $success = 'false';*/
 
