@@ -84,7 +84,7 @@
     <div id="login-modal" class="login-modal modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span> <!-- use multiplication sign for x button-->
+            <span class="close">X</span>
             <div class="modal-body">
                 <h1>Login</h1>
                 <form method="POST" onsubmit="return handleSubmitLogin()">
@@ -122,7 +122,7 @@
     <div id="signup-modal" class="signup-modal modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close">X</span>
             <div class="modal-body">
                 <h1>Sign Up</h1>
                 <form method="POST" onsubmit="return handleSubmitSignup()">
@@ -200,10 +200,10 @@
     <script src="js/validateForm.js"></script>
     <script>
     function handleSubmitLogin(){
-        let form = document.querySelector('.login-modal form')
-        let username = form.querySelector('input[name="username"]').value
-        let password = form.querySelector('input[name="password"]').value
-        let errorDom = form.querySelector('.error-message')
+        let form = document.getElementsByClassName('.login-modal form')
+        let username = form.getElementsByClassName('input[name="username"]').value
+        let password = form.getElementsByClassName('input[name="password"]').value
+        let errorDom = form.getElementsByClassName('.error-message')
 
         let isValidated = validateLogin({
             username, password, errorDom
@@ -212,15 +212,15 @@
     }
 
     function handleSubmitSignup(){
-        let form = document.querySelector('.signup-modal form')
-        let fullName = form.querySelector('input[name="fullName"]').value
-        let username = form.querySelector('input[name="username"]').value
-        let password = form.querySelector('input[name="password"]').value
-        let email = form.querySelector('input[name="email"]').value
-        let dateOfBirth = form.querySelector('input[name="dateOfBirth"]').value
-        let confirmPassword = form.querySelector('input[name="confirmPassword"]').value
+        let form = document.getElementsByClassName('.signup-modal form')
+        let fullName = form.getElementsByClassName('input[name="fullName"]').value
+        let username = form.getElementsByClassName('input[name="username"]').value
+        let password = form.getElementsByClassName('input[name="password"]').value
+        let email = form.getElementsByClassName('input[name="email"]').value
+        let dateOfBirth = form.getElementsByClassName('input[name="dateOfBirth"]').value
+        let confirmPassword = form.getElementsByClassName('input[name="confirmPassword"]').value
 
-        let errorDom = form.querySelector('.error-message')
+        let errorDom = form.getElementsByClassName('.error-message')
 
         let isValidated = validateSignup({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom})
         console.log('isValidated', isValidated)

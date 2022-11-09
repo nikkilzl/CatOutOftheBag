@@ -6,7 +6,7 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
 
     if(!fullName || !email || !phoneNumber || !address || !nameOnCard || !creditCardNumber || !creditCardExpiresOn || !cvv){
         isValidated = false
-        errorMessage = 'Please input all the field'
+        errorMessage = 'Please fill up all the fields'
     }
     //validate full name and name on card
     else if(!(/^[a-zA-Z ]+$/.test(fullName)) || !(/^[a-zA-Z ]+$/.test(nameOnCard))){
