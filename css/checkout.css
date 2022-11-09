@@ -1,230 +1,237 @@
-.checkout-page .checkout-content h2{
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
+.checkpage .order-summary h2{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.checkout-page .order-summary-table{
-    width: 100%;
-    border-radius: 10px;
-    border-collapse: collapse;
+.checkpage .order-summ-tbl{
+  width: 100%;
+  border-radius: 10px;
+  border-collapse: collapse;
 }
 
-.checkout-page .order-summary-table tr{
-    text-align: center;
+.checkpage .order-summ-tbl tr{
+  text-align: center;
 }
 
-.checkout-page .order-summary-table thead{
-    background-color: #215023be;
+.checkpage .order-summ-tbl thead{
+  background-color: #215023be;
 }
-.checkout-page .order-summary-table th{
-    padding: 10px 20px;
-    font-weight: 600;
-    color: white;
-}
-
-.checkout-page .order-summary-table tr td{
-    padding:10px 20px;
+.checkpage .order-summ-tbl th{
+  padding: 10px 20px;
+  font-weight: 600;
+  color: white;
 }
 
+.checkpage .order-summ-tbl tr td{
+  padding:10px 20px;
+}
 
-.checkout-page .order-summary-table .product-col{
+
+.checkpage .order-summ-tbl .product-display{
+display: flex;
+align-items: center;
+}
+.checkpage .order-summ-tbl .product-display img{
+  width: 100px;
+  vertical-align: middle;
+  margin-right: 16px;
+}
+
+.checkpage .order-summ-tbl .price-total{
+  text-align: right;
+  font-size: 24px;
+}
+.checkpage .order-summ-tbl .price-total span{
+  font-weight: bold;
+}
+
+.checkpage .order-summ-tbl tfoot tr{
+  height: 80px;
+  padding-top: 30px;
+  border-top: 1px solid lightgrey;  
+}
+
+.checkpage .cust-det-tbl, .checkpage .cust-det-tbl tr{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.checkpage .cust-det-tbl tr td{
+  padding:10px 20px;
+}
+
+.checkpage .cust-det-tbl input{
+  width: 100%;
+  background-color: #f1f1f1ce;
+  border:0;
+  border-radius: 8px;
+  height: 36px;
+  padding-left: 12px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.checkpage .cust-det-tbl input[type='radio']{
+  width: auto;
+  margin-right: 10px;
+}
+.checkpage .cust-det-tbl .label{
+  color: #333333;
+}
+
+.checkpage .cust-det-tbl button{
+  width: 150px;
+  height: 40px;
+  border: 0;
+  border-radius: 8px;
+  color:white;
+  font-size: 16px;
+  background-color: #3DA300;
+}
+
+.checkpage .cust-det-tbl .total-payment{
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  gap:20px;
+  padding-top: 20px;
 }
-.checkout-page .order-summary-table .product-col img{
-    width: 100px;
-    vertical-align: middle;
-    margin-right: 16px;
-}
-
-.checkout-page .order-summary-table .total-price{
-    text-align: right;
-    font-size: 24px;
-}
-.checkout-page .order-summary-table .total-price span{
-    font-weight: bold;
-}
-
-.checkout-page .order-summary-table tfoot tr{
-    border-top: 1px solid lightgrey;
-    height: 80px;
-    padding-top: 30px;
-}
-
-.checkout-page .customer-details-table, .checkout-page .customer-details-table tr{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.checkout-page .customer-details-table tr td{
-    padding:10px 20px;
-}
-
-.checkout-page .customer-details-table input{
-    width: 100%;
-    background-color: #f1f1f1ce;
-    border:0;
-    border-radius: 8px;
-    height: 36px;
-    padding-left: 12px;
-    font-size: 16px;
-    vertical-align: middle;
-}
-.checkout-page .customer-details-table input[type='radio']{
-    width: auto;
-    margin-right: 10px;
-}
-.checkout-page .customer-details-table .label{
-    color: #333333;
-}
-
-.checkout-page .customer-details-table button{
-    width: 150px;
-    height: 40px;
-    border: 0;
-    border-radius: 8px;
-    color:white;
-    font-size: 16px;
-    background-color: #3DA300;
-}
-
-.checkout-page .customer-details-table .total-payment{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap:20px;
-    padding-top: 20px;
-}
-.checkout-page .customer-details-table .total-payment >div{
-    font-size: 24px;
+.checkpage .cust-det-tbl .total-payment >div{
+  font-size: 24px;
 
 }
-.checkout-page .customer-details-table .total-payment >div span{
-    font-weight: bold;
+.checkpage .cust-det-tbl .total-payment >div span{
+  font-weight: bold;
 }
-.checkout-page .customer-details-table tr:last-child{
-    border-top: 1px solid lightgrey;
+.checkpage .cust-det-tbl tr:last-child{
+  border-top: 1px solid lightgrey;
 }
 
 
-button.place-order-btn {
-  background-color: none;
-  background-color: #215023be !important;
-  color: #ffffff;
+button.order-btn {
+background-color: none;
+background-color: #215023be !important;
+color: #ffffff;
 }
 
-button.place-order-btn:hover {
-  background-color: none;
-  background-color: #215023 !important;
-  color: #ffffff;
+button.order-btn:hover {
+background-color: none;
+background-color: #215023 !important;
+color: #ffffff;
 }
+
+
+/* Payment Notification Pop-Up */
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-    
-  /* close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .modal-header-success, .modal-header-unsuccess {
-    padding: 2px 16px;
-    
-    color: #ffffff;
-    font-size: 30px;
-    font-weight: 300;
-    text-align: center;
-  }
-  .modal-header-success{
-    background-color: #c6d4a9;
-    color: #414934;
-  }
-  .modal-header-unsuccess{
-    background-color: #d4a9a9;
-    color: #ffffff;
-  }
-  /* Modal Body */
-  .modal-body {
-      padding: 16px 16px;
-      text-align: center;
-  }
-  
-  /* Modal Footer */
-  .modal-footer-success, .modal-footer-unsuccess {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.popup-successful-header, .popup-unsuccessful-header {
+  padding: 2px 16px;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+}
+.popup-successful-header {
+  background-color: #c6d4a9;
+  color: #414934;
+}
+.popup-unsuccessful-header {
+  background-color: #d4a9a9;
+  color: #ffffff;
+}
+
+/* Pop-up Body */
+.modal-body {
     padding: 16px 16px;
     text-align: center;
-    color: #ffffff;
-  }
-  .modal-footer-success{
-    background-color: #c6d4a9;
-    color: #414934;
-  }
-  .modal-footer-unsuccess {
-    background-color: #d4a9a9;
-    color: #ffffff;
-  }
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #ffffff;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 42%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.7s;
-    margin-top: 20%;
-  }
-  
+}
 
-  .modal-btn {
-    color: #ffffff !important;
-    border-color: #656d4a !important;
-    background-color: #656d4a !important;
-  }
-  .modal-btn:hover {
-    color: #ffffff !important;
-    border-color: #414934 !important;
-    background-color: #414934 !important;
-  }
+/* Pop-Up Footer */
+.popup-successful-footer, .popup-unsuccessful-footer {
+  padding: 16px 16px;
+  text-align: center;
+  color: #ffffff;
+}
+.popup-successful-footer{
+  background-color: #c6d4a9;
+  color: #414934;
+}
+.popup-unsuccessful-footer {
+  background-color: #d4a9a9;
+  color: #ffffff;
+}
 
-  .modal-btn a {
-    color: #ffffff !important;
-  }
+/* Pop-up Content */
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 42%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.7s;
+  margin-top: 20%;
+}
 
-  .modal-btn a:hover {
-    color: #ffffff !important;
-  }
 
-  /* Add Animation */
-  @keyframes animateto {
-    from {top: -400px; opacity: 0}
-    to {top: 0; opacity: 1}
-  }
-  @keyframes animatetop {
-    from {opacity: 0}
-    to {opacity: 1}
-  }
+.modal-btn {
+  color: #ffffff !important;
+  border-color: #656d4a !important;
+  background-color: #656d4a !important;
+}
+.modal-btn:hover {
+  color: #ffffff !important;
+  border-color: #414934 !important;
+  background-color: #414934 !important;
+}
+
+.modal-btn a {
+  color: #ffffff !important;
+}
+
+.modal-btn a:hover {
+  color: #ffffff !important;
+}
+
+
+/* close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes animateto {
+  from {top: -400px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+@keyframes animatetop {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+

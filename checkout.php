@@ -28,19 +28,19 @@
             $result = mysqli_query($conn, $query);
 
         ?>
-            <div class="checkout-page page">
+            <div class="checkpage page">
                 <div class="title-container">
                     <h1>Checkout</h1>
                 </div>
-                <div class="checkout-content content">
+                <div class="order-summary content">
                     <div class="order-summary">
                         <h2>Order summary</h2>
-                        <table class="order-summary-table">
+                        <table class="order-summ-tbl">
                             <thead>
                                 <tr>
                                     <th>Product</th>
                                     <th>Unit Price</th>
-                                    <th>Amount</th>
+                                    <th>Qty</th>
                                     <th>Subtotal</th>
                                 </tr>   
                             </thead>
@@ -53,7 +53,7 @@
                                         $orderId  = $row['orderId'];
                                         echo '
                                         <tr>
-                                            <td class="product-col"> 
+                                            <td class="product-display"> 
                                                 <img src="'.$row['image'].'" alt="product"/>
                                                 <span>'. $row['name'] .'<span>
                                             </td>
@@ -68,7 +68,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="4" class="total-price">Order Total: <span>$<?php echo $total; ?></span></td>
+                                    <td colspan="4" class="price-total">Order Total: <span>$<?php echo $total; ?></span></td>
                                 </tr>   
                             </tfoot>
                         </table>
@@ -76,11 +76,11 @@
                     
                 </div>
 
-                <div class="checkout-content content">
-                    <div class="customer-details">
+                <div class="order-summary content">
+                    <div class="cust-det">
                         <h2>Customer Details</h2>
                         <form method="POST" action="php/orderproduct.php" id="place-order-form" onsubmit="return handleSubmit()">
-                            <table class="customer-details-table">
+                            <table class="cust-det-tbl">
                                 <tr>
                                     <td class="label">Full Name</td>
                                     <td> <input type="text" placeholder="Full name" name="fullName" value="<?php echo $customerDetails['fullName']; ?>" required/> </td>
@@ -120,21 +120,21 @@
                                             <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
                                             <div>Total Payment: <span>$<?php echo $total;?></span></div>
-                                            <button class="place-order-btn">Order</button>
+                                            <button class="order-btn">Order</button>
                                         </div>
                                     </td>
                                 </tr>
                             </table>
                         </form>
 
-                        <!-- The Modal -->
-                        <div id="success" class="modal">
+                          <!-- Payment Notification Pop-Up -->
+                          <div id="success" class="modal">
                             <span></span>
                             <div class="modal-content">
-                                <div class="modal-header-success">
+                                <div class="popup-successful-header">
                                     <h2>Your payment was successful</h2>
                                 </div>
-                                <div class="modal-footer-success">
+                                <div class="popup-successful-footer">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
                                 <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
@@ -143,10 +143,10 @@
                         <div id="unsuccess" class="modal">
                             <span></span>
                             <div class="modal-content">
-                                <div class="modal-header-unsuccess">
+                                <div class="popup-unsuccessful-header">
                                     <h2>Your payment was unsuccessful</h2>
                                 </div>
-                                <div class="modal-footer-unsuccess">
+                                <div class="popup-unsuccessful-footer">
                                     <p>Something went wrong with the payment, please try again later!</p>
                                 </div>
                                 <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>

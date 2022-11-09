@@ -2,31 +2,31 @@
     padding-top: 35px;
 }
 
-.shopping-cart-page table{
+.cartpage table{
     width: 100%;
     border-collapse: collapse;
     border-radius: 10px;
     
 }
 
-.shopping-cart-page table tr{
+.cartpage table tr{
     text-align: center;
 }
 
-.shopping-cart-page table thead{
+.cartpage table thead{
     background-color: #F4F4F4;
 }
-.shopping-cart-page table th{
+.cartpage table th{
     padding: 10px 20px;
     font-weight: 600;
     color: #8A8A8A;
 }
 
-.shopping-cart-page table tr td{
+.cartpage table tr td{
     padding:10px 20px;
 }
 
-.shopping-cart-page table .delete-btn, .shopping-cart-page table .checkout-btn{
+.cartpage table .delete-btn, .cartpage table .checkout-btn{
     width: 100px;
     height: 30px;
     border: 0;
@@ -35,45 +35,45 @@
     border-radius: 10px;
 }
 
-.shopping-cart-page table .delete-btn{
+.cartpage table .delete-btn{
     background-color: #502121c4;
     cursor: pointer;
 }
 
-.shopping-cart-page table .delete-btn:hover{
+.cartpage table .delete-btn:hover{
     background-color: #502121;
     cursor: pointer;
 }
 
-.shopping-cart-page table .checkout-btn{
+.cartpage table .checkout-btn{
     background-color: #215023be;
     width: 150px;
     height: 40px;
     cursor: pointer;
 }
 
-.shopping-cart-page table .checkout-btn:hover{
+.cartpage table .checkout-btn:hover{
     background-color: #215023;
     width: 150px;
     height: 40px;
     cursor: pointer;
 }
 
-.shopping-cart-page table .product-col img{
+.cartpage table .product-col img{
     width: 100px;
     vertical-align: middle;
     margin-right: 16px;
 }
 
-.shopping-cart-page table .total-price{
+.cartpage table .total-price{
     text-align: right;
     font-size: 24px;
 }
-.shopping-cart-page table .total-price span{
+.cartpage table .total-price span{
     font-weight: bold;
 }
 
-.shopping-cart-page table tfoot tr{
+.cartpage table tfoot tr{
     border-top: 1px solid #215023;
     height: 80px;
     padding-top: 30px;

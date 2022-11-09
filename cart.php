@@ -13,9 +13,9 @@
             include 'php/connectdb.php';
         ?>
 
-            <div class="shopping-cart-page page">
+            <div class="cartpage page">
                 <div class="title-container">
-                    <h1>Shopping cart</h1>
+                    <h1>Cart</h1>
                 </div>
                 <?php 
                     include 'php/connectdb.php';
@@ -33,9 +33,9 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Name</th>
-                                <th>Quantity</th>
+                                <th>Qty</th>
                                 <th>Unit Price</th>
-                                <th>Subtotal Price</th>
+                                <th>Subtotal</th>
                                 <th>Action</th>
                             </tr>   
                         </thead>
