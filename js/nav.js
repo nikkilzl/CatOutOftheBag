@@ -1,5 +1,5 @@
-let accountBtn = document.querySelector('.account-btn');
-let dropdown = document.querySelector('.account-dropdown');
+let userBTN = document.getElementsByClassName('.account-btn');
+let dropdown = document.getElementsByClassName('.account-dropdown');
 
 //when click on account button 
 function clickDropdown(){
@@ -12,12 +12,12 @@ function clickDropdown(){
     }
 };
 
-accountBtn.onclick = clickDropdown
+userBTN.onclick = clickDropdown
 
 
 //
 window.addEventListener('click', function(event) {
-    if (!dropdown.contains(event.target) && !accountBtn.contains(event.target) ) {
+    if (!dropdown.contains(event.target) && !userBTN.contains(event.target) ) {
         dropdown.style.height = '0'
         dropdown.style.padding = '0'
     }
