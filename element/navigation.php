@@ -1,7 +1,7 @@
 <?php
     include 'php/connectdb.php';
     include 'php/auth.php';
-    $conn->close();
+    mysqli_close($conn);
 ?>
 
 <nav>
@@ -40,20 +40,20 @@
         <div class="right-content">
             <div class="cart">
                 <a href="cart.php">
-                    <img src="assets/icon/shoppingcart.png" alt="cart"/>
-                    <div>Cart</div>
+                    <img src="assets/icon/shoppingcart.png" />
+                    <div>&nbsp;</div>
                 </a>
             </div>
             <div class="account">
                 <a href="#" class="account-btn">
-                    <img src="assets/icon/user.png" alt="account"/>
+                    <img src="assets/icon/user.png" />
                     <div>
                         <!-- check if user logged in or not -->
                         <?php 
-                            if (isset($_SESSION['username']))
+                            if (isset($_SESSION['username'])) //if the username is set and session started, get username for display
                                 echo $_SESSION['username'];
                             else
-                                echo 'Account'
+                                echo 'User' //if not set to just User
                         ?>
                     </div>
                 </a>
@@ -64,13 +64,13 @@
                         <?php 
                             if (!isset($_SESSION['username'])){
                                 echo '
-                                <li class="modal-open-btn" data-target="login-modal">Login <hr/></li>
-                                <li class="modal-open-btn" data-target="signup-modal">Signup</li>
+                                <li class="modal-open-btn" data-target="loginpopup">Login <hr/></li>
+                                <li class="modal-open-btn" data-target="signpopup">Sign up</li>
                                 ';
                             }
                             else {
                                 echo '
-                                    <li style="margin-top:12px; cursor: pointer;"> <a href="php/logout.php" style="color: #ede1d5;">Logout</a></li>
+                                    <li style="cursor: pointer;"> <a href="php/logout.php" style="color: #ede1d5;">Logout</a></li>
                                 ';
                             }
                         ?>
@@ -80,14 +80,12 @@
         </div>
     </div>
 
-    <!-- login Modal -->
-    <div id="login-modal" class="login-modal modal">
-        <!-- Modal content -->
+    <div id="loginpopup" class="loginpopup modal">
         <div class="modal-content">
             <span class="close">X</span>
             <div class="modal-body">
                 <h1>Login</h1>
-                <form method="POST" onsubmit="return handleSubmitLogin()">
+                <form method="POST" onsubmit="return setLogin()">
                     <div class="input-group">
                         <input 
                             type="text" 
@@ -95,7 +93,7 @@
                             placeholder="Username"
                             required
                             value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $prev_username : '' ?>"
-                        />
+                        /> <!-- if type is set and is equal to login (user click on login). if true then set username to what was last saved (from auth) -->
                     </div>
                     <div class="input-group">
                         <input 
@@ -111,21 +109,21 @@
                     <button class="sign-in-btn">Sign In</button>
                 </form>
                 <small>Don't have an account? Register <span class="sign-in-sign-up-link" 
-                    onclick="triggerModalById('signup-modal')"
+                    onclick="activatePopup('signpopup')"
                 >here</span></small>
             </div>
         </div>
     </div>
 
 
-    <!-- signup Modal -->
-    <div id="signup-modal" class="signup-modal modal">
-        <!-- Modal content -->
+
+    <div id="signpopup" class="signpopup modal">
+       
         <div class="modal-content">
             <span class="close">X</span>
             <div class="modal-body">
                 <h1>Sign Up</h1>
-                <form method="POST" onsubmit="return handleSubmitSignup()">
+                <form method="POST" onsubmit="return setSignup()">
                     <div class="input-group">
                         <input 
                             type="text" 
@@ -184,7 +182,7 @@
                     <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $errorMessage : '' ?></div>
                     <button class="sign-up-btn">Sign Up</button>
                 </form>
-                <small>Already have an account? <span class="sign-in-sign-up-link" onclick="triggerModalById('login-modal')">Sign In here</span></small>
+                <small>Already have an account? <span class="sign-in-sign-up-link" onclick="activatePopup('loginpopup')">Sign In here</span></small>
             </div>
         </div>
     </div>
@@ -192,18 +190,18 @@
     <script src="js/popup.js"></script>
     <script src="js/nav.js"></script>
     <?php 
-        if($showModal == 'login-modal')
-            echo '<script> triggerModalById("login-modal") </script>';
-        else if($showModal == 'signup-modal')
-            echo '<script> triggerModalById("signup-modal") </script>';
+        if($showModal == 'loginpopup')
+            echo '<script> activatePopup("loginpopup") </script>';
+        else if($showModal == 'signpopup')
+            echo '<script> activatePopup("signpopup") </script>';
     ?>
     <script src="js/validateForm.js"></script>
     <script>
-    function handleSubmitLogin(){
-        let form = document.getElementsByClassName('.login-modal form')
-        let username = form.getElementsByClassName('input[name="username"]').value
-        let password = form.getElementsByClassName('input[name="password"]').value
-        let errorDom = form.getElementsByClassName('.error-message')
+    function setLogin(){
+        var form = document.querySelector('.loginpopup form')
+        var username = form.querySelector('input[name="username"]').value
+        var password = form.querySelector('input[name="password"]').value
+        var errorDom = form.querySelector('.error-message')
 
         let isValidated = validateLogin({
             username, password, errorDom
@@ -211,16 +209,16 @@
         return isValidated
     }
 
-    function handleSubmitSignup(){
-        let form = document.getElementsByClassName('.signup-modal form')
-        let fullName = form.getElementsByClassName('input[name="fullName"]').value
-        let username = form.getElementsByClassName('input[name="username"]').value
-        let password = form.getElementsByClassName('input[name="password"]').value
-        let email = form.getElementsByClassName('input[name="email"]').value
-        let dateOfBirth = form.getElementsByClassName('input[name="dateOfBirth"]').value
-        let confirmPassword = form.getElementsByClassName('input[name="confirmPassword"]').value
+    function setSignup(){
+        var form = document.querySelector('.signpopup form')
+        var fullName = form.querySelector('input[name="fullName"]').value
+        var username = form.querySelector('input[name="username"]').value
+        var password = form.querySelector('input[name="password"]').value
+        var email = form.querySelector('input[name="email"]').value
+        var dateOfBirth = form.querySelector('input[name="dateOfBirth"]').value
+        var confirmPassword = form.querySelector('input[name="confirmPassword"]').value
 
-        let errorDom = form.getElementsByClassName('.error-message')
+        var errorDom = form.querySelector('.error-message')
 
         let isValidated = validateSignup({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom})
         console.log('isValidated', isValidated)
