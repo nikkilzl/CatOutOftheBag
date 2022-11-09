@@ -92,7 +92,7 @@
                 var result = '<?php echo($res); ?>'
                 switch(result){
                     case "LOGIN" : alert("Please login or sign up to add to cart");
-                                            triggerModalById("login-modal");
+                                    activatePopup("loginpopup");
                                             break;
                     case "ADDTOCART" :   alert("Item has been added to cart");
                                         break;                    

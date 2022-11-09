@@ -36,9 +36,9 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $_SESSION['custId'] = $custId;
             $showModal='';
         }
-        else{ //if login is failed
+        else{ //logging in fail
             $errorMessage = 'Invalid username or password';
-            $showModal = 'login-modal';
+            $showModal = 'loginpopup';
             $prev_username = $username;
             $prev_password = $_POST['password'];
         }
@@ -50,12 +50,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
         $isValidated = true;
         if ($_POST['password'] !== $_POST['confirmPassword'] ){
             $errorMessage = 'Password is not matched';
-            $showModal = 'signup-modal';
+            $showModal = 'signpopup';
             $isValidated = false;
         }
         if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['dateOfBirth']) || !isset($_POST['confirmPassword'])){
-            $errorMessage = 'Please fill all the field';
-            $showModal = 'signup-modal';
+            $errorMessage = 'Please enter all fields';
+            $showModal = 'signpopup';
             $isValidated = false;
         } 
 
@@ -78,14 +78,14 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
                     VALUES ('$username', '$password')";
             $result = $conn->query($query);
 
-            $query2 = "SELECT * from Account where username = '$username'";
-            $result = $conn->query($query2);
+            $queryn = "SELECT * from Account where username = '$username'";
+            $result = $conn->query($queryn);
             $row = $result->fetch_assoc();
             $accountId = $row['accountId'];
 
-            $query3 = "INSERT INTO CustomerDetails(accountId, fullName, email, phoneNumber, dateOfBirth)
+            $queryl = "INSERT INTO CustomerDetails(accountId, fullName, email, phoneNumber, dateOfBirth)
             VALUES ( $accountId, '$fullName', '$email', '' , '$dateOfBirth' )";
-            $result = $conn->query($query3);
+            $result = $conn->query($queryl);
 
             //register a session here
             $_SESSION['username'] = $username;    

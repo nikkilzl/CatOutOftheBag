@@ -103,7 +103,7 @@
                                     <td class="label">Address</td>
                                     <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $customerDetails['address']; ?> " required/> </td>
                                     <td class="label">Expires on</td>
-                                    <td> <input type="text" placeholder="MM/YY" name="creditCardExpires" required/> </td>
+                                    <td> <input type="text" placeholder="MM/YYYY" name="creditCardExpires" required/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>

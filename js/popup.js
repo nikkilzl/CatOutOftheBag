@@ -28,7 +28,7 @@ for(let i = 0 ; i < btns.length; i++){
 }
 
 // 
-function triggerModalById(id){
+function activatePopup(id){
   var btns = document.querySelectorAll(".modal-open-btn");
   for(let i = 0 ; i < btns.length; i++){
       let btn = btns[i]

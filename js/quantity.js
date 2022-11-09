@@ -1,12 +1,17 @@
-function setLimit(q, target) {
+
+  //to update qty count
+  function change(q) {
+    let countvalue = document.getElementById('count');
+    countvalue.value = parseInt(countvalue.value);
+    document.getElementById('qty').value = countvalue.value;
+  }
+
+
+  // when the up button is pressed in the product detail page, we want to change the number shown
+function setLimit(q, limit) {
     q = parseInt(q);
-    q = Number.isNaN(q) ? 0 : v;
-    target.value = q == 0 ? "" : q;
-    document.getElementById('qty').value = q < 0 ? 1 : q;
+    q = Number.isNaN(q) ? 0 : q; //check if the number is NaN, if true then set qty to 0, if false then set qty to the value
+    limit.value = q == 0 ? "" : q; //check if the qty value is equal to 0, if true then return nothing, if false then return the value
+    document.getElementById('qty').value = q < 0 ? 1 : q; //check if qty value is less than 0, if true then set to 1, if false then leave it and return value
   }
   
-  function change(q) {
-    let element = document.getElementById('count');
-    element.value = parseInt(element.value);
-    document.getElementById('qty').value = element.value;
-  }
