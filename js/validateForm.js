@@ -9,7 +9,7 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
         errorMessage = 'Please input all the field'
     }
     //validate full name and name on card
-    else if(!(/^([a-zA-Z ]|[a-zA-Z ][a-zA-Z ]*[a-zA-Z ])$/.test(fullName)) || !(/^([a-zA-Z ]|[a-zA-Z ][a-zA-Z ]*[a-zA-Z ])$/.test(nameOnCard))){
+    else if(!(/^[a-zA-Z ]+$/.test(fullName)) || !(/^[a-zA-Z ]+$/.test(nameOnCard))){
         isValidated = false
         errorMessage = 'Name can only contain alphabet characters and white spaces'
     }
@@ -79,13 +79,13 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     }
 
     //validate full name
-    else if(!(/^([a-zA-Z ]|[a-zA-Z][a-zA-Z ]*[a-zA-Z ])$/.test(fullName))){
+    else if(!(/^[a-zA-Z ]+$/.test(fullName))){
         isValidated = false
         errorMessage = 'Name can only contain alphabet characters and white spaces'
     }
 
     //validate username
-    else if(!(/^([a-zA-Z ]|[a-zA-Z ][a-zA-Z ]*[a-zA-Z ])$/.test(username))){
+    else if(!(/^[a-zA-Z]+$/.test(username))){
         isValidated = false
         errorMessage = 'Username can only contain alphabet characters'
     }
@@ -105,7 +105,7 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     //make sure that both passwords match
     else if(password !== confirmPassword){
         isValidated = false
-        errorMessage = 'Password does not match'
+        errorMessage = 'Passwords do not match'
     }
 
     if(!isValidated){

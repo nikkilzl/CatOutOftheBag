@@ -21,9 +21,9 @@
             
         ?>
             <div class="container content">
-                <div class="flex-row justify-content-between top-content" style="padding-bottom: 30px;">
+                <div class="flex-row justify-content-between top-content">
                     <div class="product__image">
-                        <img src="<?php echo $row['image']; ?>" alt="..." />
+                        <img src="<?php echo $row['image']; ?>" />
                     </div>
                     <div class="product__briefinfo">
                         <div class="product-name"><?php echo $row['name']; ?></div>
@@ -32,8 +32,8 @@
                         <div class="product-quantity">
                             <div class="flex-row" style="align-items: center;">
 
-                                <label class="input-group-text" style="margin-right:5px">Quantity</label>
-                                <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" onchange = "change(this.value)" style="margin-right:5px"/>
+                                <label class="input-group-text">Quantity</label>
+                                <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" onchange = "change(this.value)" />
                             </div>
                         </div><br>
                         <div class="buttons flex-row">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="information">
-                    <div class="information__heading">Product Descriptions</div>
+                    <div class="information__heading">Product Description</div>
                     <div class="information__description">
                         <?php echo nl2br($row['description']);    //nl2br gives a line break ?>
                     </div>
@@ -59,7 +59,7 @@
 
                 <!-- recommend other products from the same category-->
                 <div class="product-recommendation">
-                    <?php echo '<h1 style="margin-top:20px; margin-bottom:24px; color:#414934;">More from '. $row['category'].'</h1>' ?>
+                    <?php echo '<h1 style="margin-top:30px; margin-bottom:30px; color:#414934;">More from '. $row['category'].'</h1>' ?>
                     <div class="flex-row justify-content-around ">
                     <?php 
                         $query = "SELECT * FROM `product` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
@@ -69,7 +69,7 @@
                             echo '
                             <div class="card productcard">
                                 
-                                    <img src= "'.$row['image'].'" alt="..." class="card-img">
+                                    <img src= "'.$row['image'].'"  class="card-img">
                                 
                                 <div class="card-body">
                                 <a href="productdetail.php?productId='. $row['productId']. '" class="product-link">

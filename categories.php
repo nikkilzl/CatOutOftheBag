@@ -20,7 +20,7 @@
                 <div class="catcontent content flex-row justify-content-around">
                 <?php 
                     include 'php/connectdb.php';
-                    $result = mysqli_query($conn, "SELECT * FROM 'product' WHERE category = '$productCategory'");
+                    $result = mysqli_query($conn, "SELECT * FROM product WHERE category = '$productCategory'");
                     while($row= mysqli_fetch_assoc($result))
                     {  
                         echo '
