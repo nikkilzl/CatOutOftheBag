@@ -38,7 +38,7 @@
                                 <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
                                 <input type="hidden" value="cart" name="type" />
                                 <input type="hidden" value="1" name="quantity" id="qty" />
-                                <input type="submit" class="btn btn-outline-primary" value="Add to cart" />
+                                <input type="submit" class="button button-outline-primary" value="Add to cart" />
                             </form>
                         </div>          
                         
@@ -64,16 +64,16 @@
                         // fetch row results in associative array
                         while($row = $result->fetch_assoc()){
                             echo '
-                            <div class="card productcard">
+                            <div class="cardbox">
                                 
                                     <img src= "'.$row['image'].'"  class="card-img">
                                 
-                                <div class="card-body">
+                                <div class="cardbox-content">
                                 <a href="productdetail.php?productId='. $row['productId']. '" class="selectproduct">
-                                    <h5 class="card-title"> '.$row['name'].' </h5>
+                                    <h5 class="cardbox-title"> '.$row['name'].' </h5>
                                     </a>
                                     <div>
-                                        <p class="card-text prod-price">$'.$row['price'].'</p>
+                                        <p class="cardbox-text prod-price">$'.$row['price'].'</p>
                                     </div>
                                 </div>
                             </div> ' ;
