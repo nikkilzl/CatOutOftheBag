@@ -43,7 +43,7 @@ CREATE TABLE `cart_items` (
 --
 ALTER TABLE `cart_items`
   ADD PRIMARY KEY (`cartId`),
-  ADD KEY `orderId` (`orderId`),
+  ADD KEY `transaction` (`transaction`),
   ADD KEY `productId` (`productId`);
 
 --
