@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 07:02 AM
+-- Generation Time: Nov 10, 2022 at 04:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,17 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customerdetails`
+-- Table structure for table `cart_items`
 --
 
-CREATE TABLE `customerdetails` (
-  `custId` int(10) UNSIGNED NOT NULL,
-  `accountId` int(10) UNSIGNED DEFAULT NULL,
-  `fullName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phoneNumber` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dateOfBirth` date DEFAULT NULL
+CREATE TABLE `cart_items` (
+  `cartId` int(10) UNSIGNED NOT NULL,
+  `orderId` int(10) UNSIGNED DEFAULT NULL,
+  `productId` int(10) UNSIGNED DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -42,31 +39,33 @@ CREATE TABLE `customerdetails` (
 --
 
 --
--- Indexes for table `customerdetails`
+-- Indexes for table `cart_items`
 --
-ALTER TABLE `customerdetails`
-  ADD PRIMARY KEY (`custId`),
-  ADD KEY `accountId` (`accountId`);
+ALTER TABLE `cart_items`
+  ADD PRIMARY KEY (`cartId`),
+  ADD KEY `orderId` (`orderId`),
+  ADD KEY `productId` (`productId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `customerdetails`
+-- AUTO_INCREMENT for table `cart_items`
 --
-ALTER TABLE `customerdetails`
-  MODIFY `custId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `cart_items`
+  MODIFY `cartId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `customerdetails`
+-- Constraints for table `cart_items`
 --
-ALTER TABLE `customerdetails`
-  ADD CONSTRAINT `customerdetails_ibfk_1` FOREIGN KEY (`accountId`) REFERENCES `account` (`accountId`);
+ALTER TABLE `cart_items`
+  ADD CONSTRAINT `cart_items_ibfk_1` FOREIGN KEY (`orderId`) REFERENCES `transaction` (`transactionId`),
+  ADD CONSTRAINT `cart_items_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

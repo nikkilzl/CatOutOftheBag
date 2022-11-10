@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 07:02 AM
+-- Generation Time: Nov 10, 2022 at 04:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,11 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `transaction`
 --
 
-CREATE TABLE `order` (
-  `orderId` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `transaction` (
+  `transactionId` int(10) UNSIGNED NOT NULL,
   `paid` int(11) DEFAULT NULL,
   `custId` int(10) UNSIGNED DEFAULT NULL,
   `purchasedDate` date DEFAULT NULL,
@@ -40,10 +40,10 @@ CREATE TABLE `order` (
 --
 
 --
--- Indexes for table `order`
+-- Indexes for table `transaction`
 --
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`orderId`),
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`transactionId`),
   ADD KEY `custId` (`custId`);
 
 --
@@ -51,20 +51,20 @@ ALTER TABLE `order`
 --
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `transaction`
 --
-ALTER TABLE `order`
-  MODIFY `orderId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `transaction`
+  MODIFY `transactionId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `order`
+-- Constraints for table `transaction`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`custId`) REFERENCES `customerdetails` (`custId`);
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`custId`) REFERENCES `cust_dets` (`custId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
