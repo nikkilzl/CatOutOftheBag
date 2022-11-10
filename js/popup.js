@@ -5,9 +5,11 @@ var btns = document.querySelectorAll(".popup-open-btn");
 let currentpopup;
 for(let i = 0 ; i < btns.length; i++){
   var btn = btns[i]
-  var targetId = btn.getAttribute('data-target')
-  var popup =  document.getElementById(targetId) 
-  var span = document.querySelector(`#${targetId} .close`)
+  var poptarget = btn.getAttribute('data-target')
+  //attribute is the target that was referenced
+  var popup =  document.getElementById(poptarget) 
+  var span = document.querySelector(`#${poptarget} .close`)
+  //cannot use getElement here because it's not a classname or idname
 
   // When the user clicks the button, open the popup 
   btn.addEventListener("click", function() {
@@ -15,13 +17,13 @@ for(let i = 0 ; i < btns.length; i++){
       currentpopup.style.display = "none";
     }
     popup.style.display = "block";
-    currentpopup = popup
+    currentpopup = popup;
   })
 
-  // When the user clicks on <span> (x), it will close the popup
+  // When the user clicks X, it will close the popup
   span.onclick = function() {
     popup.style.display = "none";
-    currentpopup = null
+    //set the display to none so that the popup disappears
   }
 
 }
@@ -31,8 +33,8 @@ function activatePopup(id){
   var btns = document.querySelectorAll(".popup-open-btn");
   for(let i = 0 ; i < btns.length; i++){
       var btn = btns[i]
-      var targetId = btn.getAttribute('data-target')
-      var popup =  document.getElementById(targetId)       
+      var poptarget = btn.getAttribute('data-target')
+      var popup =  document.getElementById(poptarget)       
 
       popup.style.display = "none";
   }
