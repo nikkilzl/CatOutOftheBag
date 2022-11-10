@@ -181,15 +181,15 @@
         let form = document.querySelector('#place-order-form')
 
         try {
-            let form = document.querySelector('#place-order-form')
-            let fullName = form.querySelector('input[name="fullName"]').value
-            let email = form.querySelector('input[name="email"]').value
-            let phoneNumber = form.querySelector('input[name="phoneNumber"]').value
-            let address = form.querySelector('input[name="address"]').value
-            let nameOnCard = form.querySelector('input[name="nameOnCard"]').value
-            let cardNo = form.querySelector('input[name="cardNo"]').value
-            let cardexpiry = form.querySelector('input[name="creditCardExpires"]').value
-            let cvv = form.querySelector('input[name="cvv"]').value
+            var form = document.querySelector('#place-order-form')
+            var fullName = form.querySelector('input[name="fullName"]').value
+            var email = form.querySelector('input[name="email"]').value
+            var phoneNumber = form.querySelector('input[name="phoneNumber"]').value
+            var address = form.querySelector('input[name="address"]').value
+            var nameOnCard = form.querySelector('input[name="nameOnCard"]').value
+            var cardNo = form.querySelector('input[name="cardNo"]').value
+            var cardexpiry = form.querySelector('input[name="creditCardExpires"]').value
+            var cvv = form.querySelector('input[name="cvv"]').value
 
             let isValidated = orderVal({
                 fullName, email, phoneNumber, address, nameOnCard, cardNo, cardexpiry, cvv
