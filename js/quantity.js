@@ -1,8 +1,12 @@
 
   //to update qty count
   function change(q) {
-    let countvalue = document.getElementById('count');
+    var countvalue = document.getElementById('count');
+    //get the count number from the product detail page
     countvalue.value = parseInt(countvalue.value);
+    //let the value of countvalue be the INTEGER and not float or any weird number
+    // parseInt() parses a string argument and returns an integer of the specified radix
+
     document.getElementById('qty').value = countvalue.value;
   }
 

@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="account">
-                <a href="#" class="account-btn">
+                <a href="#" id="userbtn">
                     <img src="assets/icon/user.png" />
                     <div>
                         <!-- check if user logged in or not -->
@@ -57,7 +57,7 @@
                         ?>
                     </div>
                 </a>
-                <div class="account-dropdown" style="height: 0; padding: 0;">
+                <div id="userdropdown" style="height: 0; padding: 0;">
                     <ul>
                         <!-- if no user logged in, show login and signup dropdown.
                             if user is logged in, show logout dropdown-->

@@ -96,13 +96,13 @@ const orderVal = ({nameOnCard, cardNo, cardexpiry, cvv}) => {
      // credit card number should have 16 numbers - no letters
      else if(!(/^\d{13-16}$/.test(cardNo))){
         isValidated = false
-        errorMessage = 'Please input a correct credit card number. Your credit card number should be 13-16 digits.'
+        errorMessage = 'Your credit card number is invalid. Your credit card number should be 13-16 digits.'
     }
         //check for cvv
     //  cvv should be 3 numbers
     else if(!(/^\d{3}$/.test(cvv))){
         isValidated = false
-        errorMessage = 'Please input a correct CVV. You can find your 3-digit CVV number at the back of your card.'
+        errorMessage = 'Your CVV is invalid. You can find your 3-digit CVV number at the back of your card.'
     }
     //check for credit card expires on
     // can only input until '12' for month part
