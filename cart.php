@@ -23,7 +23,7 @@
                         echo "Please Login or sign up to continue";
                     else {
                         $cid = $_SESSION['custId'];
-                        $query = "SELECT * FROM `transaction` , `cart_items`,`Product` WHERE `transaction`.`transactionId` = `cart_items`.`transactionId` and `cart_items`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
+                        $query = "SELECT * FROM `transaction` , `cartItem`,`Product` WHERE `transaction`.`transactionId` = `cartItem`.`transactionId` and `cartItem`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
                         $result = mysqli_query($conn, $query);
   
                 ?>
