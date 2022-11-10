@@ -92,7 +92,7 @@
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $prev_username : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $init_username : '' ?>"
                         /> <!-- if type is set and is equal to login (user click on login). if true then set username to what was last saved (from auth) -->
                     </div>
                     <div class="input-group">
@@ -101,7 +101,7 @@
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $prev_password : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $init_password : '' ?>"
                         />
                     </div>
                     <input type="hidden" name="type" value="login"/>
@@ -130,7 +130,7 @@
                             name="fullName"
                             placeholder="Full Name"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_fullName : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_fullName : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -139,7 +139,7 @@
                             name="email"
                             placeholder="Email"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $prev_email : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $init_email : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -148,16 +148,16 @@
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $prev_username : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $init_username : '' ?>"
                         />
                     </div>
                     <div class="input-group">
                         <input 
                             type="date" 
-                            name="dateOfBirth"
+                            name="DOB"
                             placeholder="Date of Birth"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_dateOfBirth : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_DOB : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -166,7 +166,7 @@
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_password : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_password : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -175,7 +175,7 @@
                             name="confirmPassword"
                             placeholder="Confirm Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_confirmPassword : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_confirmPassword : '' ?>"
                         />
                     </div>
                     <input type="hidden" name="type" value="signup"/>
@@ -215,12 +215,12 @@
         var username = form.querySelector('input[name="username"]').value
         var password = form.querySelector('input[name="password"]').value
         var email = form.querySelector('input[name="email"]').value
-        var dateOfBirth = form.querySelector('input[name="dateOfBirth"]').value
+        var DOB = form.querySelector('input[name="DOB"]').value
         var confirmPassword = form.querySelector('input[name="confirmPassword"]').value
 
         var error = form.querySelector('.error-message')
 
-        let isValidated = signVal({fullName, email, username, dateOfBirth, password, confirmPassword, error})
+        let isValidated = signVal({fullName, email, username, DOB, password, confirmPassword, error})
         console.log('isValidated', isValidated)
         return isValidated
     }
