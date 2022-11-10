@@ -19,14 +19,14 @@
         ?>
             <div class="container content">
                 <div class="flex-row justify-content-between top-content">
-                    <div class="product__image">
+                    <div class="prod-img">
                         <img src="<?php echo $row['image']; ?>" />
                     </div>
-                    <div class="product__briefinfo">
-                        <div class="product-name"><?php echo $row['name']; ?></div>
+                    <div class="prod-details">
+                        <div class="prod-name"><?php echo $row['name']; ?></div>
                         
-                        <div class="product-price"><?php echo "$".$row['price']; ?></div>
-                        <div class="product-quantity">
+                        <div class="prod-price"><?php echo "$".$row['price']; ?></div>
+                        <div class="prod-qty">
                             <div class="flex-row" style="align-items: center;">
 
                                 <label class="input-group-text">Quantity</label>
@@ -44,7 +44,7 @@
                         
                     </div>
                 </div>
-                <div class="information">
+                <div class="description">
                     <div class="infotitle">Product Description</div>
                     <div class="productdes">
                         <?php echo nl2br($row['description']);    //nl2br gives a line break ?>
@@ -55,7 +55,7 @@
                 <hr/>
 
                 <!-- recommend other products from the same category-->
-                <div class="product-recommendation">
+                <div class="prod-reco">
                     <?php echo '<h1 style="margin-top:30px; margin-bottom:30px; color:#414934;">More from '. $row['category'].'</h1>' ?>
                     <div class="flex-row justify-content-around ">
                     <?php 
@@ -73,7 +73,7 @@
                                     <h5 class="card-title"> '.$row['name'].' </h5>
                                     </a>
                                     <div>
-                                        <p class="card-text product-price">$'.$row['price'].'</p>
+                                        <p class="card-text prod-price">$'.$row['price'].'</p>
                                     </div>
                                 </div>
                             </div> ' ;

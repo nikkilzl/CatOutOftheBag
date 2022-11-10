@@ -735,61 +735,63 @@ nav .error-message{
     font-weight: bold;
 }
 
+/* PRODUCT DETAIL PAGE */
+
 .product{
     margin-top: 30px;
 }
 
-.product__briefinfo * {
+.prod-details * {
     margin-bottom:5px;
 }
-.product__briefinfo {
+.prod-details {
     width: 50%;
 }
-.product__image {
+.prod-img {
     width: 50%;
     max-width: 400px;
     max-height: 330px;
 
 }
-.product__image img {
+.prod-img img {
     max-width:80%;
     max-height: 300px;
     margin:auto;
     display: block;
 }
-.product-name{
+.prod-name{
     font-size: 24px;
 }
 
-.product-price{
+.prod-price{
     font-size: 26px;
     font-weight: bold;
     margin-top: 12px;
 }
 
-.product-quantity{
+.prod-qty{
     margin-top: 36px;
 }
-.product-quantity input{
+.prod-qty input{
     width: 50px;
     height: 40px;
     padding:6px;
     box-sizing: border-box;
     margin:0;
 }
-.product-quantity .flex-row{
+.prod-qty .flex-row{
     gap:12px;
     align-items: center;
 }
-.product-quantity .flex-row >div{
+.prod-qty .flex-row >div{
     display: flex;
     gap:10px;
 }
-.product-quantity .flex-row >div >div{
+.prod-qty .flex-row >div >div{
     width: 50px;
     margin:0;
 }
-.product-quantity button{margin:0;}
+.prod-qty button{margin:0;}
 
 .buttons{
     margin-top: 10px;
@@ -829,10 +831,10 @@ nav .error-message{
     border: 1px solid #bbbbbb;
 }
 
-.information > *{
+.description > *{
     margin-bottom:5px;
 }
-.information__description{
+.description-text{
     padding:20px 12px; 
     line-height: 22px;
 }
@@ -919,14 +921,14 @@ nav .error-message{
 }
 
 
-.product-link {
+.prod-link {
     margin-bottom: .75rem;
     font-size: 16px;
     font-weight: 400;
     color: #000000;
 }
 
-.product-link:hover {
+.prod-link:hover {
     margin-bottom: .75rem;
     font-size: 16px;
     font-weight: 400;
@@ -963,11 +965,11 @@ nav .error-message{
 }
 
 
-.checkpage .ordertable .product-display{
+.checkpage .ordertable .prod-display{
 display: flex;
 align-items: center;
 }
-.checkpage .ordertable .product-display img{
+.checkpage .ordertable .prod-display img{
   width: 100px;
   vertical-align: middle;
   margin-right: 16px;
