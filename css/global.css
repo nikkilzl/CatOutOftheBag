@@ -920,55 +920,55 @@ nav .error-message{
     color: #656d4a;
 }
 
-.checkpage .order-summary h2{
+.checkpage .ord-sum h2{
   margin-top: 10px;
   margin-bottom: 20px;
   font-size: 24px;
 }
 
-.checkpage .ordertable{
+.checkpage .ord-tbl{
   width: 100%;
   border-radius: 10px;
   border-collapse: collapse;
 }
 
-.checkpage .ordertable tr{
+.checkpage .ord-tbl tr{
   text-align: center;
 }
 
-.checkpage .ordertable thead{
+.checkpage .ord-tbl thead{
   background-color: #215023be;
 }
-.checkpage .ordertable th{
+.checkpage .ord-tbl th{
   padding: 10px 20px;
   font-weight: 600;
   color: white;
 }
 
-.checkpage .ordertable tr td{
+.checkpage .ord-tbl tr td{
   padding:10px 20px;
 }
 
 
-.checkpage .ordertable .prod-display{
+.checkpage .ord-tbl .prod-display{
 display: flex;
 align-items: center;
 }
-.checkpage .ordertable .prod-display img{
+.checkpage .ord-tbl .prod-display img{
   width: 100px;
   vertical-align: middle;
   margin-right: 16px;
 }
 
-.checkpage .ordertable .price-total{
+.checkpage .ord-tbl .price-total{
   text-align: right;
   font-size: 24px;
 }
-.checkpage .ordertable .price-total span{
+.checkpage .ord-tbl .price-total span{
   font-weight: bold;
 }
 
-.checkpage .ordertable tfoot tr{
+.checkpage .ord-tbl tfoot tr{
   height: 80px;
   padding-top: 30px;
   border-top: 1px solid lightgrey;  
@@ -1011,18 +1011,18 @@ align-items: center;
   background-color: #3DA300;
 }
 
-.checkpage .cust-det-tbl .total-payment{
+.checkpage .cust-det-tbl .payment-sum{
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap:20px;
   padding-top: 20px;
 }
-.checkpage .cust-det-tbl .total-payment >div{
+.checkpage .cust-det-tbl .payment-sum >div{
   font-size: 24px;
 
 }
-.checkpage .cust-det-tbl .total-payment >div span{
+.checkpage .cust-det-tbl .payment-sum >div span{
   font-weight: bold;
 }
 .checkpage .cust-det-tbl tr:last-child{
@@ -1046,16 +1046,15 @@ color: #ffffff;
 /* Payment Notification Pop-Up */
 
 .popup {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 999; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: #000000;
 }
 
 

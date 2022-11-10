@@ -28,7 +28,7 @@
     else{
         //handle payment by third party 
         //assume success
-        $sql = "UPDATE `transaction` SET totalAmount = $totalAmount, purchasedDate =now(), paid = 1 where transactionId = ".$oid;
+        $sql = "UPDATE `transaction` SET totalAmount = $totalAmount, purchasedDate =now(), paid = 1 where `transactionId` = ".$oid;
         //update the total and the date when checkout into the database to the correct user
         mysqli_query($conn, $sql);
         // run the sql query

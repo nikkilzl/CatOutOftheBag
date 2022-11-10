@@ -31,10 +31,10 @@
                 <div class="title-container">
                     <h1>Checkout</h1>
                 </div>
-                <div class="order-summary content">
-                    <div class="order-summary">
+                <div class="ord-sum content">
+                    <div class="ord-sum">
                         <h2>Order summary</h2>
-                        <table class="ordertable">
+                        <table class="ord-tbl">
                             <thead>
                                 <tr>
                                     <th>Product</th>
@@ -89,19 +89,19 @@
                                 <tr>
                                     <td class="label">Email</td>
                                     <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $cust_dets['email']; ?>" required/> </td>
-                                    <td class="label">Name on card</td>
+                                    <td class="label">Name on Card</td>
                                     <td> <input type="text" placeholder="Enter your full name on card" name="nameOnCard" required/> </td>
                                 </tr>
                                 <tr>
-                                    <td class="label">Phone Number</td>
+                                    <td class="label">Contact Number</td>
                                     <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $cust_dets['phoneNumber']; ?> " required/> </td>
-                                    <td class="label">Credit card No.</td>
+                                    <td class="label">Credit card Number</td>
                                     <td> <input type="text" placeholder="16 digit Credit card number" name="cardNo" required/> </td>
                                 </tr>
                                 <tr>
-                                    <td class="label">Address</td>
+                                    <td class="label">Shipping Address</td>
                                     <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $cust_dets['address']; ?> " required/> </td>
-                                    <td class="label">Expires on</td>
+                                    <td class="label">Expiry Date</td>
                                     <td> <input type="text" placeholder="MM/YYYY" name="creditCardExpires" required/> </td>
                                 </tr>
                                 <tr>
@@ -114,7 +114,7 @@
                                     <td></td>
                                     <td></td>
                                     <td colspan="2">
-                                        <div class="total-payment">
+                                        <div class="payment-sum">
                                             <input type="hidden" name="totalAmount" value="<?php echo $total;?>"/>
                                             <input type="hidden" name="transactionId" value="<?php echo $transactionId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
