@@ -6,7 +6,7 @@
     $hpNo = $_POST["phoneNumber"];
     $address = $_POST["address"];
     $totalAmount = $_POST["totalAmount"];
-    $oid = $_POST["orderId"];
+    $oid = $_POST["transactionId"];
     $custId = $_POST["custId"];
     // this is to retrieve all the info from checkout and pull it for the email 
 
@@ -28,7 +28,7 @@
     else{
         //handle payment by third party 
         //assume success
-        $sql = "UPDATE `Order` SET totalAmount = $totalAmount, purchasedDate =now(), paid = 1 where orderId = ".$oid;
+        $sql = "UPDATE `transaction` SET totalAmount = $totalAmount, purchasedDate =now(), paid = 1 where transactionId = ".$oid;
         //update the total and the date when checkout into the database to the correct user
         mysqli_query($conn, $sql);
         // run the sql query
@@ -38,7 +38,7 @@
             $success = 'true';
         
             //send email
-            //this is for the sender and recipient email and the content of the email
+            //this is for the sender and recipient email and the content of the
             $to      = 'f32ee@localhost';
             $subject = 'Your order is on its way! - Cat Out of The Bag';
             $message = '

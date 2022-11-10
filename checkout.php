@@ -19,11 +19,11 @@
             include 'php/connectdb.php';
                    
             $cid = $_SESSION['custId'];
-            $query = "SELECT * FROM CustomerDetails where custId=$cid";
-            $customerDetails = mysqli_query($conn, $query);
-            $customerDetails = $customerDetails->fetch_assoc();
+            $query = "SELECT * FROM cust_dets where custId=$cid";
+            $cust_dets = mysqli_query($conn, $query);
+            $cust_dets = $cust_dets->fetch_assoc();
 
-            $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
+            $query = "SELECT * FROM `transaction` , `cart_items`,`Product` WHERE `transaction`.`transactionId` = `cart_items`.`transactionId` and `cart_items`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
             $result = mysqli_query($conn, $query);
 
         ?>
@@ -46,10 +46,10 @@
                             <tbody>
                                 <?php
                                     $total=0;
-                                    $orderId = 0;
+                                    $transactionId = 0;
                                     while($row = mysqli_fetch_assoc($result)){
                                         $total+=$row['price']*$row['quantity'];
-                                        $orderId  = $row['orderId'];
+                                        $transactionId  = $row['transactionId'];
                                         echo '
                                         <tr>
                                             <td class="product-display"> 
@@ -82,25 +82,25 @@
                             <table class="cust-det-tbl">
                                 <tr>
                                     <td class="label">Full Name</td>
-                                    <td> <input type="text" placeholder="Full name" name="fullName" value="<?php echo $customerDetails['fullName']; ?>" required/> </td>
+                                    <td> <input type="text" placeholder="Full name" name="fullName" value="<?php echo $cust_dets['fullName']; ?>" required/> </td>
                                     <td class="label">Payment Method</td>
                                     <td><input type="radio" checked name="paymentMethod"/> Credit Card</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Email</td>
-                                    <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $customerDetails['email']; ?>" required/> </td>
+                                    <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $cust_dets['email']; ?>" required/> </td>
                                     <td class="label">Name on card</td>
                                     <td> <input type="text" placeholder="Enter your full name on card" name="nameOnCard" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Phone Number</td>
-                                    <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $customerDetails['phoneNumber']; ?> " required/> </td>
+                                    <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $cust_dets['phoneNumber']; ?> " required/> </td>
                                     <td class="label">Credit card No.</td>
                                     <td> <input type="text" placeholder="16 digit Credit card number" name="cardNo" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Address</td>
-                                    <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $customerDetails['address']; ?> " required/> </td>
+                                    <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $cust_dets['address']; ?> " required/> </td>
                                     <td class="label">Expires on</td>
                                     <td> <input type="text" placeholder="MM/YYYY" name="creditCardExpires" required/> </td>
                                 </tr>
@@ -116,7 +116,7 @@
                                     <td colspan="2">
                                         <div class="total-payment">
                                             <input type="hidden" name="totalAmount" value="<?php echo $total;?>"/>
-                                            <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
+                                            <input type="hidden" name="transactionId" value="<?php echo $transactionId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
                                             <div>Total Payment: <span>$<?php echo $total;?></span></div>
                                             <button class="order-button">Order</button>

@@ -1,8 +1,8 @@
 <?php
     include "connectdb.php";
     $pid = $_POST['product_id'];
-    $oid = $_POST['order_id'];
-    $sql = "delete from OrderItems where productId = $pid and orderId = $oid";
+    $oid = $_POST['transaction_id'];
+    $sql = "delete from cart_items where productId = $pid and transactionId = $oid";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
     header("Location:../cart.php");

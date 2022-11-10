@@ -7,6 +7,7 @@ if(session_id() == ''){
 $showpopup = isset($_GET['showpopup']) ? $_GET['showpopup'] : '';
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
+    //type refers to either login or signup
     $username = $conn->real_escape_string($_POST['username']); //real_escape_string escapes special characters in strings (for Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.)
     $password = $conn->real_escape_string($_POST['password']);
     $password = md5($password); //password hash
@@ -27,7 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $_SESSION['username'] = $username;    
             $_SESSION['accountId'] = $accountId;
 
-            $query = 'SELECT * from CustomerDetails '
+            $query = 'SELECT * from cust_dets '
             ."WHERE accountId='$accountId'";
             $result = $conn->query($query);
             $row = $result->fetch_assoc();
@@ -39,8 +40,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
         else{ //logging in fail
             $errorMessage = 'Invalid username or password';
             $showpopup = 'loginpopup';
-            $prev_username = $username;
-            $prev_password = $_POST['password'];
+            $init_username = $username;
+            $init_password = $_POST['password'];
         }
 
     }
@@ -49,30 +50,30 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
         //validate first
         $isValidated = true;
         if ($_POST['password'] !== $_POST['confirmPassword'] ){
-            $errorMessage = 'Password is not matched';
+            $errorMessage = 'Passwords do not match';
             $showpopup = 'signpopup';
             $isValidated = false;
         }
-        if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['dateOfBirth']) || !isset($_POST['confirmPassword'])){
-            $errorMessage = 'Please enter all fields';
+        if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['DOB']) || !isset($_POST['confirmPassword'])){
+            $errorMessage = 'Please fill in all fields';
             $showpopup = 'signpopup';
             $isValidated = false;
         } 
 
         if(!$isValidated){
-            $prev_fullName = $_POST['fullName'];
-            $prev_username = $username;
-            $prev_password = $_POST['password'];
-            $prev_email = $_POST['email'];
-            $prev_dateOfBirth= $_POST['dateOfBirth'];
-            $prev_confirmPassword = $_POST['confirmPassword'];
+            $init_fullName = $_POST['fullName'];
+            $init_username = $username;
+            $init_password = $_POST['password'];
+            $init_email = $_POST['email'];
+            $init_DOB= $_POST['DOB'];
+            $init_confirmPassword = $_POST['confirmPassword'];
         }
 
         //signup account to database
         if($isValidated){
             $email = $_POST['email'];
             $fullName = $_POST['fullName'];
-            $dateOfBirth = $_POST['dateOfBirth'];
+            $DOB = $_POST['DOB'];
 
             $query = "INSERT INTO Account (username, password) 
                     VALUES ('$username', '$password')";
@@ -83,15 +84,15 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $row = $result->fetch_assoc();
             $accountId = $row['accountId'];
 
-            $queryl = "INSERT INTO CustomerDetails(accountId, fullName, email, phoneNumber, dateOfBirth)
-            VALUES ( $accountId, '$fullName', '$email', '' , '$dateOfBirth' )";
+            $queryl = "INSERT INTO cust_dets(accountId, fullName, email, phoneNumber, DOB)
+            VALUES ( $accountId, '$fullName', '$email', '' , '$DOB' )";
             $result = $conn->query($queryl);
 
             //register a session here
             $_SESSION['username'] = $username;    
             $_SESSION['accountId'] = $accountId;    
 
-            $query = 'SELECT * from CustomerDetails '
+            $query = 'SELECT * from cust_dets '
             ."WHERE accountId='$accountId'";
             $result = $conn->query($query);
             $row = $result->fetch_assoc();
