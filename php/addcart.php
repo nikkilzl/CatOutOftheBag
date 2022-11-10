@@ -18,7 +18,7 @@
         }
     } else {
         $sql = "INSERT INTO `transaction` (paid, custId) VALUES (0, $cid);";
-        $sql .= "INSERT INTO `cartItem` (transactionId, productId, quantity) VALUES (LAST_INSERT_ID(), $id, $quantity)"; //LAST_INSERT_ID() gives the transactionId inserted into transaction in the previous statement
+        $sql .= "INSERT INTO `cartItem` (`transactionId`, productId, quantity) VALUES (LAST_INSERT_ID(), $id, $quantity)"; //LAST_INSERT_ID() gives the transactionId inserted into transaction in the previous statement
         mysqli_multi_query($conn, $sql);
         $res = "ADDTOCART";
     }
