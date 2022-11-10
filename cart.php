@@ -65,7 +65,7 @@
                                             <form action="php/deletecart.php"method="POST">
                                                 <input type="hidden" value="'. $row['productId']. '" name="product_id" />
                                                 <input type="hidden" value="'. $row['orderId']. '" name="order_id" />
-                                                <input type="submit" class="delete-btn" value="Delete" />
+                                                <input type="submit" class="delete-button" value="Delete" />
                                             </form>
                                         </td>
                                     </tr>';
@@ -83,7 +83,7 @@
                                             <form action="checkout.php" method="POST">
                                             <input type="hidden" value="<?php echo $total; ?>" name="total" />
                                             <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
-                                            <input type="submit" class="checkout-btn" value="Checkout" />
+                                            <input type="submit" class="checkout-button" value="Checkout" />
                                         </td>
                                     </tr> ';
                                 }

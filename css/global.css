@@ -125,7 +125,7 @@ a:hover{
     margin-bottom: 50px;
     margin-top:40px;
 }
-.card {
+.cardbox {
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -139,7 +139,7 @@ a:hover{
     border-radius: 10px;
     padding:24px 6px;
 }
-.card-img, .card-img-top {
+.cardbox-img, .cardbox-img-top {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     max-width: 80%;
@@ -147,7 +147,7 @@ a:hover{
     margin:auto;
 }
 
-.card-body {
+.cardbox-content {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     min-height: 1px;
@@ -157,29 +157,29 @@ a:hover{
     flex-direction: column;
 }
 
-.card-title {
+.cardbox-title {
     margin-bottom: .75rem;
     font-size: 1.2em;
     font-weight: 400;
     color: #000000;
 }
 
-.card-title:hover {
+.cardbox-title:hover {
     margin-bottom: .75rem;
     font-size: 1.2em;
     font-weight: 400;
     color: #656d4a;
 }
 
-.btn:not(:disabled):not(.disabled) {
+.button:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
-.btn-block {
+.button-block {
     display: block;
     width: 100%;
 }
 
-.btn {
+.button {
     display: inline-block;
     text-decoration: none !important;
     margin:2px;
@@ -196,19 +196,19 @@ a:hover{
     border-radius: 10px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.btn-success {
+.button-success {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
 }
-.btn-success:hover{
+.button-success:hover{
     color: #fff;
 }
-.btn-outline-warning {
+.button-outline-warning {
     color: #ffc107;
     border-color: #ffc107;
 }
-.btn-outline-warning:hover{
+.button-outline-warning:hover{
     color: #fff;
     background-color: #ffc107;
 }
@@ -221,33 +221,33 @@ a:hover{
 
 */
 
-.btn-outline-primary {
+.button-outline-primary {
     color: #ffffff;
     border-color: #656d4a;
     background-color: #656d4a;
 }
-.btn-outline-primary:hover {
+.button-outline-primary:hover {
     color: #ffffff;
     border-color: #414934;
     background-color: #414934;
 }
-.btn-outline-success {
+.button-outline-success {
     color: #28a745;
     border-color: #28a745;
 }
-.btn-danger {
+.button-danger {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
 }
 
 
-.card .cart-button{
+.cardbox .cart-button{
     margin-top: 20px;
     margin-bottom: 12px;
 }
 
-.card .item-price{
+.cardbox .item-price{
     font-size: 22px;
     font-weight: bold;
 }
@@ -282,7 +282,7 @@ a:hover{
     align-items: center;
 }
 
-.categories-card {
+.categories-cardbox {
     margin: 30px 20px 20px 50px;
     width: 25%;
     align-items: center;
@@ -290,12 +290,12 @@ a:hover{
     padding: 20px;
 }
 
-.categories-card img {
+.categories-cardbox img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.categories-card p {
+.categories-cardbox p {
   padding-top: 10px;
   font-size:12px;
 }
@@ -554,7 +554,7 @@ nav .account-dropdown ul li hr{
 }
 
 /* 
- * Transform all the slices of hamburger into a crossmark.
+ * Transform hamburger lines into cross
  */
 #menuToggle input:checked ~ span
 {
@@ -575,7 +575,7 @@ nav .account-dropdown ul li hr{
 }
 
 /*
- * Make this absolute positioned at the top left of the screen
+ * Make this positioned at the top left of the screen
  */
 #menu
 {
@@ -684,20 +684,20 @@ nav .error-message{
 
 */
 
-.sign-in-btn {
+.sign-in-button {
   background-color: #215023be !important;
 }
 
-.sign-in-btn:hover {
+.sign-in-button:hover {
   background-color: #215023 !important;
 }
 
 
-.sign-up-btn {
+.sign-up-button {
   background-color: #215023be !important;
 }
 
-.sign-up-btn:hover {
+.sign-up-button:hover {
   background-color: #215023 !important;
 }
 
@@ -867,7 +867,7 @@ nav .error-message{
     padding:10px 20px;
 }
 
-.cartpage table .delete-btn, .cartpage table .checkout-btn{
+.cartpage table .delete-button, .cartpage table .checkout-button{
     width: 100px;
     height: 30px;
     border: 0;
@@ -876,24 +876,24 @@ nav .error-message{
     border-radius: 10px;
 }
 
-.cartpage table .delete-btn{
+.cartpage table .delete-button{
     background-color: #502121c4;
     cursor: pointer;
 }
 
-.cartpage table .delete-btn:hover{
+.cartpage table .delete-button:hover{
     background-color: #502121;
     cursor: pointer;
 }
 
-.cartpage table .checkout-btn{
+.cartpage table .checkout-button{
     background-color: #215023be;
     width: 150px;
     height: 40px;
     cursor: pointer;
 }
 
-.cartpage table .checkout-btn:hover{
+.cartpage table .checkout-button:hover{
     background-color: #215023;
     width: 150px;
     height: 40px;
@@ -1045,13 +1045,13 @@ align-items: center;
 }
 
 
-button.order-btn {
+button.order-button {
 background-color: none;
 background-color: #215023be !important;
 color: #ffffff;
 }
 
-button.order-btn:hover {
+button.order-button:hover {
 background-color: none;
 background-color: #215023 !important;
 color: #ffffff;
@@ -1126,22 +1126,22 @@ color: #ffffff;
 }
 
 
-.popup-btn {
+.popup-button {
   color: #ffffff !important;
   border-color: #656d4a !important;
   background-color: #656d4a !important;
 }
-.popup-btn:hover {
+.popup-button:hover {
   color: #ffffff !important;
   border-color: #414934 !important;
   background-color: #414934 !important;
 }
 
-.popup-btn a {
+.popup-button a {
   color: #ffffff !important;
 }
 
-.popup-btn a:hover {
+.popup-button a:hover {
   color: #ffffff !important;
 }
 

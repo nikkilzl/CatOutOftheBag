@@ -119,7 +119,7 @@
                                             <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
                                             <div>Total Payment: <span>$<?php echo $total;?></span></div>
-                                            <button class="order-btn">Order</button>
+                                            <button class="order-button">Order</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -136,7 +136,7 @@
                                 <div class="popup-successful-footer">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
-                                <button class="btn popup-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
+                                <button class="button popup-button" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
                         <div id="unsuccess" class="popup">
@@ -148,7 +148,7 @@
                                 <div class="popup-unsuccessful-footer">
                                     <p>Something went wrong with the payment, please try again later!</p>
                                 </div>
-                                <button class="btn popup-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
+                                <button class="button popup-button" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
                                                 
