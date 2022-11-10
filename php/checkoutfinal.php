@@ -1,9 +1,9 @@
 <?php
     include "connectdb.php";
-    $oid = $_POST['order_id'];
+    $oid = $_POST['transaction_id'];
     $total = $_POST['total'];
     echo $total, $oid;
-    $query = "update `Order` set purchasedDate=CURDATE(), totalAmount=$total where orderId=$oid";
+    $query = "update `transaction` set purchasedDate=CURDATE(), totalAmount=$total where transactionId=$oid";
     
     if(mysqli_query($conn, $query)){
         header("Location:../checkout.php");

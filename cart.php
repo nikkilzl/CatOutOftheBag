@@ -23,7 +23,7 @@
                         echo "Please Login or sign up to continue";
                     else {
                         $cid = $_SESSION['custId'];
-                        $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
+                        $query = "SELECT * FROM `transaction` , `cart_items`,`Product` WHERE `transaction`.`transactionId` = `cart_items`.`transactionId` and `cart_items`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
                         $result = mysqli_query($conn, $query);
   
                 ?>
@@ -42,10 +42,10 @@
                         <tbody>
                             <?php
                                 $total=0;
-                                $order_id="";
+                                $transaction_id="";
                                 while($row = mysqli_fetch_assoc($result)){
                                     $total+=$row['price']*$row['quantity'];
-                                    $order_id = $row['orderId'];
+                                    $transaction_id = $row['transactionId'];
                                     echo '
                                     <tr>
                                         <td class="product-col"> 
@@ -64,7 +64,7 @@
                                         <td>
                                             <form action="php/deletecart.php"method="POST">
                                                 <input type="hidden" value="'. $row['productId']. '" name="product_id" />
-                                                <input type="hidden" value="'. $row['orderId']. '" name="order_id" />
+                                                <input type="hidden" value="'. $row['transactionId']. '" name="transaction_id" />
                                                 <input type="submit" class="delete-button" value="Delete" />
                                             </form>
                                         </td>
@@ -82,7 +82,7 @@
                                         <td>
                                             <form action="checkout.php" method="POST">
                                             <input type="hidden" value="<?php echo $total; ?>" name="total" />
-                                            <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
+                                            <input type="hidden" value="<?php echo $transaction_id; ?>" name="transaction_id" />
                                             <input type="submit" class="checkout-button" value="Checkout" />
                                         </td>
                                     </tr> ';

@@ -24,7 +24,7 @@ const loginVal = ({username, password, error}) => {
 
 // validating form when signing in 
 //sign up popup has more fields so need to make sure that they all are filled in also
-const signVal = ({fullName, email, username, dateOfBirth, password, confirmPassword, error}) => {
+const signVal = ({fullName, email, username, DOB, password, confirmPassword, error}) => {
     //same as login validation
     let isValidated = true
     let errorMessage = ''
@@ -59,7 +59,7 @@ const signVal = ({fullName, email, username, dateOfBirth, password, confirmPassw
     }
     //check for startDate field
     // date of birth must be in the past
-    else if(Date.parse(dateOfBirth) >= new Date().getTime()){
+    else if(Date.parse(DOB) >= new Date().getTime()){
         isValidated = false
         errorMessage = 'Your date of birth should not be later than today!'
     }
