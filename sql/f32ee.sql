@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 04:44 AM
+-- Generation Time: Nov 10, 2022 at 04:51 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -36,10 +36,10 @@ CREATE TABLE `account` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_items`
+-- Table structure for table `cartitem`
 --
 
-CREATE TABLE `cart_items` (
+CREATE TABLE `cartitem` (
   `cartId` int(10) UNSIGNED NOT NULL,
   `transactionId` int(10) UNSIGNED DEFAULT NULL,
   `productId` int(10) UNSIGNED DEFAULT NULL,
@@ -49,10 +49,10 @@ CREATE TABLE `cart_items` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cust_dets`
+-- Table structure for table `custdets`
 --
 
-CREATE TABLE `cust_dets` (
+CREATE TABLE `custdets` (
   `custId` int(10) UNSIGNED NOT NULL,
   `accountId` int(10) UNSIGNED DEFAULT NULL,
   `fullName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -119,7 +119,7 @@ INSERT INTO `product` (`productId`, `name`, `price`, `category`, `description`, 
 -- Table structure for table `transaction`
 --
 
-CREATE TABLE transaction (
+CREATE TABLE `transaction` (
   `transactionId` int(10) UNSIGNED NOT NULL,
   `paid` int(11) DEFAULT NULL,
   `custId` int(10) UNSIGNED DEFAULT NULL,
@@ -139,17 +139,17 @@ ALTER TABLE `account`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `cart_items`
+-- Indexes for table `cartitem`
 --
-ALTER TABLE `cart_items`
+ALTER TABLE `cartitem`
   ADD PRIMARY KEY (`cartId`),
   ADD KEY `orderId` (`transactionId`),
   ADD KEY `productId` (`productId`);
 
 --
--- Indexes for table `cust_dets`
+-- Indexes for table `custdets`
 --
-ALTER TABLE `cust_dets`
+ALTER TABLE `custdets`
   ADD PRIMARY KEY (`custId`),
   ADD KEY `accountId` (`accountId`);
 
@@ -177,15 +177,15 @@ ALTER TABLE `account`
   MODIFY `accountId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `cart_items`
+-- AUTO_INCREMENT for table `cartitem`
 --
-ALTER TABLE `cart_items`
+ALTER TABLE `cartitem`
   MODIFY `cartId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `cust_dets`
+-- AUTO_INCREMENT for table `custdets`
 --
-ALTER TABLE `cust_dets`
+ALTER TABLE `custdets`
   MODIFY `custId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -198,23 +198,23 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transactionId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `transactionId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cust_dets`
+-- Constraints for table `custdets`
 --
-ALTER TABLE `cust_dets`
-  ADD CONSTRAINT `cust_dets_ibfk_1` FOREIGN KEY (`accountId`) REFERENCES `account` (`accountId`);
+ALTER TABLE `custdets`
+  ADD CONSTRAINT `custdets_ibfk_1` FOREIGN KEY (`accountId`) REFERENCES `account` (`accountId`);
 
 --
 -- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`custId`) REFERENCES `cust_dets` (`custId`);
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`custId`) REFERENCES `custdets` (`custId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
