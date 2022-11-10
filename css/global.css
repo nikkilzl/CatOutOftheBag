@@ -51,13 +51,13 @@ a:hover{
     margin-top: 20px;
     box-sizing: border-box;
 }
-.index-product {
+.index-prod {
     width:24%;
 }
 
 /* ===== homepage banner ==== */ 
 
-.homepage-banner {
+.home-hero-img {
     position: relative;
     height: 400px;
     background-color: #656d4a;
@@ -67,14 +67,14 @@ a:hover{
     vertical-align: middle;
 }
 
-.homepage-banner-container {
+.home-hero-img-container {
   position: relative;
   height: 400px;
   width: 50%;
   display: flex;
 }
 
-.homepage-banner img {
+.home-hero-img img {
   position: relative;
   height: 400px;
 }
@@ -216,7 +216,7 @@ a:hover{
 /* 
     COLOURS
     beige - #ede1d5;
-	light green - #656d4a; 
+	  light green - #656d4a; 
     dark green - #414934;
 
 */
@@ -252,26 +252,11 @@ a:hover{
     font-weight: bold;
 }
 
-.homepage-title-container{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.homepage-title-container > hr{
-   width: 35%;
-   height: 1px;
-}
-
-.homepage-title-container > h1{
-    width: 30%;
- }
 
 /* ===== categories banner ==== */ 
 /* ====== ALSO USED FOR PRODUCT PAGES ====== */
 
-.categories-wrapper {
+.cat-wrapper {
     position: relative;
     height: 400px;
     background-color: #ede1d5;
@@ -282,7 +267,7 @@ a:hover{
     align-items: center;
 }
 
-.categories-cardbox {
+.cat-cardbox {
     margin: 30px 20px 20px 50px;
     width: 25%;
     align-items: center;
@@ -290,12 +275,12 @@ a:hover{
     padding: 20px;
 }
 
-.categories-cardbox img {
+.cat-cardbox img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.categories-cardbox p {
+.cat-cardbox p {
   padding-top: 10px;
   font-size:12px;
 }
@@ -365,7 +350,7 @@ a:hover{
 }
 
 
-.index-product .product-price{
+.index-prod .prod-price{
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -373,7 +358,7 @@ a:hover{
 }
 
 
-.no-product{
+.no-prod {
     color: grey;
     margin-top: 20px;
     text-align: center;
@@ -730,14 +715,14 @@ nav .error-message{
     width: 100%;
 }
 
-.catpage .catcontent .product-price{
+.catpage .catcontent .prod-price{
     font-size: 22px;
     font-weight: bold;
 }
 
 /* PRODUCT DETAIL PAGE */
 
-.product{
+.prod {
     margin-top: 30px;
 }
 
@@ -900,7 +885,7 @@ nav .error-message{
     cursor: pointer;
 }
 
-.cartpage table .product-col img{
+.cartpage table .prod-col img{
     width: 100px;
     vertical-align: middle;
     margin-right: 16px;
