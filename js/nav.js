@@ -16,8 +16,8 @@ function dropdownButton(){
 };
 
 
-window.addEventListener('click', function(event) {
-    if (!dropdown.includes(event.target) && !userbtn.includes(event.target) ) {
+window.addEventListener('click', function(pop) {
+    if (!dropdown.includes(pop.target) && !userbtn.includes(pop.target) ) {
         dropdown.style.height = '0'
         dropdown.style.padding = '0'
     }
@@ -25,10 +25,12 @@ window.addEventListener('click', function(event) {
 
 function activatePopup(id){
     var popbtn = document.querySelectorAll(".popup-open-btn");
+    //need to use querySelectorAll here because there's more than one element involved
+    //getElementById and getElementsByClassName is that specific element that is referenced
     for(let i = 0 ; i < btns.length; i++){
         var element = popbtn[i]
-        var targetId = element.getAttribute('data-target')
-        var popup =  document.getElementById(targetId)       
+        var poptarget = element.getAttribute('data-target')
+        var popup =  document.getElementById(poptarget)       
 
         popup.style.display = "none";
     }
