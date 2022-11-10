@@ -1,42 +1,42 @@
-// Get the button that opens the modal (login or sign up)
-var btns = document.querySelectorAll(".modal-open-btn");
+// Get the button that opens the popup (login or sign up)
+var btns = document.querySelectorAll(".popup-open-btn");
 
 // 
-let currentModal;
+let currentpopup;
 for(let i = 0 ; i < btns.length; i++){
   let btn = btns[i]
   let targetId = btn.getAttribute('data-target')
-  let modal =  document.getElementById(targetId) 
-  // let modalBody = document.querySelector(`#${targetId} .modal-content`)
+  let popup =  document.getElementById(targetId) 
+  // let popupBody = document.querySelector(`#${targetId} .popup-content`)
   var span = document.querySelector(`#${targetId} .close`)
 
-  // When the user clicks the button, open the modal 
+  // When the user clicks the button, open the popup 
   btn.addEventListener("click", function() {
-    if(currentModal){ //make sure only 1 modal is active at a time
-      currentModal.style.display = "none";
+    if(currentpopup){ //make sure only 1 popup is active at a time
+      currentpopup.style.display = "none";
     }
-    modal.style.display = "block";
-    currentModal = modal
+    popup.style.display = "block";
+    currentpopup = popup
   })
 
-  // When the user clicks on <span> (x), it will close the modal
+  // When the user clicks on <span> (x), it will close the popup
   span.onclick = function() {
-    modal.style.display = "none";
-    currentModal = null
+    popup.style.display = "none";
+    currentpopup = null
   }
 
 }
 
 // 
 function activatePopup(id){
-  var btns = document.querySelectorAll(".modal-open-btn");
+  var btns = document.querySelectorAll(".popup-open-btn");
   for(let i = 0 ; i < btns.length; i++){
       let btn = btns[i]
       let targetId = btn.getAttribute('data-target')
-      let modal =  document.getElementById(targetId)       
+      let popup =  document.getElementById(targetId)       
 
-      modal.style.display = "none";
+      popup.style.display = "none";
   }
-  let modal =  document.getElementById(id) 
-  modal.style.display = "block";
+  let popup =  document.getElementById(id) 
+  popup.style.display = "block";
 }

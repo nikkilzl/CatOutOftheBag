@@ -1,36 +1,46 @@
 
 //validating form when logging in
 
-const validateLogin = ({username, password, errorDom}) => {
-    let isValidated = true
-    let errorMessage = ''
+const loginVal = ({username, password, error}) => {
+    var isValidated = true
+    // set the validation to true first
+    var errorMessage = ''
+    //no error message since validation for login is true
+    //but if one of the components is not filled in
     if(!username || !password){
+        //set the validation to false
         isValidated = false
         errorMessage = 'Username and password cannot be empty'
         // make sure that all fields are filled in when logging in
     }
-
+    //if the validation is false
     if(!isValidated){
-        errorDom.innerHTML = errorMessage
+        //set the error to be the errormessage shown in the popup
+        error.innerHTML = errorMessage
     }
     return isValidated
 }
 
 
 // validating form when signing in 
-
-const validateSignup = ({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom}) => {
+//sign up popup has more fields so need to make sure that they all are filled in also
+const signVal = ({fullName, email, username, dateOfBirth, password, confirmPassword, error}) => {
+    //same as login validation
     let isValidated = true
     let errorMessage = ''
+    //no error message shown on the popup
 
     // make sure that all fields are filled in signing up
-    if(!fullName || !email || !username || !dateOfBirth || !password || !confirmPassword){
+    //in this case we just set the last one for simplicity sake so..
+    // if never fill in the last confirmpassword component then users will be prompted to fill up
+    if(!confirmPassword){
         isValidated = false
         errorMessage = 'Please fill up all the fields'
     }
 
     //validate full name
     else if(!(/^[a-zA-Z ]+$/.test(fullName))){
+        //this regex is the same as the one for case study
         isValidated = false
         errorMessage = 'Your name should only contain alphabet characters and white spaces'
     }
@@ -43,6 +53,7 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     
     //check for email field
     else if(!(/^[\w][\w.-]*@([\w][\w-]*\.){1,3}[a-zA-Z]{2,3}$/.test(email))){
+        //this regex is the same as the one for case study 
         isValidated = false
         errorMessage = 'Ensure that email format is correct. Email should contain "@" sign and a domain (e.g. "gmail.com")'
     }
@@ -60,17 +71,17 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
     }
 
     if(!isValidated){
-        errorDom.innerHTML = errorMessage
+        error.innerHTML = errorMessage
     }
     return isValidated
 }
 
 // validating form when placing order for checkout
-const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, creditCardNumber, creditCardExpiresOn, cvv}) => {
+const orderVal = ({fullName, email, phoneNumber, address, nameOnCard, cardNo, cardexpiry, cvv}) => {
     let isValidated = true
     let errorMessage = ''
 
-    if(!fullName || !email || !phoneNumber || !address || !nameOnCard || !creditCardNumber || !creditCardExpiresOn || !cvv){
+    if(!fullName || !email || !phoneNumber || !address || !nameOnCard || !cardNo || !cardexpiry || !cvv){
         isValidated = false
         errorMessage = 'Please fill up all the fields'
     }
@@ -88,7 +99,7 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
     }
      //check for credit card number
      // credit card number should have 16 numbers - no letters
-     else if(!(/^\d{16}$/.test(creditCardNumber))){
+     else if(!(/^\d{16}$/.test(cardNo))){
         isValidated = false
         errorMessage = 'Please input a correct credit card number. Your credit card number should be 16 digits.'
     }
@@ -100,7 +111,7 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
     }
     //check for credit card expires on
     // can only input until '12' for month part
-    else if(!(/^0[1-9]|1[0-2]\/\d{4}$/.test(creditCardExpiresOn))){
+    else if(!(/^0[1-9]|1[0-2]\/\d{4}$/.test(cardexpiry))){
         isValidated = false
         errorMessage = 'Please input a correct month and year. The expiration data format is MM/YYYY.'
     }

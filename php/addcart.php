@@ -10,7 +10,7 @@
         $sql = "UPDATE `OrderItems` set quantity = quantity+$quantity WHERE `orderId` = ".$row['orderId']." and productId = $id";
         mysqli_query($conn, $sql);
         if(mysqli_affected_rows($conn)>0)
-            $res = "CART_UPDATE";
+            $res = "INPUTCART";
         else{   
             $sql = "INSERT INTO `OrderItems` (`orderId`, productId, quantity) VALUES (".$row['orderId'].", $id, $quantity)";
             mysqli_query($conn, $sql);

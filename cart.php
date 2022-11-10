@@ -53,7 +53,7 @@
                                         </td>
                                         <td>
                                             <span>
-                                                <a href="productdetail.php?productId='. $row['productId']. '" class="product-link">    
+                                                <a href="productdetail.php?productId='. $row['productId']. '" class="selectproduct">    
                                                     '.$row['name'].'
                                                 </a>      
                                             </span>

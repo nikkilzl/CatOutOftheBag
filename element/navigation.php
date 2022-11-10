@@ -64,8 +64,8 @@
                         <?php 
                             if (!isset($_SESSION['username'])){
                                 echo '
-                                <li class="modal-open-btn" data-target="loginpopup">Login <hr/></li>
-                                <li class="modal-open-btn" data-target="signpopup">Sign up</li>
+                                <li class="popup-open-btn" data-target="loginpopup">Login <hr/></li>
+                                <li class="popup-open-btn" data-target="signpopup">Sign up</li>
                                 ';
                             }
                             else {
@@ -80,10 +80,10 @@
         </div>
     </div>
 
-    <div id="loginpopup" class="loginpopup modal">
-        <div class="modal-content">
+    <div id="loginpopup" class="loginpopup popup">
+        <div class="popup-content">
             <span class="close">X</span>
-            <div class="modal-body">
+            <div class="popup-body">
                 <h1>Login</h1>
                 <form method="POST" onsubmit="return setLogin()">
                     <div class="input-group">
@@ -117,11 +117,11 @@
 
 
 
-    <div id="signpopup" class="signpopup modal">
+    <div id="signpopup" class="signpopup popup">
        
-        <div class="modal-content">
+        <div class="popup-content">
             <span class="close">X</span>
-            <div class="modal-body">
+            <div class="popup-body">
                 <h1>Sign Up</h1>
                 <form method="POST" onsubmit="return setSignup()">
                     <div class="input-group">
@@ -190,9 +190,9 @@
     <script src="js/popup.js"></script>
     <script src="js/nav.js"></script>
     <?php 
-        if($showModal == 'loginpopup')
+        if($showpopup == 'loginpopup')
             echo '<script> activatePopup("loginpopup") </script>';
-        else if($showModal == 'signpopup')
+        else if($showpopup == 'signpopup')
             echo '<script> activatePopup("signpopup") </script>';
     ?>
     <script src="js/validateForm.js"></script>
@@ -201,10 +201,10 @@
         var form = document.querySelector('.loginpopup form')
         var username = form.querySelector('input[name="username"]').value
         var password = form.querySelector('input[name="password"]').value
-        var errorDom = form.querySelector('.error-message')
+        var error = form.querySelector('.error-message')
 
-        let isValidated = validateLogin({
-            username, password, errorDom
+        let isValidated = loginVal({
+            username, password, error
         })
         return isValidated
     }
@@ -218,9 +218,9 @@
         var dateOfBirth = form.querySelector('input[name="dateOfBirth"]').value
         var confirmPassword = form.querySelector('input[name="confirmPassword"]').value
 
-        var errorDom = form.querySelector('.error-message')
+        var error = form.querySelector('.error-message')
 
-        let isValidated = validateSignup({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom})
+        let isValidated = signVal({fullName, email, username, dateOfBirth, password, confirmPassword, error})
         console.log('isValidated', isValidated)
         return isValidated
     }

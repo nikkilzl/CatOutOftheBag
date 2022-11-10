@@ -1,12 +1,12 @@
 <html>
     <?php 
         $productCategory = $_GET['productCategory']; 
-    ?>
+    ?> <!-- start php sess right at the start to get product category from database-->
     <head>
-        <title>Category - <?php echo $productCategory; ?> | Cat Our of The Bag</title>
+        <title>Category - <?php echo $productCategory; ?> | Cat Out of The Bag</title>
+        <!-- to get the category for the page title-->
         <link rel="stylesheet" href="css/global.css"/>
-        <link rel="stylesheet" href="css/nav+footer.css"/>
-        <link rel="stylesheet" href="css/categories.css"/>
+
     </head>
 
     <body>

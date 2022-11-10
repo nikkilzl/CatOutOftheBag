@@ -91,26 +91,10 @@
     border: 1px solid #bbbbbb;
     border-radius: 10px;
 }
-.count:focus{
-    border: 1px solid #bbbbbb;
-}
-.upcount , .downcount{
-    width: 12%;
-    font-weight: 300;
-    cursor: pointer;
-}
-.upcount button, .downcount button {
-    width: 100%;
-    font-size: 1.5em;
-    font-weight: 300;
-    border: none;
-    vertical-align: middle;
-    padding-bottom: 5px;
-}
+
 .information > *{
     margin-bottom:5px;
 }
-.information__description{
-    padding:20px 12px; 
-    line-height: 22px;
+.productdes{
+    padding:20px 12px;
 }

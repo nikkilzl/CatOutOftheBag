@@ -7,9 +7,8 @@
     ?>
     <head>
         <title>Checkout | Cat Out of The Bag</title>
-        <link rel="stylesheet" href="css/checkout.css"/>
         <link rel="stylesheet" href="css/global.css"/>
-        <link rel="stylesheet" href="css/nav+footer.css"/>
+
         
     </head>
 
@@ -35,7 +34,7 @@
                 <div class="order-summary content">
                     <div class="order-summary">
                         <h2>Order summary</h2>
-                        <table class="order-summ-tbl">
+                        <table class="ordertable">
                             <thead>
                                 <tr>
                                     <th>Product</th>
@@ -97,7 +96,7 @@
                                     <td class="label">Phone Number</td>
                                     <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $customerDetails['phoneNumber']; ?> " required/> </td>
                                     <td class="label">Credit card No.</td>
-                                    <td> <input type="text" placeholder="16 digit Credit card number" name="creditCardNumber" required/> </td>
+                                    <td> <input type="text" placeholder="16 digit Credit card number" name="cardNo" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Address</td>
@@ -128,28 +127,28 @@
                         </form>
 
                           <!-- Payment Notification Pop-Up -->
-                          <div id="success" class="modal">
+                          <div id="success" class="popup">
                             <span></span>
-                            <div class="modal-content">
+                            <div class="popup-content">
                                 <div class="popup-successful-header">
                                     <h2>Your payment was successful</h2>
                                 </div>
                                 <div class="popup-successful-footer">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
-                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
+                                <button class="btn popup-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
-                        <div id="unsuccess" class="modal">
+                        <div id="unsuccess" class="popup">
                             <span></span>
-                            <div class="modal-content">
+                            <div class="popup-content">
                                 <div class="popup-unsuccessful-header">
                                     <h2>Your payment was unsuccessful</h2>
                                 </div>
                                 <div class="popup-unsuccessful-footer">
                                     <p>Something went wrong with the payment, please try again later!</p>
                                 </div>
-                                <button class="btn modal-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
+                                <button class="btn popup-btn" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
                                                 
@@ -161,16 +160,16 @@
                 var check='<?php echo ($success); ?>'
                 // alert(typeof(check))
            
-                var modal1 = document.getElementById("success");
-                var modal2 = document.getElementById("unsuccess");
+                var popup1 = document.getElementById("success");
+                var popup2 = document.getElementById("unsuccess");
                 
                 var span = document.getElementById("close");
 
                 
                 if (check === 'true')
-                    modal1.style.display = "block";
+                    popup1.style.display = "block";
                 if (check === 'false')
-                    modal2.style.display = "block";
+                    popup2.style.display = "block";
                 
             </script>
     </body>
@@ -188,12 +187,12 @@
             let phoneNumber = form.querySelector('input[name="phoneNumber"]').value
             let address = form.querySelector('input[name="address"]').value
             let nameOnCard = form.querySelector('input[name="nameOnCard"]').value
-            let creditCardNumber = form.querySelector('input[name="creditCardNumber"]').value
-            let creditCardExpiresOn = form.querySelector('input[name="creditCardExpires"]').value
+            let cardNo = form.querySelector('input[name="cardNo"]').value
+            let cardexpiry = form.querySelector('input[name="creditCardExpires"]').value
             let cvv = form.querySelector('input[name="cvv"]').value
 
-            let isValidated = validatePlaceOrder({
-                fullName, email, phoneNumber, address, nameOnCard, creditCardNumber, creditCardExpiresOn, cvv
+            let isValidated = orderVal({
+                fullName, email, phoneNumber, address, nameOnCard, cardNo, cardexpiry, cvv
             })
             console.log('isValidated:' ,isValidated)
             return isValidated

@@ -24,14 +24,14 @@ window.addEventListener('click', function(event) {
 })
 
 function activatePopup(id){
-    var btns = document.querySelectorAll(".modal-open-btn");
+    var btns = document.querySelectorAll(".popup-open-btn");
     for(let i = 0 ; i < btns.length; i++){
         let btn = btns[i]
         let targetId = btn.getAttribute('data-target')
-        let modal =  document.getElementById(targetId)       
+        let popup =  document.getElementById(targetId)       
 
-        modal.style.display = "none";
+        popup.style.display = "none";
     }
-    let modal =  document.getElementById(id) 
-    modal.style.display = "block";
+    let popup =  document.getElementById(id) 
+    popup.style.display = "block";
 }

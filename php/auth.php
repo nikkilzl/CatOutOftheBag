@@ -4,7 +4,7 @@ if(session_id() == ''){
     session_start();
 }
 
-$showModal = isset($_GET['showModal']) ? $_GET['showModal'] : '';
+$showpopup = isset($_GET['showpopup']) ? $_GET['showpopup'] : '';
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
     $username = $conn->real_escape_string($_POST['username']); //real_escape_string escapes special characters in strings (for Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.)
@@ -34,11 +34,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $custId = $row['custId']; 
             
             $_SESSION['custId'] = $custId;
-            $showModal='';
+            $showpopup='';
         }
         else{ //logging in fail
             $errorMessage = 'Invalid username or password';
-            $showModal = 'loginpopup';
+            $showpopup = 'loginpopup';
             $prev_username = $username;
             $prev_password = $_POST['password'];
         }
@@ -50,12 +50,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
         $isValidated = true;
         if ($_POST['password'] !== $_POST['confirmPassword'] ){
             $errorMessage = 'Password is not matched';
-            $showModal = 'signpopup';
+            $showpopup = 'signpopup';
             $isValidated = false;
         }
         if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['dateOfBirth']) || !isset($_POST['confirmPassword'])){
             $errorMessage = 'Please enter all fields';
-            $showModal = 'signpopup';
+            $showpopup = 'signpopup';
             $isValidated = false;
         } 
 
@@ -98,7 +98,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $custId = $row['custId']; 
             
             $_SESSION['custId'] = $custId;
-            $showModal='';
+            $showpopup='';
         }
         
     }

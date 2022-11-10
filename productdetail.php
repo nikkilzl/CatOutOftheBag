@@ -1,11 +1,8 @@
 <html>
     <head>
-        <title>Product Information | Cat Out of The Bag</title>
+        <title>Product Details | Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/global.css"/>
-        <link rel="stylesheet" href="css/productdetail.css"/>
-        <link rel="stylesheet" href="css/categories.css"/>
-        <link rel="stylesheet" href="css/nav+footer.css"/>
-        
+
     </head>
 
     <body>
@@ -48,8 +45,8 @@
                     </div>
                 </div>
                 <div class="information">
-                    <div class="information__heading">Product Description</div>
-                    <div class="information__description">
+                    <div class="infotitle">Product Description</div>
+                    <div class="productdes">
                         <?php echo nl2br($row['description']);    //nl2br gives a line break ?>
                     </div>
                     
@@ -72,7 +69,7 @@
                                     <img src= "'.$row['image'].'"  class="card-img">
                                 
                                 <div class="card-body">
-                                <a href="productdetail.php?productId='. $row['productId']. '" class="product-link">
+                                <a href="productdetail.php?productId='. $row['productId']. '" class="selectproduct">
                                     <h5 class="card-title"> '.$row['name'].' </h5>
                                     </a>
                                     <div>
@@ -96,7 +93,7 @@
                                             break;
                     case "ADDTOCART" :   alert("Item has been added to cart");
                                         break;                    
-                    case "CART_UPDATE" : alert("Your cart has been updated");
+                    case "INPUTCART" : alert("Your cart has been updated");
                                         break;
                 }   
             </script>
