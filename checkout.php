@@ -160,16 +160,16 @@
                 var check='<?php echo ($success); ?>'
                 // alert(typeof(check))
            
-                var popup1 = document.getElementById("success");
-                var popup2 = document.getElementById("unsuccess");
+                var popupsucc = document.getElementById("success");
+                var popupunsucc = document.getElementById("unsuccess");
                 
                 var span = document.getElementById("close");
 
                 
                 if (check === 'true')
-                    popup1.style.display = "block";
+                    popupsucc.style.display = "block";
                 if (check === 'false')
-                    popup2.style.display = "block";
+                    popupunsucc.style.display = "block";
                 
             </script>
     </body>
