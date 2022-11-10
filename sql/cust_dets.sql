@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 07:02 AM
+-- Generation Time: Nov 10, 2022 at 04:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,14 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderitems`
+-- Table structure for table `cust_dets`
 --
 
-CREATE TABLE `orderitems` (
-  `orderItemsId` int(10) UNSIGNED NOT NULL,
-  `orderId` int(10) UNSIGNED DEFAULT NULL,
-  `productId` int(10) UNSIGNED DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL
+CREATE TABLE `cust_dets` (
+  `custId` int(10) UNSIGNED NOT NULL,
+  `accountId` int(10) UNSIGNED DEFAULT NULL,
+  `fullName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phoneNumber` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -39,33 +42,31 @@ CREATE TABLE `orderitems` (
 --
 
 --
--- Indexes for table `orderitems`
+-- Indexes for table `cust_dets`
 --
-ALTER TABLE `orderitems`
-  ADD PRIMARY KEY (`orderItemsId`),
-  ADD KEY `orderId` (`orderId`),
-  ADD KEY `productId` (`productId`);
+ALTER TABLE `cust_dets`
+  ADD PRIMARY KEY (`custId`),
+  ADD KEY `accountId` (`accountId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `orderitems`
+-- AUTO_INCREMENT for table `cust_dets`
 --
-ALTER TABLE `orderitems`
-  MODIFY `orderItemsId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+ALTER TABLE `cust_dets`
+  MODIFY `custId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `orderitems`
+-- Constraints for table `cust_dets`
 --
-ALTER TABLE `orderitems`
-  ADD CONSTRAINT `orderitems_ibfk_1` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`),
-  ADD CONSTRAINT `orderitems_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
+ALTER TABLE `cust_dets`
+  ADD CONSTRAINT `cust_dets_ibfk_1` FOREIGN KEY (`accountId`) REFERENCES `account` (`accountId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
