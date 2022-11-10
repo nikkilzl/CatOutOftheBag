@@ -4,10 +4,9 @@ var btns = document.querySelectorAll(".popup-open-btn");
 // 
 let currentpopup;
 for(let i = 0 ; i < btns.length; i++){
-  let btn = btns[i]
-  let targetId = btn.getAttribute('data-target')
-  let popup =  document.getElementById(targetId) 
-  // let popupBody = document.querySelector(`#${targetId} .popup-content`)
+  var btn = btns[i]
+  var targetId = btn.getAttribute('data-target')
+  var popup =  document.getElementById(targetId) 
   var span = document.querySelector(`#${targetId} .close`)
 
   // When the user clicks the button, open the popup 
@@ -31,9 +30,9 @@ for(let i = 0 ; i < btns.length; i++){
 function activatePopup(id){
   var btns = document.querySelectorAll(".popup-open-btn");
   for(let i = 0 ; i < btns.length; i++){
-      let btn = btns[i]
-      let targetId = btn.getAttribute('data-target')
-      let popup =  document.getElementById(targetId)       
+      var btn = btns[i]
+      var targetId = btn.getAttribute('data-target')
+      var popup =  document.getElementById(targetId)       
 
       popup.style.display = "none";
   }
