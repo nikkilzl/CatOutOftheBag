@@ -77,31 +77,26 @@ const signVal = ({fullName, email, username, dateOfBirth, password, confirmPassw
 }
 
 // validating form when placing order for checkout
-const orderVal = ({fullName, email, phoneNumber, address, nameOnCard, cardNo, cardexpiry, cvv}) => {
+const orderVal = ({nameOnCard, cardNo, cardexpiry, cvv}) => {
     let isValidated = true
     let errorMessage = ''
 
-    if(!fullName || !email || !phoneNumber || !address || !nameOnCard || !cardNo || !cardexpiry || !cvv){
+    //for demo, just test case to one of the fields not filled in
+    if(!cvv){
         isValidated = false
         errorMessage = 'Please fill up all the fields'
     }
     //validate full name and name on card
-    else if(!(/^[a-zA-Z ]+$/.test(fullName)) || !(/^[a-zA-Z ]+$/.test(nameOnCard))){
+    else if(!(/^[a-zA-Z ]+$/.test(nameOnCard))){
         isValidated = false
         errorMessage = 'Your name should only contain alphabet characters and white spaces'
     }
 
-    //check for email field
-    // email can contain all letters and numbers last part should be 2-3 letters only (similar to case study)
-    else if(!(/^[\w][\w.-]*@([\w][\w-]*\.){1,3}[a-zA-Z]{2,3}$/.test(email))){
-        isValidated = false
-        errorMessage = 'Please input a correct email. Email should contain "@" sign and a domain (e.g. "gmail.com")'
-    }
      //check for credit card number
      // credit card number should have 16 numbers - no letters
-     else if(!(/^\d{16}$/.test(cardNo))){
+     else if(!(/^\d{13-16}$/.test(cardNo))){
         isValidated = false
-        errorMessage = 'Please input a correct credit card number. Your credit card number should be 16 digits.'
+        errorMessage = 'Please input a correct credit card number. Your credit card number should be 13-16 digits.'
     }
         //check for cvv
     //  cvv should be 3 numbers
@@ -115,7 +110,6 @@ const orderVal = ({fullName, email, phoneNumber, address, nameOnCard, cardNo, ca
         isValidated = false
         errorMessage = 'Please input a correct month and year. The expiration data format is MM/YYYY.'
     }
-
 
     // check if all fields are correct when click on checkout
     if(!isValidated){
