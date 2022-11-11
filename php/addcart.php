@@ -6,13 +6,13 @@
     $quantity = !isset($_POST['quantity']) ? 1 : $_POST['quantity']; 
 
     if(mysqli_num_rows($result)>0) {
-        $row = mysqli_fetch_assoc($result);
-        $sql = "UPDATE `cartItem` set quantity = quantity+$quantity WHERE `transactionId` = ".$row['transactionId']." and productId = $id";
+        $addcartrow = mysqli_fetch_assoc($result);
+        $sql = "UPDATE `cartItem` set quantity = quantity+$quantity WHERE `transactionId` = ".$addcartrow['transactionId']." and productId = $id";
         mysqli_query($conn, $sql);
         if(mysqli_affected_rows($conn)>0)
             $res = "INPUTCART";
         else{   
-            $sql = "INSERT INTO `cartItem` (`transactionId`, productId, quantity) VALUES (".$row['transactionId'].", $id, $quantity)";
+            $sql = "INSERT INTO `cartItem` (`transactionId`, productId, quantity) VALUES (".$addcartrow['transactionId'].", $id, $quantity)";
             mysqli_query($conn, $sql);
             $res = "ADDTOCART";
         }

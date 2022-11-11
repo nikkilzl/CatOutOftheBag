@@ -1,8 +1,8 @@
 <html>
     <?php 
         $success=0;
-        if(isset($_GET['success']) && !empty($_GET['success']))
-            $success = $_GET['success']; 
+        if(isset($_POST['success']) && !empty($_POST['success']))
+            $success = $_POST['success']; 
 
     ?>
     <head>
@@ -19,16 +19,15 @@
             include 'php/connectdb.php';
                    
             $cid = $_SESSION['custId'];
-            $query = "SELECT * FROM cust_dets where custId=$cid";
-            $cust_dets = mysqli_query($conn, $query);
-            $cust_dets = $cust_dets->fetch_assoc();
+            $getcust = "SELECT * FROM custdets where custId=$cid";
+	$custdets = $mysqli->query($getcust);
+            $custdets = $custdets->fetch_assoc();
 
-            $query = "SELECT * FROM `transaction` , `cartItem`,`Product` WHERE `transaction`.`transactionId` = `cartItem`.`transactionId` and `cartItem`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
-            $result = mysqli_query($conn, $query);
-
+            $transac = "SELECT * FROM `transaction` , `cartItem`,`Product` WHERE `transaction`.`transactionId` = `cartItem`.`transactionId` and `cartItem`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
+            $result = $mysqli->query($transac);
         ?>
             <div class="checkpage page">
-                <div class="title-container">
+                <div class="containertitle">
                     <h1>Checkout</h1>
                 </div>
                 <div class="ord-sum content">
@@ -47,18 +46,18 @@
                                 <?php
                                     $total=0;
                                     $transactionId = 0;
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $total+=$row['price']*$row['quantity'];
-                                        $transactionId  = $row['transactionId'];
+                                    while($sessrow = $result->fetch_assoc()){
+                                        $totalamt+=$sessrow['price']*$sessrow'quantity'];
+                                        $transactionId  = $sessrow['transactionId'];
                                         echo '
                                         <tr>
                                             <td class="product-display"> 
-                                                <img src="'.$row['image'].'" alt="product"/>
-                                                <span>'. $row['name'] .'<span>
+                                                <img src="'.$sessrow['image'].'" />
+                                                <span>'. $sessrow['name'] .'<span>
                                             </td>
-                                            <td>$'. $row['price'] .'</td>
-                                            <td>'. $row['quantity'] .'</td>
-                                            <td>$'. ($row['price']*$row['quantity']) .'</td>
+                                            <td>$'. $sessrow['price'] .'</td>
+                                            <td>'. $sessrow['quantity'] .'</td>
+                                            <td>$'. ($sessrow['price']*$sessrow['quantity']) .'</td>
                                         </tr>';
                                     }
                                 
@@ -67,7 +66,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="4" class="price-total">Order Total: <span>$<?php echo $total; ?></span></td>
+                                    <td colspan="4" class="price-total">Order Total: <span>$<?php echo $totalamt; ?></span></td>
                                 </tr>   
                             </tfoot>
                         </table>
@@ -82,27 +81,27 @@
                             <table class="cust-det-tbl">
                                 <tr>
                                     <td class="label">Full Name</td>
-                                    <td> <input type="text" placeholder="Full name" name="fullName" value="<?php echo $cust_dets['fullName']; ?>" required/> </td>
-                                    <td class="label">Payment Method</td>
+                                    <td> <input type="text" placeholder="Full name" name="fullName" value="<?php echo $custdets['fullName']; ?>" required/> </td>
+                                    <td class="label">Payment</td>
                                     <td><input type="radio" checked name="paymentMethod"/> Credit Card</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Email</td>
-                                    <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $cust_dets['email']; ?>" required/> </td>
-                                    <td class="label">Name on Card</td>
-                                    <td> <input type="text" placeholder="Enter your full name on card" name="nameOnCard" required/> </td>
+                                    <td> <input type="email" placeholder="Email address" name="email" value="<?php echo $custdets['email']; ?>" required/> </td>
+                                    <td class="label">Name on Credit Card</td>
+                                    <td> <input type="text" placeholder="Enter your full name on card" name="cardname" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Contact Number</td>
-                                    <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $cust_dets['phoneNumber']; ?> " required/> </td>
+                                    <td> <input type="text" placeholder="Phone number" name="phoneNumber" value="<?php echo $custdets['phoneNumber']; ?> " required/> </td>
                                     <td class="label">Credit card Number</td>
-                                    <td> <input type="text" placeholder="16 digit Credit card number" name="cardNo" required/> </td>
+                                    <td> <input type="text" placeholder="13-16 digit Credit card number" name="cardNo" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Shipping Address</td>
-                                    <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $cust_dets['address']; ?> " required/> </td>
+                                    <td> <input type="text" placeholder="Shipping address" name="address" value="<?php echo $custdets['address']; ?> " required/> </td>
                                     <td class="label">Expiry Date</td>
-                                    <td> <input type="text" placeholder="MM/YYYY" name="creditCardExpires" required/> </td>
+                                    <td> <input type="text" placeholder="MM/YYYY" name="cardExpiry" required/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -118,7 +117,7 @@
                                             <input type="hidden" name="totalAmount" value="<?php echo $total;?>"/>
                                             <input type="hidden" name="transactionId" value="<?php echo $transactionId;?>"/>
                                             <input type="hidden" name="custId" value="<?php echo $cid;?>"/>
-                                            <div>Total Payment: <span>$<?php echo $total;?></span></div>
+                                            <div>Total Payment: <span>$<?php echo $total;?>.00</span></div>
                                             <button class="order-button">Order</button>
                                         </div>
                                     </td>
@@ -127,19 +126,19 @@
                         </form>
 
                           <!-- Payment Notification Pop-Up -->
-                          <div id="success" class="popup">
+                          <div id="pass" class="popup">
                             <span></span>
                             <div class="popup-content">
                                 <div class="popup-successful-header">
                                     <h2>Your payment was successful</h2>
                                 </div>
                                 <div class="popup-successful-footer">
-                                    <p>We have sent you the order confirmation to your email</p>
+                                    <p>Please check your email for the order confirmation</p>
                                 </div>
-                                <button class="button popup-button" style="margin:auto;display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
+                                <button class="button popup-button" style="display: block; margin-top: 12px;"> <a href="cart.php">Back to Cart </a></button>
                             </div>
                         </div>
-                        <div id="unsuccess" class="popup">
+                        <div id="fail" class="popup">
                             <span></span>
                             <div class="popup-content">
                                 <div class="popup-unsuccessful-header">
@@ -158,18 +157,15 @@
 
             <script>
                 var check='<?php echo ($success); ?>'
-                // alert(typeof(check))
            
-                var popupsucc = document.getElementById("success");
-                var popupunsucc = document.getElementById("unsuccess");
+                var popupsucc = document.getElementById("pass");
+                var popupunsucc = document.getElementById("fail");
+        
                 
-                var span = document.getElementById("close");
-
-                
-                if (check === 'true')
-                    popupsucc.style.display = "block";
-                if (check === 'false')
-                    popupunsucc.style.display = "block";
+                if (check == 'true')
+                    popupsucc.style.display = "inline-block";
+                if (check == 'false')
+                    popupunsucc.style.display = "inline-block";
                 
             </script>
     </body>
@@ -178,27 +174,26 @@
     <script src="js/quantity.js" ></script>
     <script>
     function handleSubmit(){
-        let form = document.querySelector('#place-order-form')
+       var form = document.getElementById('#place-order-form')
 
         try {
-            var form = document.querySelector('#place-order-form')
-            var fullName = form.querySelector('input[name="fullName"]').value
-            var email = form.querySelector('input[name="email"]').value
-            var phoneNumber = form.querySelector('input[name="phoneNumber"]').value
-            var address = form.querySelector('input[name="address"]').value
-            var nameOnCard = form.querySelector('input[name="nameOnCard"]').value
-            var cardNo = form.querySelector('input[name="cardNo"]').value
-            var cardexpiry = form.querySelector('input[name="creditCardExpires"]').value
-            var cvv = form.querySelector('input[name="cvv"]').value
+            var fullName = form.getElementsbyName('input[name="fullName"]').value
+            var email = form.getElementsbyName('input[name="email"]').value
+            var phoneNumber = form.getElementsbyName('input[name="phoneNumber"]').value
+            var address = form.getElementsbyName('input[name="address"]').value
+            var cardname = form.getElementsbyName('input[name="cardname"]').value
+            var cardNo = form.getElementsbyName('input[name="cardNo"]').value
+            var cardexpiry = form.getElementsbyName('input[name="cardExpiry"]').value
+            var cvv = form.getElementsbyName('input[name="cvv"]').value
 
-            let isValidated = orderVal({
-                fullName, email, phoneNumber, address, nameOnCard, cardNo, cardexpiry, cvv
+            let checkValidate = orderVal({
+                fullName, email, phoneNumber, address, cardname, cardNo, cardexpiry, cvv
             })
-            console.log('isValidated:' ,isValidated)
-            return isValidated
+            console.log('checkValidate:' ,checkValidate)
+            return checkValidate
         }
-        catch(err) {
-            console.log(err)
+        catch(error) {
+            console.log(error)
             return false
         }
         return false
@@ -212,4 +207,3 @@
         </footer>
 
 </html>
-

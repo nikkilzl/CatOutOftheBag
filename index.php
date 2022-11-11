@@ -17,7 +17,7 @@
             {
                 $id = $_POST['id'];
                 $cid = $_SESSION['custId'];
-                if($_POST['type'] == "cart")
+                if($_POST['popuptype'] == "cart")
                 {
                     include "php/addcart.php";   
                 }
@@ -39,7 +39,7 @@
 
             <h1 style="padding-left: 50px;color:#414934;">Shop Categories</h1>
             <br><br>
-            <div class="flex-row justify-content-around ">
+            <div class="flexrow justcontentround ">
             
                         <div class="cardbox prodin">
                             
@@ -87,7 +87,7 @@
             
             </div>
             <br><br>
-            <div class="flex-row justify-content-around ">
+            <div class="flexrow justcontentround ">
             
                         <div class="cardboxbox prodin">
                             
@@ -130,3 +130,4 @@
     </body>
 
 </html>
+

@@ -1,17 +1,16 @@
 <?php
     include 'php/connectdb.php';
     include 'php/auth.php';
-    mysqli_close($conn);
+    $mysqli ->close();
 ?>
 
 <nav>
-    <div class="nav-content">
+    <div class="navcontainer">
     <div class="hamburger-menu-wrapper">
                 <nav role="navigation">
                     <div id="menuToggle">
                       
-                      <input type="checkbox"/> <!--Hidden checkbox is used as click reciever, to use the :checked selector on it. -->
-        
+                           
                       <span></span>
                       <span></span>
                       <span></span>
@@ -37,14 +36,14 @@
                     <img src="assets/logo1.png" alt="Cat Out of the Bag Logo">
                 </a>
             </div>
-        <div class="right-content">
+        <div class="navright">
             <div class="cart">
                 <a href="cart.php">
                     <img src="assets/icon/shoppingcart.png" />
                     <div>&nbsp;</div>
                 </a>
             </div>
-            <div class="account">
+            <div class="user">
                 <a href="#" id="userbtn">
                     <img src="assets/icon/user.png" />
                     <div>
@@ -57,24 +56,24 @@
                         ?>
                     </div>
                 </a>
-                <div id="userdropdown" style="height: 0; padding: 0;">
-                    <ul>
+                <div id="userdropdown" style="height: 0;>
                         <!-- if no user logged in, show login and signup dropdown.
                             if user is logged in, show logout dropdown-->
                         <?php 
                             if (!isset($_SESSION['username'])){
                                 echo '
-                                <li class="popup-open-btn" data-target="loginpopup">Login <hr/></li>
-                                <li class="popup-open-btn" data-target="signpopup">Sign up</li>
+			<ul>
+                                <li data-target="loginpopup" class="openpopup">Login <hr/></li>
+                                <li data-target="signpopup" class="openpopup">Sign up</li>
                                 ';
                             }
                             else {
                                 echo '
-                                    <li style="cursor: pointer;"> <a href="php/logout.php" style="color: #ede1d5;">Logout</a></li>
+                                    <li> <a href="php/logout.php" style="color: #ede1d5;">Logout</a></li>
                                 ';
                             }
                         ?>
-                    <ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -82,107 +81,107 @@
 
     <div id="loginpopup" class="loginpopup popup">
         <div class="popup-content">
-            <span class="close">X</span>
+            <span class="closepopup">X</span>
             <div class="popup-body">
                 <h1>Login</h1>
                 <form method="POST" onsubmit="return setLogin()">
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="text" 
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $init_username : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'login' ? $inituser : '' ?>"
                         /> <!-- if type is set and is equal to login (user click on login). if true then set username to what was last saved (from auth) -->
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="password" 
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $init_password : '' ?>"
-                        />
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'login' ? $initpw : '' ?>"
+                        /> <!-- if the popup type is set and the type is login, let value be the initial password that user used to sign up that. if it is false, then set password to nothing -->
                     </div>
-                    <input type="hidden" name="type" value="login"/>
-                    <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $errorMessage : '' ?></div>
+                    <input type="hidden" name="popuptype" value="login"/>
+                    <div class="errormsg"><?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'login' ? $errorMsg : '' ?></div>
                     <button class="sign-in-btn">Sign In</button>
                 </form>
-                <small>Don't have an account? Register <span class="sign-in-sign-up-link" 
+                <p>Don't have an account? Register <span class="sign-in-sign-up-link" 
                     onclick="activatePopup('signpopup')"
-                >here</span></small>
+                >here</span></p>
             </div>
         </div>
     </div>
 
 
-
     <div id="signpopup" class="signpopup popup">
        
         <div class="popup-content">
-            <span class="close">X</span>
+            <span class="closepopup">X</span>
             <div class="popup-body">
                 <h1>Sign Up</h1>
                 <form method="POST" onsubmit="return setSignup()">
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="text" 
                             name="fullName"
                             placeholder="Full Name"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_fullName : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ? $initname : '' ?>"
                         />
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="email" 
                             name="email"
                             placeholder="Email"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $init_email : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ?  $initemail : '' ?>"
                         />
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="text" 
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $init_username : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ?  $inituser : '' ?>"
                         />
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="date" 
                             name="DOB"
-                            placeholder="Date of Birth"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_DOB : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ? $initDOB : '' ?>"
                         />
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="password" 
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_password : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ? $initpw : '' ?>"
                         />
                     </div>
-                    <div class="input-group">
+                    <div class="inputfield">
                         <input 
                             type="password" 
-                            name="confirmPassword"
+                            name="confirmpw"
                             placeholder="Confirm Password"
                             required
-                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $init_confirmPassword : '' ?>"
+                            value="<?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ? $initconfirmpw : '' ?>"
+<!-- check if the pop up type is set and set to signup. if true, then set the confirmed pw to what user typed in confirm pw. if false, set to nothing -->
                         />
                     </div>
-                    <input type="hidden" name="type" value="signup"/>
-                    <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $errorMessage : '' ?></div>
+                    <input name="popuptype" value="signup" type="hidden"/>
+                    <div class="errormsg"><?php echo isset($_GET['popuptype']) && $_GET['popuptype'] == 'signup' ? $errorMsg : '' ?></div>
+<!-- check if the type is set and if it is, then check if it is the signup type. if true, set the error msg. if false, then show nothing  -->
                     <button class="sign-up-btn">Sign Up</button>
                 </form>
-                <small>Already have an account? <span class="sign-in-sign-up-link" onclick="activatePopup('loginpopup')">Sign In here</span></small>
+                <p>Already have an account? <span class="sign-in-sign-up-link" onclick="activatePopup('loginpopup')">Log in here</span></p>
             </div>
         </div>
     </div>
@@ -198,31 +197,31 @@
     <script src="js/validateForm.js"></script>
     <script>
     function setLogin(){
-        var form = document.querySelector('.loginpopup form')
-        var username = form.querySelector('input[name="username"]').value
-        var password = form.querySelector('input[name="password"]').value
-        var error = form.querySelector('.error-message')
+        var loginform = document.getElementsByClassName('.loginpopup')
+        var username =loginform.getElementsbyName('input[name="username"]').value
+        var password = loginform.getElementsbyName('input[name="password"]').value
+        var error = loginform.getElementsByClassName('.errormsg')
 
-        let isValidated = loginVal({
+        let checkValidate = loginVal({
             username, password, error
         })
-        return isValidated
+        return checkValidate
     }
 
     function setSignup(){
-        var form = document.querySelector('.signpopup form')
-        var fullName = form.querySelector('input[name="fullName"]').value
-        var username = form.querySelector('input[name="username"]').value
-        var password = form.querySelector('input[name="password"]').value
-        var email = form.querySelector('input[name="email"]').value
-        var DOB = form.querySelector('input[name="DOB"]').value
-        var confirmPassword = form.querySelector('input[name="confirmPassword"]').value
+        var signupform = document.getElementsByClassName('.signpopup')
+        var fullName = signupform.getElementsbyName('input[name="fullName"]').value
+        var username = signupform.getElementsbyName('input[name="username"]').value
+        var email = signupform.getElementsbyName('input[name="email"]').value
+        var DOB = signupform.getElementsbyName('input[name="DOB"]').value
+        var password = signupform.getElementsbyName('input[name="password"]').value
+   var confirmpw = signupform.getElementsbyName('input[name="confirmpw"]').value
 
-        var error = form.querySelector('.error-message')
+        var error = signupform.getElementsByClassName('.errormsg')
 
-        let isValidated = signVal({fullName, email, username, DOB, password, confirmPassword, error})
-        console.log('isValidated', isValidated)
-        return isValidated
+        let checkValidate = signVal({fullName, email, username, DOB, password, confirmpw, error})
+        console.log('checkValidate', checkValidate)
+        return checkValidate
     }
     </script>
 </nav>

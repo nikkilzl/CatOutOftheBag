@@ -11,43 +11,43 @@
             include "php/cartsess.php"; 
             include "element/navigation.php";
             include "php/connectdb.php";
-            $query = "SELECT * FROM product where productId='".$_GET['productId']."'";
-            $result = mysqli_query($conn, $query);
-            $row = mysqli_fetch_assoc($result);
+            $prod = "SELECT * FROM product where productId='".$_POST['productId']."'";
+            $prodresult = mysqli_query($conn, $prod);
+            $productrow = $prodresult->fetch_assoc();
             
             
         ?>
             <div class="container content">
-                <div class="flex-row justify-content-between top-content">
+                <div class="flexrow justcontent top-content">
                     <div class="prod-img">
-                        <img src="<?php echo $row['image']; ?>" />
+                        <img src="<?php echo $productrow['image']; ?>" />
                     </div>
                     <div class="prod-details">
-                        <div class="prod-name"><?php echo $row['name']; ?></div>
+                        <div class="prod-name"><?php echo $productrow['name']; ?></div>
                         
-                        <div class="prod-price"><?php echo "$".$row['price']; ?></div>
+                        <div class="prod-price"><?php echo "$".$productrow['price']; ?></div>
                         <div class="prod-qty">
-                            <div class="flex-row" style="align-items: center;">
+                            <div class="flexrow" style="align-items: center;">
 
-                                <label class="input-group-text">Quantity</label>
+                                <label>Quantity</label>
                                 <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" onchange = "change(this.value)" />
                             </div>
                         </div><br>
-                        <div class="buttons flex-row">
+                        <div class="buttons flexrow">
                             <form method="post">
-                                <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
-                                <input type="hidden" value="cart" name="type" />
+                                <input type="hidden" value="<?php echo $productrow['productId']; ?>" name="id" />
+                                <input type="hidden" value="cart" name="popuptype" />
                                 <input type="hidden" value="1" name="quantity" id="qty" />
-                                <input type="submit" class="button button-outline-primary" value="Add to cart" />
+                                <input type="submit" class="button btnoutline" value="Add to cart" />
                             </form>
                         </div>          
                         
                     </div>
                 </div>
-                <div class="description">
+                <div class="desc">
                     <div class="infotitle">Product Description</div>
                     <div class="productdes">
-                        <?php echo nl2br($row['description']);    //nl2br gives a line break ?>
+                        <?php echo $productrow['description']  ?>
                     </div>
                     
                 </div>
@@ -56,24 +56,24 @@
 
                 <!-- recommend other products from the same category-->
                 <div class="prod-reco">
-                    <?php echo '<h1 style="margin-top:30px; margin-bottom:30px; color:#414934;">More from '. $row['category'].'</h1>' ?>
-                    <div class="flex-row justify-content-around ">
+                    <?php echo '<h1 style="margin-top:30px; margin-bottom:30px; color:#414934;">More from '. $productrow['category'].'</h1>' ?>
+                    <div class="flexrow justcontentround ">
                     <?php 
-                        $query = "SELECT * FROM `product` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
-                        $result = $conn->query($query);
+                        $recprod = "SELECT * FROM `product` WHERE category='" .$productrow["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
+                        $result = mysqli_query($conn, $recprod);
                         // fetch row results in associative array
-                        while($row = $result->fetch_assoc()){
+                        while($productrow = mysqli_fetch_assoc($result)){
                             echo '
                             <div class="cardbox">
                                 
-                                    <img src= "'.$row['image'].'"  class="card-img">
+                                    <img src= "'.$productrow['image'].'"  class="card-img">
                                 
                                 <div class="cardbox-content">
-                                <a href="productdetail.php?productId='. $row['productId']. '" class="selectproduct">
-                                    <h5 class="cardbox-title"> '.$row['name'].' </h5>
+                                <a href="productdetail.php?productId='. $productrow['productId']. '" class="selectproduct">
+                                    <h5 class="cardbox-title"> '.$productrow['name'].' </h5>
                                     </a>
                                     <div>
-                                        <p class="cardbox-text prod-price">$'.$row['price'].'</p>
+                                        <p class="cardbox-text prod-price">$'.$productrow['price'].'</p>
                                     </div>
                                 </div>
                             </div> ' ;
@@ -83,11 +83,11 @@
                     </div>
                 </div>
                 <script src="js/quantity.js" ></script>
-                <?php $conn->close(); ?>
+                <?php mysqli_close($conn); ?>
             </div>
             <script>
-                var result = '<?php echo($res); ?>'
-                switch(result){
+                var popres = '<?php echo($res); ?>'
+                switch(popres){
                     case "LOGIN" : alert("Please login or sign up to add to cart");
                                     activatePopup("loginpopup");
                                             break;

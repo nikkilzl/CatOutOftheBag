@@ -8,7 +8,7 @@
         $id = $_POST['id'];
         $cid = $_SESSION['custId'];
         $sql = "";
-        if($_POST['type'] == "cart")
+        if($_POST['popuptype'] == "cart")
         {
             include "addcart.php";
         } 

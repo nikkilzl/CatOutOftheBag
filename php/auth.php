@@ -6,71 +6,69 @@ if(session_id() == ''){
 
 $showpopup = isset($_GET['showpopup']) ? $_GET['showpopup'] : '';
 
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['popuptype']) ){
     //type refers to either login or signup
     $username = $conn->real_escape_string($_POST['username']); //real_escape_string escapes special characters in strings (for Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.)
     $password = $conn->real_escape_string($_POST['password']);
     $password = md5($password); //password hash
-    $errorMessage = '';
+    $errorMsg = '';
 
-    //handle login here
-    if($_POST['type'] == 'login'){
-        $query = 'SELECT * from Account '
+  
+    if($_POST['popuptype'] == 'login'){
+        $sql = 'SELECT * from Account '
         ."WHERE username='$username' "
         ." AND password='$password'";
 
-        $result = $conn->query($query);
+        $result = mysqli_query($conn, $sql);
         if ($result->num_rows >0 ) //if login is successful
         {
-            $row = $result->fetch_assoc();
-            $accountId = $row['accountId'];   
+            $authrow = mysqli_fetch_assoc($result);
+            $accountId = $authrow['accountId'];   
             
             $_SESSION['username'] = $username;    
             $_SESSION['accountId'] = $accountId;
 
-            $query = 'SELECT * from cust_dets '
+            $sql = 'SELECT * from custdets '
             ."WHERE accountId='$accountId'";
-            $result = $conn->query($query);
-            $row = $result->fetch_assoc();
-            $custId = $row['custId']; 
+            $result = $mysqli_query($conn, $sql);
+            $authrow = $result->fetch_assoc();
+            $custId = $authrow['custId']; 
             
             $_SESSION['custId'] = $custId;
             $showpopup='';
         }
         else{ //logging in fail
-            $errorMessage = 'Invalid username or password';
+            $errorMsg = 'Invalid username or password';
             $showpopup = 'loginpopup';
-            $init_username = $username;
-            $init_password = $_POST['password'];
+            $inituser = $username;
+            $initpw = $_POST['password'];
         }
 
     }
-    //handle signup here
-    else if($_POST['type'] == 'signup'){
-        //validate first
-        $isValidated = true;
-        if ($_POST['password'] !== $_POST['confirmPassword'] ){
-            $errorMessage = 'Passwords do not match';
+    else if($_POST['popuptype'] == 'signup'){
+        $checkValidate = true;
+        if ($_POST['password'] !== $_POST['confirmpw'] ){
+            $errorMsg = 'Passwords do not match';
             $showpopup = 'signpopup';
-            $isValidated = false;
+            $checkValidate = false;
         }
-        if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['DOB']) || !isset($_POST['confirmPassword'])){
-            $errorMessage = 'Please fill in all fields';
+        if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['DOB']) || !isset($_POST['password'])){
+            $errorMsg = 'Please fill in all fields';
             $showpopup = 'signpopup';
-            $isValidated = false;
+            $checkValidate = false;
         } 
 
-        if(!$isValidated){
-            $init_fullName = $_POST['fullName'];
-            $init_username = $username;
-            $init_password = $_POST['password'];
-            $init_email = $_POST['email'];
-            $init_DOB= $_POST['DOB'];
-            $init_confirmPassword = $_POST['confirmPassword'];
+        if(!$checkValidate){
+            $initname = $_POST['fullName'];
+            $inituser = $username;
+            $initpw = $_POST['password'];
+            $initemail = $_POST['email'];
+            $initDOB= $_POST['DOB'];
+            $initconfirmpw = $_POST['confirmpw'];
         }
 
         //signup account to database
-        if($isValidated){
+        if($checkValidate){
             $email = $_POST['email'];
             $fullName = $_POST['fullName'];
             $DOB = $_POST['DOB'];
@@ -80,23 +78,23 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $result = $conn->query($query);
 
             $queryn = "SELECT * from Account where username = '$username'";
-            $result = $conn->query($queryn);
-            $row = $result->fetch_assoc();
-            $accountId = $row['accountId'];
+            $result = mysqli_query($conn, $queryn);
+            $userrow = $result->fetch_assoc();
+            $accountId = $userrow['accountId'];
 
-            $queryl = "INSERT INTO cust_dets(accountId, fullName, email, phoneNumber, DOB)
+            $queryl = "INSERT INTO custdets(accountId, fullName, email, phoneNumber, DOB)
             VALUES ( $accountId, '$fullName', '$email', '' , '$DOB' )";
-            $result = $conn->query($queryl);
+            $result = mysqli_query($conn, $query1);
 
             //register a session here
             $_SESSION['username'] = $username;    
             $_SESSION['accountId'] = $accountId;    
 
-            $query = 'SELECT * from cust_dets '
+            $query = 'SELECT * from custdets '
             ."WHERE accountId='$accountId'";
-            $result = $conn->query($query);
-            $row = $result->fetch_assoc();
-            $custId = $row['custId']; 
+            $result = mysqli_query($conn, $query);
+            $userrow = $result->fetch_assoc();
+            $custId = $userrow['custId']; 
             
             $_SESSION['custId'] = $custId;
             $showpopup='';

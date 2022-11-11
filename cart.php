@@ -2,8 +2,6 @@
     <head>
         <title>Cart | Cat Out of The Bag</title>
         <link rel="stylesheet" href="css/global.css"/>
-        <link rel="stylesheet" href="css/nav+footer.css"/>
-        <link rel="stylesheet" href="css/cart.css"/>
     </head>
 
     <body>
@@ -14,7 +12,7 @@
         ?>
 
             <div class="cartpage page">
-                <div class="title-container">
+                <div class="containertitle">
                     <h1>Cart</h1>
                 </div>
                 <?php 
@@ -23,48 +21,48 @@
                         echo "Please Login or sign up to continue";
                     else {
                         $cid = $_SESSION['custId'];
-                        $query = "SELECT * FROM `transaction` , `cartItem`,`Product` WHERE `transaction`.`transactionId` = `cartItem`.`transactionId` and `cartItem`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
-                        $result = mysqli_query($conn, $query);
+                        $transacsql = "SELECT * FROM `transaction` , `cartItem`,`Product` WHERE `transaction`.`transactionId` = `cartItem`.`transactionId` and `cartItem`.`productId` = `Product`.`productId` and custId=$cid and `paid`=0";
+                        $result = $mysqli->query(transacsql);
   
                 ?>
                 <div class="content">
                     <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Product name</th>
                                 <th>Qty</th>
                                 <th>Unit Price</th>
                                 <th>Subtotal</th>
-                                <th>Action</th>
+                                <th>Delete item</th>
                             </tr>   
                         </thead>
                         <tbody>
                             <?php
                                 $total=0;
                                 $transaction_id="";
-                                while($row = mysqli_fetch_assoc($result)){
-                                    $total+=$row['price']*$row['quantity'];
-                                    $transaction_id = $row['transactionId'];
+                                while($cartrow = $result->fetch_assoc()){
+                                    $subtotal+=$cartrow['price']*$cartrow['quantity'];
+                                    $transaction_id = $cartrow['transactionId'];
                                     echo '
                                     <tr>
                                         <td class="product-col"> 
-                                            <img src="'.$row['image'].'" alt="product"/>
+                                            <img src="'.$cartrow['image'].'" />
                                         </td>
                                         <td>
                                             <span>
-                                                <a href="productdetail.php?productId='. $row['productId']. '" class="selectproduct">    
-                                                    '.$row['name'].'
+                                                <a href="productdetail.php?productId='. $cartrow['productId']. '" class="selectproduct">    
+                                                    '.$cartrow['name'].'
                                                 </a>      
                                             </span>
                                         </td>
-                                        <td>'.$row['quantity'].'</td>
-                                        <td>$'.$row['price'].'</td>
-                                        <td>$'.($row['price']*$row['quantity']).'</td>
+                                        <td>'.$cartrow['quantity'].'</td>
+                                        <td>$'.$cartrow['price'].'</td>
+                                        <td>$'.$subtotal.'</td>
                                         <td>
                                             <form action="php/deletecart.php"method="POST">
-                                                <input type="hidden" value="'. $row['productId']. '" name="product_id" />
-                                                <input type="hidden" value="'. $row['transactionId']. '" name="transaction_id" />
+                                                <input type="hidden" value="'. $cartrow['productId']. '" name="product_id" />
+                                                <input type="hidden" value="'. $cartrow['transactionId']. '" name="transaction_id" />
                                                 <input type="submit" class="delete-button" value="Delete" />
                                             </form>
                                         </td>
@@ -75,10 +73,10 @@
                         </tbody>
                         <tfoot>
                             <?php 
-                                if($result->num_rows > 0){
+                                if($mysqli_num_rows($result) > 0){
                                     echo '
                                     <tr>
-                                        <td colspan="5" class="total-price">Total Price: <span> $'.$total.'</span></td>
+                                        <td colspan="5" class="tot-price">Total Price: <span> $'.$total.'</span></td>
                                         <td>
                                             <form action="checkout.php" method="POST">
                                             <input type="hidden" value="<?php echo $total; ?>" name="total" />
@@ -90,7 +88,7 @@
                                 else{
                                     echo '
                                     <tr>
-                                        <td class="no-product" colspan="6">Your cart is empty</td>
+                                        <td class="emptycart" colspan="5">Your cart is empty</td>
                                     </tr>
                                     ';
                                 }

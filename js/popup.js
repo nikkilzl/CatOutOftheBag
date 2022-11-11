@@ -1,43 +1,43 @@
-// Get the button that opens the popup (login or sign up)
-var btns = document.querySelectorAll(".popup-open-btn");
+// Retrieve button that opens the popup (login or sign up)
+const openbtn = document.getElementsByClassName(".openpopup");
 
-// 
 let currentpopup;
-for(let i = 0 ; i < btns.length; i++){
-  var btn = btns[i]
+for(let b = 0 ; b < openbtn.length; b++){
+  var btn = openbtn[b]
   var poptarget = btn.getAttribute('data-target')
   //attribute is the target that was referenced
   var popup =  document.getElementById(poptarget) 
-  var span = document.querySelector(`#${poptarget} .close`)
+  var span = document.getElementsbyName(`#${poptarget} .closepopup`)
   //cannot use getElement here because it's not a classname or idname
 
-  // When the user clicks the button, open the popup 
+
   btn.addEventListener("click", function() {
-    if(currentpopup){ //make sure only 1 popup is active at a time
+    if(currentpopup){ 
       currentpopup.style.display = "none";
     }
-    popup.style.display = "block";
+    popup.style.display = "inline-block";
     currentpopup = popup;
   })
 
   // When the user clicks X, it will close the popup
   span.onclick = function() {
+//when the span element, the X button in this case, is clicked -> call function
     popup.style.display = "none";
     //set the display to none so that the popup disappears
   }
 
 }
 
-// 
-function activatePopup(id){
-  var btns = document.querySelectorAll(".popup-open-btn");
-  for(let i = 0 ; i < btns.length; i++){
-      var btn = btns[i]
+function activatePopup(popupid){
+  var openbtn = document.querySelectorAll(".openpopup");
+  for(let b = 0 ; b < openbtn.length; b++){
+      var btn = openbtn[b]
       var poptarget = btn.getAttribute('data-target')
       var popup =  document.getElementById(poptarget)       
-
+      //if the popup is not activated then set display to none so that it will not appear
       popup.style.display = "none";
   }
-  let popup =  document.getElementById(id) 
-  popup.style.display = "block";
+  let popup =  document.getElementById(popupid) 
+  //once we get the element, we know which popup, show the popup
+  popup.style.display = "inline-block";
 }

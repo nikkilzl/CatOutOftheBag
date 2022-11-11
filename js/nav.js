@@ -2,7 +2,6 @@ var userbtn = document.getElementsById('.userbtn');
 var dropdown = document.getElementsById('.userdropdown');
 //get element by id to retrieve the element from navigation header
 
-
 userbtn.onclick = dropdownButton
 //when the button is clicked then the dropdown function is called
 
@@ -15,25 +14,25 @@ function dropdownButton(){
     }
 };
 
-
 window.addEventListener('click', function(pop) {
+//when window is clicked, the function that references pop should occur
     if (!dropdown.includes(pop.target) && !userbtn.includes(pop.target) ) {
         dropdown.style.height = '0'
         dropdown.style.padding = '0'
+	//revert back the dropdown to original state
     }
 })
 
-function activatePopup(id){
-    var popbtn = document.querySelectorAll(".popup-open-btn");
-    //need to use querySelectorAll here because there's more than one element involved
-    //getElementById and getElementsByClassName is that specific element that is referenced
-    for(let i = 0 ; i < btns.length; i++){
-        var element = popbtn[i]
+function activatePopup(popupid){
+    var popbtn = document.querySelectorAll(".openpopup");
+    //getElementById and getElementsByClassName is that specific element that is referenced and is live
+    for(let b = 0 ; b < openbtn.length; b++){
+        var element = popbtn[b]
         var poptarget = element.getAttribute('data-target')
         var popup =  document.getElementById(poptarget)       
 
         popup.style.display = "none";
     }
-    var popup =  document.getElementById(id) 
+    var popup =  document.getElementById(popupid) 
     popup.style.display = "block";
 }
